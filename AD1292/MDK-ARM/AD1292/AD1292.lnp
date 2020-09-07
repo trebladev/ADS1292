@@ -27,7 +27,7 @@
 "ad1292\stm32f4xx_hal_uart.o"
 "ad1292\system_stm32f4xx.o"
 "ad1292\ad1292.o"
-"ad1292\sys_1.o"
+"ad1292\sys.o"
 "ad1292\delay.o"
 "ad1292\usart_hmi.o"
 "ad1292\findpeaks.o"

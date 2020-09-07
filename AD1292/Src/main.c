@@ -177,12 +177,12 @@ int main(void)
               if(j == 1200)
               {
                 j=0;
-                maxim_peaks_above_min_height(pn_locs,&pn_npks,calculate_cache,1200,170);
+                maxim_peaks_above_min_height(pn_locs,&pn_npks,calculate_cache,1200,200);
 
                 //findPeaks(calculate_cache,2000,0,indMax,&peakFs_len,indMin,&peakFs2_len);
                 bpm = 60.0/(pn_locs[pn_npks/2]-pn_locs[pn_npks/2-1])*500;
-                //printf("n0.val=%d",(int)bpm);
-                //send_ending_flag();
+                printf("n0.val=%d",(int)bpm);
+                send_ending_flag();
               }
 
 							ads1292_recive_flag=0;
@@ -252,8 +252,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim == (&htim3))
   {
-    //printf("add 1,0,%d",val1);
-		//send_ending_flag();
+    printf("add 3,0,%d",val1);
+		send_ending_flag();
   }
 }
 
