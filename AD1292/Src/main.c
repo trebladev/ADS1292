@@ -30,6 +30,7 @@
 #include <stdio.h>
 #include "USART_HMI.h"
 #include "findpeaks.h"
+#include "FIR_48.h"
 
 extern UART_HandleTypeDef huart1;   //声明串口
 /* Private includes ----------------------------------------------------------*/
@@ -56,9 +57,10 @@ extern UART_HandleTypeDef huart1;   //声明串口
 
 /* USER CODE BEGIN PV */
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
-u32 val1;
+float32_t val1;
 u32 val1_last;
-int32_t calculate_cache[2000];             //计算部分缓存
+float32_t calculate_cache[1200];             //计算部分缓存
+float32_t fir_put[1200];
 
 int32_t pn_npks;
 int32_t pn_locs[15];
@@ -122,7 +124,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   ADS1292_Init();
-	
+	HAL_Delay(10);
 	while(Set_ADS1292_Collect(0))//0 正常采集  //1 1mV1Hz内部侧试信号 //2 内部短接噪声测试
 		{	
 				printf("1292寄存器设置失败\r\n");
@@ -176,13 +178,17 @@ int main(void)
 
               if(j == 1200)
               {
+
                 j=0;
+                arm_fir_f32_lp_48(calculate_cache,fir_put);
+                /*
                 maxim_peaks_above_min_height(pn_locs,&pn_npks,calculate_cache,1200,200);
 
                 //findPeaks(calculate_cache,2000,0,indMax,&peakFs_len,indMin,&peakFs2_len);
                 bpm = 60.0/(pn_locs[pn_npks/2]-pn_locs[pn_npks/2-1])*500;
                 printf("n0.val=%d",(int)bpm);
                 send_ending_flag();
+                */
               }
 
 							ads1292_recive_flag=0;
@@ -252,8 +258,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim == (&htim3))
   {
-    printf("add 3,0,%d",val1);
+		static int i=18;
+		i=i+5;
+		if(i>1200)
+		{
+			i = 18;
+		}
+    printf("add 3,0,%0.f",fir_put[i]);
 		send_ending_flag();
+		
   }
 }
 

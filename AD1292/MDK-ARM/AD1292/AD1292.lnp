@@ -31,6 +31,8 @@
 "ad1292\delay.o"
 "ad1292\usart_hmi.o"
 "ad1292\findpeaks.o"
+"ad1292\fir_48.o"
+"..\DSP_LIB\arm_cortexM4lf_math.lib"
 --library_type=microlib --strict --scatter "AD1292\AD1292.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
