@@ -60,14 +60,15 @@ s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1;
 u32 val1_last;
 float32_t calculate_cache[25];             //计算部分缓存
-float32_t fir_put[25];
-int32_t val1_int;
-int32_t bpm_cache[1200];
+float32_t calculate_cache1[18];            //计算部分缓存
+float32_t fir_put[25];                     //滤波输出数据 
+int32_t val1_int;                          //心率数据int32格式
+int32_t bpm_cache[1200];                   //计算心率的数据缓存
 
-int32_t pn_npks;
-int32_t pn_locs[15];
+int32_t pn_npks;                           //峰值检测函数峰值数量
+int32_t pn_locs[15];                       //峰值检测函数输出峰值点
 
-static float bpm;
+static float bpm;                          //心率数值
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -137,7 +138,7 @@ int main(void)
 		
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);                       //开启外部中断
 		
-	//HAL_TIM_Base_Start_IT(&htim3);                          //开启定时器3中断
+	//HAL_TIM_Base_Start_IT(&htim3);                        //开启定时器3中断
 		
   /* USER CODE END 2 */
 
@@ -176,11 +177,11 @@ int main(void)
 							*/
 							val1 = cannle[1]*(180.0/20000)-680;                       //将数据改为能在串口屏显示的数值
               
-              calculate_cache[j] = val1;
+              calculate_cache[j] = val1;                                //将数据存入滤波计算缓存数组中
 							
-							val1_int = (int32_t)val1;
+							val1_int = (int32_t)val1;                                 //数据转换为int32格式
 							
-							bpm_cache[n] = val1_int;
+							bpm_cache[n] = val1_int;                                  //将数据存入心率计算数组中
 
               j++;
 							
@@ -190,17 +191,23 @@ int main(void)
               {
 
                 j=18;
-                arm_fir_f32_lp_48(calculate_cache,fir_put);
+                arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
 								for(k=18;k<25;k++)
 								{
-									printf("add 3,0,%0.f",fir_put[k]);
+									printf("add 3,0,%0.f",fir_put[k]);                     //向串口屏输出数据
 									send_ending_flag();
 								}
 								
+								arm_copy_f32(calculate_cache+7,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
+								
+								arm_copy_f32(calculate_cache1,calculate_cache,18);       //将缓存数组的18位拷贝到后一数组中
+								
+								/*
 								for(k=0;k<18;k++)
 								{
 									calculate_cache[k] = calculate_cache[k+7];
 								}
+								*/
                 /*
                 maxim_peaks_above_min_height(pn_locs,&pn_npks,calculate_cache,1200,200);
 
@@ -213,9 +220,9 @@ int main(void)
 							if(n>1200)
 							{
 								n=0;
-								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);
-								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*320;
-								printf("n0.val=%d",(int)bpm);
+								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);                   //寻找175以上的峰
+								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*320;                              //计算心率 算法:两峰之间点数*采样率
+								printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 								send_ending_flag();
 								
 							}
