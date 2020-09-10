@@ -59,8 +59,10 @@ extern UART_HandleTypeDef huart1;   //声明串口
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1;
 u32 val1_last;
-float32_t calculate_cache[1200];             //计算部分缓存
-float32_t fir_put[1200];
+float32_t calculate_cache[25];             //计算部分缓存
+float32_t fir_put[25];
+int32_t val1_int;
+int32_t bpm_cache[1200];
 
 int32_t pn_npks;
 int32_t pn_locs[15];
@@ -86,7 +88,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  static uint16_t j;
+  static uint16_t j,n;
   uint8_t res,i,sum;	
 	uint8_t data_to_send[60];//串口发送缓存
 	uint8_t usbstatus=0;	
@@ -98,6 +100,8 @@ int main(void)
 	data_to_send[1]=0xAA;
 	data_to_send[2]=0xF1;	
 	data_to_send[3]=8;
+	
+	int k;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -120,7 +124,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_SPI2_Init();
-  MX_TIM3_Init();
+  //MX_TIM3_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   ADS1292_Init();
@@ -133,7 +137,7 @@ int main(void)
 		
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);                       //开启外部中断
 		
-	HAL_TIM_Base_Start_IT(&htim3);                          //开启定时器3中断
+	//HAL_TIM_Base_Start_IT(&htim3);                          //开启定时器3中断
 		
   /* USER CODE END 2 */
 
@@ -173,14 +177,30 @@ int main(void)
 							val1 = cannle[1]*(180.0/20000)-680;                       //将数据改为能在串口屏显示的数值
               
               calculate_cache[j] = val1;
+							
+							val1_int = (int32_t)val1;
+							
+							bpm_cache[n] = val1_int;
 
               j++;
+							
+							n++;
 
-              if(j == 1200)
+              if(j == 25)
               {
 
-                j=0;
+                j=18;
                 arm_fir_f32_lp_48(calculate_cache,fir_put);
+								for(k=18;k<25;k++)
+								{
+									printf("add 3,0,%0.f",fir_put[k]);
+									send_ending_flag();
+								}
+								
+								for(k=0;k<18;k++)
+								{
+									calculate_cache[k] = calculate_cache[k+7];
+								}
                 /*
                 maxim_peaks_above_min_height(pn_locs,&pn_npks,calculate_cache,1200,200);
 
@@ -190,6 +210,15 @@ int main(void)
                 send_ending_flag();
                 */
               }
+							if(n>1200)
+							{
+								n=0;
+								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);
+								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*320;
+								printf("n0.val=%d",(int)bpm);
+								send_ending_flag();
+								
+							}
 
 							ads1292_recive_flag=0;
 							sum = 0;	
@@ -258,6 +287,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim == (&htim3))
   {
+		/*
 		static int i=18;
 		i=i+5;
 		if(i>1200)
@@ -266,7 +296,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
     printf("add 3,0,%0.f",fir_put[i]);
 		send_ending_flag();
-		
+		*/
   }
 }
 

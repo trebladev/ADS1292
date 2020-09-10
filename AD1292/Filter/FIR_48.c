@@ -35,7 +35,7 @@ void arm_fir_f32_lp_48(float32_t *Input_buffer,float32_t *Output_buffer)
     arm_fir_init_f32(&S,NUM_TAPS,(float32_t *)&B[0],&firStateF32[0],block_size);
 
     
-    arm_fir_f32(&S,inputF32+(i*block_size),outputF32+(i*block_size),block_size);
+    arm_fir_f32(&S,inputF32,outputF32,block_size);
     
 
 

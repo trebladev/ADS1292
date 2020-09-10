@@ -13,6 +13,8 @@
 
 void send_ending_flag();    //结束符发送指令
 
+void set_number_control_val(int id,int val);
+
 #endif
 
 
