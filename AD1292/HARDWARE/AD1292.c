@@ -343,9 +343,9 @@ void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
 
 	b1 = b;
 
-	arm_max_f32(data_cache,10000,&max_init_val,&maxIndex);
+	arm_max_f32(data_cache,Val_Init_Num,&max_init_val,&maxIndex);
 
-	arm_min_f32(data_cache,10000,&min_init_val,&minIndex);
+	arm_min_f32(data_cache,Val_Init_Num,&min_init_val,&minIndex);
 
 	*a1 = 180.0/(max_init_val-min_init_val);
 
@@ -358,7 +358,7 @@ void Get_val_init_data(float32_t *data)
 	u32 cannle1;
 	s32 p_Temp1;
 	static int f,i;
-	while(f<10000)
+	while(f<Val_Init_Num)
 	{
 		if(ads1292_recive_flag)
 		{

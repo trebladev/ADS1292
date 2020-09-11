@@ -171,7 +171,7 @@ extern  volatile u8 ads1292_recive_flag;	//数据读取完成标志
 #define	RLDREF_INT_EXTERN				0//外部馈电RLDREF
 #define	RLDREF_INT_INTERNALLY		1//内部
 
-
+#define Val_Init_Num 1000
 
 
 typedef struct

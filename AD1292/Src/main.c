@@ -70,9 +70,12 @@ int32_t pn_locs[15];                       //峰值检测函数输出峰值点
 
 float32_t a1;
 float32_t b1;
-float32_t val_init_data[10000];
+float32_t val_init_data[Val_Init_Num];
 
 static float bpm;                          //心率数值
+
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -146,7 +149,7 @@ int main(void)
 	Get_val_init_data(val_init_data);
   ADS1292_val_init(val_init_data,&a1,&b1);
   /* USER CODE END 2 */
-
+	arm_fir_init();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)

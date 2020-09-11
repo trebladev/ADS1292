@@ -20,8 +20,9 @@
 #define NUM_TAPS             29       //滤波器个数
 
 
-
 void arm_fir_f32_lp_48(float32_t *Input_buffer,float32_t *Output_buffer);
+
+void arm_fir_init(void);
 
 #endif //__FIR_48_H
 
