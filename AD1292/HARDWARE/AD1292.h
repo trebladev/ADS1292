@@ -1,7 +1,11 @@
 #ifndef __ADS1292_H
 #define __ADS1292_H	 
+#include "stm32f407xx.h"
 #include "sys.h" 
-
+#include "arm_math.h"
+#include "arm_const_structs.h"
+#include "arm_common_tables.h"
+#include <stdio.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 //引脚宏定义	
@@ -241,6 +245,9 @@ u8 ADS1292_Single_Test(void);//设置通道1内部1mV测试信号
 u8 ADS1292_Single_Read(void);//设置正常信号采集模式
 u8 Set_ADS1292_Collect(u8 mode);//设置数据采集方式
 void PA8_IRQHandler(void);
+void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b);
+void Get_val_init_data(float32_t *data);
+s32 get_volt(u32 num);
 #endif
 
 

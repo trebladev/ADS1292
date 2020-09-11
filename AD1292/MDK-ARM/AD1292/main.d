@@ -39,13 +39,13 @@ ad1292\main.o: ../Inc/usart.h
 ad1292\main.o: ../Inc/gpio.h
 ad1292\main.o: ..\HARDWARE\AD1292.h
 ad1292\main.o: ..\SYS\sys.h
-ad1292\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-ad1292\main.o: ..\USART_HMI\USART_HMI.h
-ad1292\main.o: ..\Algorithm\findpeaks.h
-ad1292\main.o: ..\Filter\FIR_48.h
 ad1292\main.o: ..\DSP_LIB\Include\arm_math.h
 ad1292\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 ad1292\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 ad1292\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 ad1292\main.o: ..\DSP_LIB\Include\arm_const_structs.h
 ad1292\main.o: ..\DSP_LIB\Include\arm_common_tables.h
+ad1292\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+ad1292\main.o: ..\USART_HMI\USART_HMI.h
+ad1292\main.o: ..\Algorithm\findpeaks.h
+ad1292\main.o: ..\Filter\FIR_48.h

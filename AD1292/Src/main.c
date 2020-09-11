@@ -68,6 +68,10 @@ int32_t bpm_cache[1200];                   //计算心率的数据缓存
 int32_t pn_npks;                           //峰值检测函数峰值数量
 int32_t pn_locs[15];                       //峰值检测函数输出峰值点
 
+float32_t a1;
+float32_t b1;
+float32_t val_init_data[10000];
+
 static float bpm;                          //心率数值
 /* USER CODE END PV */
 
@@ -139,7 +143,8 @@ int main(void)
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);                       //开启外部中断
 		
 	//HAL_TIM_Base_Start_IT(&htim3);                        //开启定时器3中断
-		
+	Get_val_init_data(val_init_data);
+  ADS1292_val_init(val_init_data,&a1,&b1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -175,7 +180,7 @@ int main(void)
               															
 							HAL_UART_Transmit_DMA(&huart1,data_to_send,13);
 							*/
-							val1 = cannle[1]*(180.0/20000)-680;                       //将数据改为能在串口屏显示的数值
+							val1 = cannle[1]*(a1)+b1;                       //将数据改为能在串口屏显示的数值
               
               calculate_cache[j] = val1;                                //将数据存入滤波计算缓存数组中
 							
@@ -307,14 +312,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
 }
 
-s32 get_volt(u32 num)
-{		
-			s32 temp;			
-			temp = num;
-			temp <<= 8;
-			temp >>= 8;
-			return temp;
-}
+
 /* USER CODE END 4 */
 
 /**

@@ -5,6 +5,11 @@
 #include "usart.h"
 #include "delay.h"
 #include <stdio.h>
+#include "sys.h"
+#include "arm_math.h"
+#include "arm_const_structs.h"
+#include "arm_common_tables.h"
+
 extern UART_HandleTypeDef huart1;   //声明串口
 
 #define DEBUG_ADS1292	//寄存器printf调试
@@ -22,6 +27,11 @@ ADS1292_RESP2			Ads1292_Resp2			={CALIB,FREQ,RLDREF_INT};														//RSP2
 
 volatile u8 ads1292_recive_flag=0;	//数据读取完成标志
 volatile u8 ads1292_Cache[9];	//数据缓冲区
+
+float32_t max_init_val;
+uint32_t maxIndex;
+float32_t min_init_val;
+uint32_t minIndex;
 
 u8 ADS1292_SPI(u8 com)
 {	
@@ -323,12 +333,63 @@ void PA8_IRQHandler(void)
   ads1292_recive_flag=1;
 }
 
+void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
+{
+	float32_t *data_cache,*a1,*b1;
+
+	data_cache = data;
+
+	a1 = a;
+
+	b1 = b;
+
+	arm_max_f32(data_cache,10000,&max_init_val,&maxIndex);
+
+	arm_min_f32(data_cache,10000,&min_init_val,&minIndex);
+
+	*a1 = 180.0/(max_init_val-min_init_val);
+
+	*b1 = 220-(*a1)*max_init_val;
+
+}
+
+void Get_val_init_data(float32_t *data)
+{
+	u32 cannle1;
+	s32 p_Temp1;
+	static int f,i;
+	while(f<10000)
+	{
+		if(ads1292_recive_flag)
+		{
+		
+			cannle1=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
+
+			p_Temp1 = get_volt(cannle1);
+
+			cannle1 = p_Temp1;
+
+			*(data+i) = cannle1;
+			
+			f++;
+			
+			i++;
+
+			ads1292_recive_flag=0;	
+		}
+	}
+	
+}
 
 
-
-
-
-
+s32 get_volt(u32 num)
+{		
+			s32 temp;			
+			temp = num;
+			temp <<= 8;
+			temp >>= 8;
+			return temp;
+}
 
 
 
