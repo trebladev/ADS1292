@@ -2,7 +2,7 @@
  * @Author: xzw
  * @Date: 2020-09-06 23:31:52
  * @LastEditors: xzw
- * @LastEditTime: 2020-09-12 14:38:39
+ * @LastEditTime: 2020-09-12 20:05:45
  * @Description: file content
  */
 #include "USART_HMI.h"
@@ -12,8 +12,7 @@
 #include "string.h"
 
 u8 Ending[3]={0xFF,0xFF,0xFF};
-
-
+char data_dma_send_in[60];
 /**
  * @name: send_ending_flag
  * @msg: 用于发送串口屏的指令结束标志
@@ -63,9 +62,11 @@ void draw_point(int x,int last_x,int y,int last_y,char* color)
 void draw_curve(int y,int last_y,char* color)
 {
 	static int x;
+	//int lenth;
 	draw_point(x,x,y,last_y,color);
 	delay_us(1);
-	printf("draw %d,0,%d,1024,BLACK",(x+1),(x+50));
+	printf("draw %d,300,%d,600,BLACK",(x+1),(x+50));
+	//sprintf(data_dma_send,"draw %d,300,%d,600,BLACK",(x+1),(x+50));
 	send_ending_flag();
 	x++;
 	if(x>1024)
@@ -73,3 +74,5 @@ void draw_curve(int y,int last_y,char* color)
 		x = 0;
 	}
 }
+
+

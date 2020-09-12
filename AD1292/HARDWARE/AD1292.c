@@ -353,23 +353,26 @@ void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
 
 }
 
-void Get_val_init_data(float32_t *data)
+void Get_val_init_data(float32_t *data,float32_t *data2)
 {
-	u32 cannle1;
-	s32 p_Temp1;
+	u32 cannle1,cannle0;
+	s32 p_Temp1,p_Temp0;
 	static int f,i;
 	while(f<Val_Init_Num)
 	{
 		if(ads1292_recive_flag)
 		{
-		
+			cannle0=ads1292_Cache[3]<<16 | ads1292_Cache[4]<<8 | ads1292_Cache[5];
 			cannle1=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
 
 			p_Temp1 = get_volt(cannle1);
+			p_Temp0 = get_volt(cannle0);
 
 			cannle1 = p_Temp1;
+			cannle0 = p_Temp0;
 
 			*(data+i) = cannle1;
+			*(data2+i) = cannle1;
 			
 			f++;
 			

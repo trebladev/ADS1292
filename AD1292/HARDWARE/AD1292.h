@@ -246,7 +246,7 @@ u8 ADS1292_Single_Read(void);//设置正常信号采集模式
 u8 Set_ADS1292_Collect(u8 mode);//设置数据采集方式
 void PA8_IRQHandler(void);
 void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b);
-void Get_val_init_data(float32_t *data);
+void Get_val_init_data(float32_t *data,float32_t *data2);
 s32 get_volt(u32 num);
 #endif
 

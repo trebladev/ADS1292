@@ -19,6 +19,8 @@ void set_number_control_val(int id,int val);
 void draw_point(int x,int last_x,int y,int last_y,char* color);
 
 void draw_curve(int x,int last_x,char* color);
+
+void trim(char *strIn, char *strOut);
 #endif
 
 
