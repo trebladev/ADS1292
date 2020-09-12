@@ -60,9 +60,12 @@ extern UART_HandleTypeDef huart1;   //声明串口
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1,val2;
 u32 val1_last;
-float32_t calculate_cache[25];             //计算部分缓存
+float32_t calculate_cache[36];             //计算部分缓存
 float32_t calculate_cache1[18];            //计算部分缓存
-float32_t fir_put[25];                     //滤波输出数据 
+float32_t fir_put[36];                     //滤波输出数据
+float32_t fir_put1[36];                     //滤波输出数据
+float32_t breath_cache[36];
+float32_t breath_cache1[18];
 int32_t val1_int;                          //心率数据int32格式
 int32_t bpm_cache[1200];                   //计算心率的数据缓存
 
@@ -77,7 +80,8 @@ float32_t breath_init_cache[Val_Init_Num];
 
 static float bpm;                          //心率数值
 
-
+float32_t min;
+uint32_t min_index;
 
 /* USER CODE END PV */
 
@@ -112,7 +116,7 @@ int main(void)
 	//data_to_send[2]=0xF1;	
 	//data_to_send[3]=8;
 	
-	int k;
+	int k,p;
 	static int last_val;
   /* USER CODE END 1 */
 
@@ -151,6 +155,15 @@ int main(void)
 		
 	//HAL_TIM_Base_Start_IT(&htim3);                        //开启定时器3中断
 	Get_val_init_data(val_init_data,breath_init_cache);
+	
+	arm_min_f32(breath_init_cache,Val_Init_Num,&min,&min_index);
+	
+	for(p=0;p<Val_Init_Num;p++)
+		{
+			breath_init_cache[p] = breath_init_cache[p] - 0.95*min;
+		}
+		
+		
   ADS1292_val_init(val_init_data,&a1,&b1);
 	ADS1292_val_init(breath_init_cache,&a2,&b2);
   /* USER CODE END 2 */
@@ -191,9 +204,11 @@ int main(void)
 							
 							val1 = cannle[1]*(a1)+b1;                       //将数据改为能在串口屏显示的数值
 							
-							val2 = cannle[0]*(a2)+b2;
+							val2 = (cannle[0]-0.95*min)*(a2)+b2; 
               
               calculate_cache[j] = val1;                                //将数据存入滤波计算缓存数组中
+							
+							breath_cache[j] = val2;
 							
 							val1_int = (int32_t)val1;                                 //数据转换为int32格式
 							
@@ -203,18 +218,19 @@ int main(void)
 							
 							n++;
 
-              if(j == 25)
+              if(j == 28)
               {
 
                 j=18;
                 arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
-								draw_curve(last_val,600-fir_put[0],"GREEN");
+								//draw_curve(last_val,600-fir_put[0],"GREEN");
 								for(k=0;k<4;k++)
 								{
-									/*
-									printf("add 1,0,%0.f",fir_put[k]);                     //向串口屏输出数据
+									printf("add 3,0,%0.f",breath_cache[k]); 
 									send_ending_flag();
-									
+									printf("add 2,0,%0.f",fir_put[k]);                     //向串口屏输出数据
+									send_ending_flag();
+									/*
 									num++;
 									if(num==1024)
 									{
@@ -223,14 +239,16 @@ int main(void)
 										num=0;
 									}
 									*/
+									/*
 									draw_curve(600-fir_put[k],600-fir_put[k+1],"GREEN");
 									if(k==3)
 									{
 										last_val = (600-fir_put[k+1]);
 									}
+									*/
 								}
 								
-								arm_copy_f32(calculate_cache+7,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
+								arm_copy_f32(calculate_cache+10,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
 								
 								arm_copy_f32(calculate_cache1,calculate_cache,18);       //将缓存数组的18位拷贝到后一数组中
 								
@@ -253,7 +271,7 @@ int main(void)
 							{
 								n=0;
 								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);                   //寻找175以上的峰
-								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*295;                              //计算心率 算法:两峰之间点数*采样率
+								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*455;                              //计算心率 算法:两峰之间点数*采样率
 								printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 								send_ending_flag();
 								

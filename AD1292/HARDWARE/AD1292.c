@@ -372,7 +372,7 @@ void Get_val_init_data(float32_t *data,float32_t *data2)
 			cannle0 = p_Temp0;
 
 			*(data+i) = cannle1;
-			*(data2+i) = cannle1;
+			*(data2+i) = cannle0;
 			
 			f++;
 			
