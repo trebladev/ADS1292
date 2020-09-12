@@ -2,13 +2,14 @@
  * @Author: xzw
  * @Date: 2020-09-06 23:31:52
  * @LastEditors: xzw
- * @LastEditTime: 2020-09-09 17:26:42
+ * @LastEditTime: 2020-09-12 14:38:39
  * @Description: file content
  */
 #include "USART_HMI.h"
 #include "sys.h"
 #include <stdio.h>
 #include "usart.h"
+#include "string.h"
 
 u8 Ending[3]={0xFF,0xFF,0xFF};
 
@@ -38,4 +39,37 @@ void set_number_control_val(int id,int val)
 	
 }
 
+/**
+ * @name: draw_point
+ * @msg: 自定义在屏幕上画点
+ * @param {int x:点的横坐标
+ * 		   int y:点的纵坐标
+ *         char color:点的颜色} 
+ * @return {type} 
+ */
+void draw_point(int x,int last_x,int y,int last_y,char* color)
+{
+	printf("line %d,%d,%d,%d,%s",x,y,last_x,last_y,color);
+	send_ending_flag();
+}
 
+/**
+ * @name: draw_curve
+ * @msg: 自定义在屏幕上画不平移的曲线
+ * @param {int y:纵坐标的值
+ *         char color:曲线的颜色} 
+ * @return {type} 
+ */
+void draw_curve(int y,int last_y,char* color)
+{
+	static int x;
+	draw_point(x,x,y,last_y,color);
+	delay_us(1);
+	printf("draw %d,0,%d,1024,BLACK",(x+1),(x+50));
+	send_ending_flag();
+	x++;
+	if(x>1024)
+	{
+		x = 0;
+	}
+}

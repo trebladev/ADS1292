@@ -31,6 +31,7 @@
 #include "USART_HMI.h"
 #include "findpeaks.h"
 #include "FIR_48.h"
+#include "delay.h"
 
 extern UART_HandleTypeDef huart1;   //声明串口
 /* Private includes ----------------------------------------------------------*/
@@ -96,18 +97,18 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  static uint16_t j,n;
+  static uint16_t j,n,num;
   uint8_t res,i,sum;	
-	uint8_t data_to_send[60];//串口发送缓存
+	//uint8_t data_to_send[60];//串口发送缓存
 	uint8_t usbstatus=0;	
 	u32 cannle[2];	//存储两个通道的数据
 	s32	p_Temp[2];	//数据缓存
 	
 	
-	data_to_send[0]=0xAA;
-	data_to_send[1]=0xAA;
-	data_to_send[2]=0xF1;	
-	data_to_send[3]=8;
+	//data_to_send[0]=0xAA;
+	//data_to_send[1]=0xAA;
+	//data_to_send[2]=0xF1;	
+	//data_to_send[3]=8;
 	
 	int k;
   /* USER CODE END 1 */
@@ -200,10 +201,22 @@ int main(void)
 
                 j=18;
                 arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
-								for(k=18;k<25;k++)
+								for(k=0;k<4;k++)
 								{
-									printf("add 3,0,%0.f",fir_put[k]);                     //向串口屏输出数据
+									/*
+									printf("add 1,0,%0.f",fir_put[k]);                     //向串口屏输出数据
 									send_ending_flag();
+									
+									num++;
+									if(num==1024)
+									{
+										printf("cle 1,0");
+										send_ending_flag();
+										num=0;
+									}
+									*/
+									draw_curve(600-fir_put[k],600-fir_put[k+1],"GREEN");
+									delay_us(10);
 								}
 								
 								arm_copy_f32(calculate_cache+7,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
@@ -230,8 +243,8 @@ int main(void)
 								n=0;
 								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);                   //寻找175以上的峰
 								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*320;                              //计算心率 算法:两峰之间点数*采样率
-								printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
-								send_ending_flag();
+								//printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
+								//send_ending_flag();
 								
 							}
 

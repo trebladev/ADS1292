@@ -1,6 +1,10 @@
 ad1292\usart_hmi.o: ..\USART_HMI\USART_HMI.c
 ad1292\usart_hmi.o: ..\USART_HMI\USART_HMI.h
-ad1292\usart_hmi.o: ..\SYS\sys.h
+ad1292\usart_hmi.o: ..\delay\delay.h
+ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+ad1292\usart_hmi.o: ../Inc/stm32f4xx_hal_conf.h
+ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 ad1292\usart_hmi.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 ad1292\usart_hmi.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 ad1292\usart_hmi.o: ../Drivers/CMSIS/Include/core_cm4.h
@@ -11,10 +15,6 @@ ad1292\usart_hmi.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 ad1292\usart_hmi.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 ad1292\usart_hmi.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-ad1292\usart_hmi.o: ../Inc/stm32f4xx_hal_conf.h
-ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
-ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
-ad1292\usart_hmi.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 ad1292\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
@@ -33,6 +33,8 @@ ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 ad1292\usart_hmi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+ad1292\usart_hmi.o: ..\SYS\sys.h
 ad1292\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 ad1292\usart_hmi.o: ../Inc/usart.h
 ad1292\usart_hmi.o: ../Inc/main.h
+ad1292\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h

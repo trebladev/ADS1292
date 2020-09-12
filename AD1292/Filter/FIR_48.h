@@ -15,8 +15,8 @@
 #include "arm_const_structs.h"
 #include "arm_common_tables.h"
 
-#define LENGTH_SAMPLES       25    //采样点数
-#define BLOCK_SIZE           25      //调用一次dsp函数处理的点数
+#define LENGTH_SAMPLES       5    //采样点数
+#define BLOCK_SIZE           5      //调用一次dsp函数处理的点数
 #define NUM_TAPS             29       //滤波器个数
 
 

@@ -9,12 +9,16 @@
 #ifndef __USART_HMI_H
 #define __USART_HMI_H
 
+#include "delay.h"
 
 
 void send_ending_flag();    //结束符发送指令
 
 void set_number_control_val(int id,int val);
 
+void draw_point(int x,int last_x,int y,int last_y,char* color);
+
+void draw_curve(int x,int last_x,char* color);
 #endif
 
 
