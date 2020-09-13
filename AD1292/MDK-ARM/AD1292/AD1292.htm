@@ -3,9 +3,9 @@
 <title>Static Call Graph - [AD1292\AD1292.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image AD1292\AD1292.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Sep 13 11:05:22 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Sep 13 15:12:49 2020
 <BR><P>
-<H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        240 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; Set_ADS1292_Collect &rArr; ADS1292_Single_Test &rArr; ADS1292_WRITE_REGBUFF &rArr; ADS1292_WR_REGS &rArr; SPI2_ReadWriteByte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 <P>
@@ -415,7 +415,7 @@ Global Symbols
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d5]"></a>arm_copy_f32</STRONG> (Thumb, 132 bytes, Stack size 0 bytes, arm_copy_f32.o(.text))
+<P><STRONG><a name="[d6]"></a>arm_copy_f32</STRONG> (Thumb, 132 bytes, Stack size 0 bytes, arm_copy_f32.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1258,18 +1258,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 662 bytes, Stack size 48 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = main &rArr; Set_ADS1292_Collect &rArr; ADS1292_Single_Test &rArr; ADS1292_WRITE_REGBUFF &rArr; ADS1292_WR_REGS &rArr; SPI2_ReadWriteByte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 804 bytes, Stack size 64 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = main &rArr; Set_ADS1292_Collect &rArr; ADS1292_Single_Test &rArr; ADS1292_WRITE_REGBUFF &rArr; ADS1292_WR_REGS &rArr; SPI2_ReadWriteByte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_ending_flag
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxim_peaks_above_min_height
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxim_peaks_above_min_height
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_volt
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_min_f32
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_mean_f32
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_fir_f32_lp_48
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_fir5_init
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_fir48_init
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_copy_f32
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_copy_f32
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -1294,7 +1294,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[d6]"></a>maxim_peaks_above_min_height</STRONG> (Thumb, 106 bytes, Stack size 28 bytes, findpeaks.o(i.maxim_peaks_above_min_height))
+<P><STRONG><a name="[d5]"></a>maxim_peaks_above_min_height</STRONG> (Thumb, 106 bytes, Stack size 28 bytes, findpeaks.o(i.maxim_peaks_above_min_height))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = maxim_peaks_above_min_height
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

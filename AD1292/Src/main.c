@@ -59,27 +59,30 @@ extern UART_HandleTypeDef huart1;   //声明串口
 /* USER CODE BEGIN PV */
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1,val2;
-u32 val1_last;
+//u32 val1_last;
 float32_t calculate_cache[36];             //计算部分缓存
 float32_t calculate_cache1[18];            //计算部分缓存
 float32_t fir_put[36];                     //滤波输出数据
 float32_t fir_put1[36];                     //滤波输出数据
-float32_t breath_cache[36];
-float32_t breath_cache1[18];
+float32_t breath_cache[36];                //呼吸滤波缓存
+int32_t breath_calculate_cache[250];    //呼吸计算缓存
 int32_t val1_int;                          //心率数据int32格式
 int32_t bpm_cache[1200];                   //计算心率的数据缓存
 
 
-int32_t pn_npks;                           //峰值检测函数峰值数量
-int32_t pn_locs[15];                       //峰值检测函数输出峰值点
+int32_t pn_npks;                           //心率峰值检测函数峰值数量
+int32_t pn_locs[15];                       //心率峰值检测函数输出峰值点
+int32_t pn_npks_b;                         //呼吸峰值检测函数峰值数量
+int32_t pn_locs_b[15];                     //呼吸峰值检测函数输出峰值点
 
-float32_t a1,a2;
-float32_t b1,b2;
-float32_t mean;
-float32_t val_init_data[Val_Init_Num];
-float32_t breath_init_cache[Val_Init_Num];
+float32_t a1,a2;                           //心率显示系数
+float32_t b1,b2;                           //呼吸显示系数
+float32_t mean;                            //均值滤波输出值
+float32_t val_init_data[Val_Init_Num];     //心率初始化数组
+float32_t breath_init_cache[Val_Init_Num]; //呼吸初始化数组
 
 static float bpm;                          //心率数值
+static float hr;                           //呼吸数值
 
 float32_t min;
 uint32_t min_index;
@@ -104,7 +107,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  static uint16_t j,n,num;
+  static uint16_t j,n,num,x;
   uint8_t res,i,sum;	
 	//uint8_t data_to_send[60];//串口发送缓存
 	uint8_t usbstatus=0;	
@@ -117,7 +120,7 @@ int main(void)
 	//data_to_send[2]=0xF1;	
 	//data_to_send[3]=8;
 	
-	int k,p,z;
+	int k,z,p;
 	static int last_val;
   /* USER CODE END 1 */
 
@@ -222,11 +225,22 @@ int main(void)
 							
 							z++;
 							
-							if(z == 20)
+							if(z == 36)
 							{
-								arm_mean_f32(breath_cache,20,&mean);
+								arm_mean_f32(breath_cache,36,&mean);                    //均值滤波 20值为一次
+								breath_calculate_cache[x] = (int)mean;
+								x++;
 								printf("add 3,0,%0.f",mean);
 								send_ending_flag();
+								if(x == 125)
+								{
+									x = 0;
+									maxim_peaks_above_min_height(pn_locs_b,&pn_npks_b,breath_calculate_cache,125,185);               //寻找185以上的峰
+									hr = 60.0/(pn_locs_b[pn_npks_b-1]-pn_locs_b[pn_npks_b-2])*459.0/36;                              //计算呼吸 算法:两峰之间点数*采样率
+									printf("n1.val=%d",(int)hr);
+									send_ending_flag();
+									
+								}
 								z = 0;
 							}
 							
