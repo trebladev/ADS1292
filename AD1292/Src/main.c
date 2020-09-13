@@ -75,6 +75,7 @@ int32_t pn_locs[15];                       //峰值检测函数输出峰值点
 
 float32_t a1,a2;
 float32_t b1,b2;
+float32_t mean;
 float32_t val_init_data[Val_Init_Num];
 float32_t breath_init_cache[Val_Init_Num];
 
@@ -116,7 +117,7 @@ int main(void)
 	//data_to_send[2]=0xF1;	
 	//data_to_send[3]=8;
 	
-	int k,p;
+	int k,p,z;
 	static int last_val;
   /* USER CODE END 1 */
 
@@ -167,7 +168,8 @@ int main(void)
   ADS1292_val_init(val_init_data,&a1,&b1);
 	ADS1292_val_init(breath_init_cache,&a2,&b2);
   /* USER CODE END 2 */
-	arm_fir_init();
+	arm_fir5_init();
+	arm_fir48_init();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -202,13 +204,13 @@ int main(void)
 							HAL_UART_Transmit_DMA(&huart1,data_to_send,13);
 							*/
 							
-							val1 = cannle[1]*(a1)+b1;                       //将数据改为能在串口屏显示的数值
+							val1 = cannle[1]*(a1)+b1;                                //将数据改为能在串口屏显示的数值
 							
-							val2 = (cannle[0]-0.95*min)*(a2)+b2; 
-              
+							val2 = (cannle[0]-0.95*min)*(a2)+b2;            
+							
               calculate_cache[j] = val1;                                //将数据存入滤波计算缓存数组中
 							
-							breath_cache[j] = val2;
+							breath_cache[z] = val2;
 							
 							val1_int = (int32_t)val1;                                 //数据转换为int32格式
 							
@@ -217,18 +219,32 @@ int main(void)
               j++;
 							
 							n++;
-
+							
+							z++;
+							
+							if(z == 20)
+							{
+								arm_mean_f32(breath_cache,20,&mean);
+								printf("add 3,0,%0.f",mean);
+								send_ending_flag();
+								z = 0;
+							}
+							
               if(j == 28)
               {
-
+								
                 j=18;
-                arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
+                
+								//arm_fir_f32_lp_5(breath_cache,fir_put1); 
+								//arm_mean_f32(breath_cache);
+								//printf("add 3,0,%0.f",val2); 
+								//send_ending_flag();
+								arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
 								//draw_curve(last_val,600-fir_put[0],"GREEN");
-								for(k=0;k<4;k++)
+								for(k=0;k<5;k++)
 								{
-									printf("add 3,0,%0.f",breath_cache[k]); 
-									send_ending_flag();
-									printf("add 2,0,%0.f",fir_put[k]);                     //向串口屏输出数据
+									
+									printf("add 2,0,%0.f",fir_put[2*k]);                     //向串口屏输出数据
 									send_ending_flag();
 									/*
 									num++;
@@ -271,7 +287,7 @@ int main(void)
 							{
 								n=0;
 								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);                   //寻找175以上的峰
-								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*455;                              //计算心率 算法:两峰之间点数*采样率
+								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*459;                              //计算心率 算法:两峰之间点数*采样率
 								printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 								send_ending_flag();
 								
