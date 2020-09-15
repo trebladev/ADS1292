@@ -312,7 +312,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -606,6 +606,16 @@
               <FileName>findpeaks.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Algorithm\findpeaks.h</FilePath>
+            </File>
+            <File>
+              <FileName>medfilt1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\medfilt1.c</FilePath>
+            </File>
+            <File>
+              <FileName>medfilt1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Algorithm\medfilt1.h</FilePath>
             </File>
           </Files>
         </Group>

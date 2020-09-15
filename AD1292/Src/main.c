@@ -32,6 +32,7 @@
 #include "findpeaks.h"
 #include "FIR_48.h"
 #include "delay.h"
+#include "medfilt1.h"
 
 extern UART_HandleTypeDef huart1;   //声明串口
 /* Private includes ----------------------------------------------------------*/
@@ -57,6 +58,9 @@ extern UART_HandleTypeDef huart1;   //声明串口
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+static int mid_filt_start_flag;
+
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1,val2;
 //u32 val1_last;
@@ -68,6 +72,9 @@ float32_t breath_cache[36];                //呼吸滤波缓存
 int32_t breath_calculate_cache[250];    //呼吸计算缓存
 int32_t val1_int;                          //心率数据int32格式
 int32_t bpm_cache[1200];                   //计算心率的数据缓存
+float32_t mid_filt_cache[midfilt_num];             //中值滤波缓存
+float32_t mid_filt_cache1[midfilt_num];             //中值滤波缓存
+
 
 
 int32_t pn_npks;                           //心率峰值检测函数峰值数量
@@ -80,6 +87,7 @@ float32_t b1,b2;                           //呼吸显示系数
 float32_t mean;                            //均值滤波输出值
 float32_t val_init_data[Val_Init_Num];     //心率初始化数组
 float32_t breath_init_cache[Val_Init_Num]; //呼吸初始化数组
+float32_t mid_val;
 
 static float bpm;                          //心率数值
 static float hr;                           //呼吸数值
@@ -107,7 +115,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  static uint16_t j,n,num,x;
+  static uint16_t j,n,num,x,mid_filt_num;
   uint8_t res,i,sum;	
 	//uint8_t data_to_send[60];//串口发送缓存
 	uint8_t usbstatus=0;	
@@ -171,7 +179,7 @@ int main(void)
   ADS1292_val_init(val_init_data,&a1,&b1);
 	ADS1292_val_init(breath_init_cache,&a2,&b2);
   /* USER CODE END 2 */
-	arm_fir5_init();
+	//arm_fir5_init();
 	arm_fir48_init();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -256,10 +264,30 @@ int main(void)
 								arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
 								//draw_curve(last_val,600-fir_put[0],"GREEN");
 								for(k=0;k<5;k++)
-								{
+								{	
+									if(mid_filt_start_flag == 0)
+									{
+										mid_filt_cache[mid_filt_num] = fir_put[2*k];
+										mid_filt_num++;
+										if(mid_filt_num == midfilt_num)
+										{
+											mid_filt_start_flag = 1;
+										}
+									}
+									else if(mid_filt_start_flag == 1)
+									{
+										arm_copy_f32(mid_filt_cache+1,mid_filt_cache1,midfilt_num-1);
+										mid_filt_cache1[midfilt_num-1] = fir_put[2*k];
+										mid_val=midfilt1(mid_filt_cache1,midfilt_num,midfilt_num);
+										
+										printf("add 2,0,%0.f",fir_put[2*k]-mid_val+100);
+										send_ending_flag();
+										arm_copy_f32(mid_filt_cache1,mid_filt_cache,midfilt_num);
+									}
+						   
 									
-									printf("add 2,0,%0.f",fir_put[2*k]);                     //向串口屏输出数据
-									send_ending_flag();
+									//printf("add 2,0,%0.f",fir_put[2*k]);                     //向串口屏输出数据
+									//send_ending_flag();
 									/*
 									num++;
 									if(num==1024)
@@ -300,7 +328,7 @@ int main(void)
 							if(n>1200)
 							{
 								n=0;
-								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,175);                   //寻找175以上的峰
+								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,165);                   //寻找175以上的峰
 								bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*459;                              //计算心率 算法:两峰之间点数*采样率
 								printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 								send_ending_flag();

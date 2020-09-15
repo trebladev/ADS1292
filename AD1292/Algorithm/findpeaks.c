@@ -76,10 +76,10 @@ void maxim_remove_close_peaks(int32_t *pn_locs, int32_t *pn_npks, int32_t *pn_x,
     }
 
     // Resort indices longo ascending order
-    maxim_sort_ascend( pn_locs, *pn_npks );
+    //maxim_sort_ascend( pn_locs, *pn_npks );
 }
 
-void maxim_sort_ascend(int32_t *pn_x,int32_t n_size) 
+void maxim_sort_ascend(float32_t *pn_x,int32_t n_size) 
 /**
 * \brief        Sort array
 * \par          Details
@@ -88,7 +88,8 @@ void maxim_sort_ascend(int32_t *pn_x,int32_t n_size)
 * \retval       None
 */
 {
-    int32_t i, j, n_temp;
+    int32_t i, j;
+    float32_t n_temp;
     for (i = 1; i < n_size; i++) {
         n_temp = pn_x[i];
         for (j = i; j > 0 && n_temp < pn_x[j-1]; j--)
