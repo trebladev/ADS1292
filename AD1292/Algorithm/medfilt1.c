@@ -36,20 +36,6 @@ float32_t midfilt1(float32_t *p_input,int size,int blocksize)
 
 
 
-float32_t find_mid_val(float32_t *p_input,int size)
-{
-    float32_t mid_cache[size],*input;                        //设置缓存数组
-    float32_t mid_val;                                //数组的中位数
-	  input = p_input;
-    arm_copy_f32(input,mid_cache,size);             //将输入数组放入缓存数组中
-    maxim_sort_ascend(mid_cache,size);                //对缓存数组进行升序排列
-
-    mid_val = mid_cache[(size+1)/2];                  //找到缓存数组的中位数
-
-    return mid_val;
-
-}
-
 
 
 

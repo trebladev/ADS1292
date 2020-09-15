@@ -225,11 +225,11 @@ int main(void)
 							
 							val1_int = (int32_t)val1;                                 //数据转换为int32格式
 							
-							bpm_cache[n] = val1_int;                                  //将数据存入心率计算数组中
+							//bpm_cache[n] = val1_int;                                  //将数据存入心率计算数组中
 
               j++;
 							
-							n++;
+							//n++;
 							
 							z++;
 							
@@ -280,6 +280,17 @@ int main(void)
 										mid_filt_cache1[midfilt_num-1] = fir_put[2*k];
 										mid_val=midfilt1(mid_filt_cache1,midfilt_num,midfilt_num);
 										
+										bpm_cache[n] = (fir_put[2*k]-mid_val+100);
+										n++;
+										if(n>1200)
+										{
+											n=0;
+											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,165);                   //寻找175以上的峰
+											bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*204;                              //计算心率 算法:两峰之间点数*采样率
+											printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
+											send_ending_flag();
+								
+										}
 										printf("add 2,0,%0.f",fir_put[2*k]-mid_val+100);
 										send_ending_flag();
 										arm_copy_f32(mid_filt_cache1,mid_filt_cache,midfilt_num);
@@ -325,6 +336,7 @@ int main(void)
                 send_ending_flag();
                 */
               }
+							/*
 							if(n>1200)
 							{
 								n=0;
@@ -334,7 +346,7 @@ int main(void)
 								send_ending_flag();
 								
 							}
-
+							*/
 							ads1292_recive_flag=0;
 							sum = 0;	
 							//HAL_Delay(10);
