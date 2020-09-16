@@ -33,6 +33,7 @@
 #include "FIR_48.h"
 #include "delay.h"
 #include "medfilt1.h"
+#include "bpm.h"
 
 extern UART_HandleTypeDef huart1;   //声明串口
 /* Private includes ----------------------------------------------------------*/
@@ -71,7 +72,7 @@ float32_t fir_put1[36];                     //滤波输出数据
 float32_t breath_cache[36];                //呼吸滤波缓存
 int32_t breath_calculate_cache[250];    //呼吸计算缓存
 int32_t val1_int;                          //心率数据int32格式
-int32_t bpm_cache[1200];                   //计算心率的数据缓存
+int32_t bpm_cache[500];                   //计算心率的数据缓存
 float32_t mid_filt_cache[midfilt_num];             //中值滤波缓存
 float32_t mid_filt_cache1[midfilt_num];             //中值滤波缓存
 
@@ -282,11 +283,12 @@ int main(void)
 										
 										bpm_cache[n] = (fir_put[2*k]-mid_val+100);
 										n++;
-										if(n>1200)
+										if(n>500)
 										{
 											n=0;
-											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1200,165);                   //寻找175以上的峰
-											bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*204;                              //计算心率 算法:两峰之间点数*采样率
+											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,500,145);                   //寻找175以上的峰
+											bpm = bpm_calculate(pn_locs,pn_npks);
+											//bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*204;                              //计算心率 算法:两峰之间点数*采样率
 											printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 											send_ending_flag();
 								

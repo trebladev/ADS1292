@@ -32,6 +32,7 @@
 "ad1292\usart_hmi.o"
 "ad1292\findpeaks.o"
 "ad1292\medfilt1.o"
+"ad1292\bpm.o"
 "ad1292\fir_48.o"
 "..\DSP_LIB\arm_cortexM4lf_math.lib"
 --library_type=microlib --strict --scatter "AD1292\AD1292.sct"
