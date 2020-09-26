@@ -180,7 +180,7 @@ int main(void)
 		
 		
   ADS1292_val_init(val_init_data,&a1,&b1);
-	ADS1292_val_init(breath_init_cache,&a2,&b2);
+	//ADS1292_val_init(breath_init_cache,&a2,&b2);
   /* USER CODE END 2 */
 	//arm_fir5_init();
 	arm_fir48_init();
@@ -226,13 +226,13 @@ int main(void)
 							
 							val1 = cannle[1]*(a1)+b1;                                //将数据改为能在串口屏显示的数值
 							
-							val2 = (cannle[0]-0.95*min)*(a2)+b2;            
+							//val2 = (cannle[0]-0.95*min)*(a2)+b2;            
 							
               calculate_cache[j] = val1;                                //将数据存入滤波计算缓存数组中
 							
-							breath_cache[z] = val2;
+							//breath_cache[z] = val2;
 							
-							val1_int = (int32_t)val1;                                 //数据转换为int32格式
+							//val1_int = (int32_t)val1;                                 //数据转换为int32格式
 							
 							//bpm_cache[n] = val1_int;                                  //将数据存入心率计算数组中
 
@@ -241,7 +241,7 @@ int main(void)
 							//n++;
 							
 							z++;
-							
+							/*
 							if(z == 5)
 							{
 								arm_mean_f32(breath_cache,5,&mean);                    //均值滤波 20值为一次
@@ -260,8 +260,8 @@ int main(void)
 								}
 								z = 0;
 							}
-							
-              if(j == 28)
+							*/
+              if(j == 19)
               {
 								
                 j=18;
@@ -272,11 +272,9 @@ int main(void)
 								//send_ending_flag();
 								arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
 								//draw_curve(last_val,600-fir_put[0],"GREEN");
-								for(k=0;k<10;k++)
-								{	
 									if(mid_filt_start_flag == 0)
 									{
-										mid_filt_cache[mid_filt_num] = fir_put[k];
+										mid_filt_cache[mid_filt_num] = fir_put[0];
 										mid_filt_num++;
 										if(mid_filt_num == midfilt_num)
 										{
@@ -286,10 +284,10 @@ int main(void)
 									else if(mid_filt_start_flag == 1)
 									{
 										arm_copy_f32(mid_filt_cache+1,mid_filt_cache1,midfilt_num-1);
-										mid_filt_cache1[midfilt_num-1] = fir_put[k];
+										mid_filt_cache1[midfilt_num-1] = fir_put[0];
 										mid_val=midfilt1(mid_filt_cache1,midfilt_num,midfilt_num);
 										
-										bpm_cache[n] = (fir_put[k]-mid_val+100);
+										bpm_cache[n] = (fir_put[0]-mid_val+100);
 										n++;
 										if(n>1000)
 										{
@@ -301,7 +299,7 @@ int main(void)
 											send_ending_flag();
 								
 										}
-										printf("add 2,0,%0.f",fir_put[k]-mid_val+100);
+										printf("add 2,0,%0.f",fir_put[0]-mid_val+100);
 										send_ending_flag();
 										arm_copy_f32(mid_filt_cache1,mid_filt_cache,midfilt_num);
 									}
@@ -325,9 +323,9 @@ int main(void)
 										last_val = (600-fir_put[k+1]);
 									}
 									*/
-								}
 								
-								arm_copy_f32(calculate_cache+10,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
+								
+								arm_copy_f32(calculate_cache+1,calculate_cache1,18);     //将前一数组的后18位拷贝到缓存数组中，作为FIR滤波器的群延时
 								
 								arm_copy_f32(calculate_cache1,calculate_cache,18);       //将缓存数组的18位拷贝到后一数组中
 								
