@@ -61,6 +61,8 @@ extern UART_HandleTypeDef huart1;   //声明串口
 /* USER CODE BEGIN PV */
 
 static int mid_filt_start_flag;
+static long FPS_NUM;
+
 
 s32 get_volt(u32 num);                 //把采到的3个字节补码转成有符号32位数
 float32_t val1,val2;
@@ -72,7 +74,7 @@ float32_t fir_put1[36];                     //滤波输出数据
 float32_t breath_cache[36];                //呼吸滤波缓存
 int32_t breath_calculate_cache[250];    //呼吸计算缓存
 int32_t val1_int;                          //心率数据int32格式
-int32_t bpm_cache[500];                   //计算心率的数据缓存
+int32_t bpm_cache[1000];                   //计算心率的数据缓存
 float32_t mid_filt_cache[midfilt_num];             //中值滤波缓存
 float32_t mid_filt_cache1[midfilt_num];             //中值滤波缓存
 
@@ -153,7 +155,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_SPI2_Init();
-  //MX_TIM3_Init();
+  MX_TIM3_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   ADS1292_Init();
@@ -166,7 +168,7 @@ int main(void)
 		
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);                       //开启外部中断
 		
-	//HAL_TIM_Base_Start_IT(&htim3);                        //开启定时器3中断
+	HAL_TIM_Base_Start_IT(&htim3);                        //开启定时器3中断
 	Get_val_init_data(val_init_data,breath_init_cache);
 	
 	arm_min_f32(breath_init_cache,Val_Init_Num,&min,&min_index);
@@ -189,6 +191,12 @@ int main(void)
     /* USER CODE END WHILE */
 		if(ads1292_recive_flag)
 				{										
+							
+							//FPS = 1000.0/FPS_NUM;
+												//FPS_NUM = 0;
+
+							
+							
 							cannle[0]=ads1292_Cache[3]<<16 | ads1292_Cache[4]<<8 | ads1292_Cache[5];//获取原始数据		
 							cannle[1]=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
 						
@@ -234,9 +242,9 @@ int main(void)
 							
 							z++;
 							
-							if(z == 36)
+							if(z == 5)
 							{
-								arm_mean_f32(breath_cache,36,&mean);                    //均值滤波 20值为一次
+								arm_mean_f32(breath_cache,5,&mean);                    //均值滤波 20值为一次
 								breath_calculate_cache[x] = (int)mean;
 								x++;
 								printf("add 3,0,%0.f",mean);
@@ -264,11 +272,11 @@ int main(void)
 								//send_ending_flag();
 								arm_fir_f32_lp_48(calculate_cache,fir_put);              //对数据进行FIR 48Hz低通滤波
 								//draw_curve(last_val,600-fir_put[0],"GREEN");
-								for(k=0;k<5;k++)
+								for(k=0;k<10;k++)
 								{	
 									if(mid_filt_start_flag == 0)
 									{
-										mid_filt_cache[mid_filt_num] = fir_put[2*k];
+										mid_filt_cache[mid_filt_num] = fir_put[k];
 										mid_filt_num++;
 										if(mid_filt_num == midfilt_num)
 										{
@@ -278,22 +286,22 @@ int main(void)
 									else if(mid_filt_start_flag == 1)
 									{
 										arm_copy_f32(mid_filt_cache+1,mid_filt_cache1,midfilt_num-1);
-										mid_filt_cache1[midfilt_num-1] = fir_put[2*k];
+										mid_filt_cache1[midfilt_num-1] = fir_put[k];
 										mid_val=midfilt1(mid_filt_cache1,midfilt_num,midfilt_num);
 										
-										bpm_cache[n] = (fir_put[2*k]-mid_val+100);
+										bpm_cache[n] = (fir_put[k]-mid_val+100);
 										n++;
-										if(n>500)
+										if(n>1000)
 										{
 											n=0;
-											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,500,145);                   //寻找175以上的峰
+											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1000,145);                   //寻找175以上的峰
 											bpm = bpm_calculate(pn_locs,pn_npks);
 											//bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*204;                              //计算心率 算法:两峰之间点数*采样率
 											printf("n0.val=%d",(int)bpm);                                                        //输出心率数据
 											send_ending_flag();
 								
 										}
-										printf("add 2,0,%0.f",fir_put[2*k]-mid_val+100);
+										printf("add 2,0,%0.f",fir_put[k]-mid_val+100);
 										send_ending_flag();
 										arm_copy_f32(mid_filt_cache1,mid_filt_cache,midfilt_num);
 									}
@@ -351,6 +359,8 @@ int main(void)
 							*/
 							ads1292_recive_flag=0;
 							sum = 0;	
+							
+							
 							//HAL_Delay(10);
 				}
     /* USER CODE BEGIN 3 */
@@ -415,18 +425,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim == (&htim3))
-  {
-		/*
-		static int i=18;
-		i=i+5;
-		if(i>1200)
-		{
-			i = 18;
-		}
-    printf("add 3,0,%0.f",fir_put[i]);
-		send_ending_flag();
-		*/
-  }
+  {}
+		
 }
 
 

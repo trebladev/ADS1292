@@ -17,7 +17,7 @@
 
 #define LENGTH_SAMPLES       10    //采样点数
 #define BLOCK_SIZE           10      //调用一次dsp函数处理的点数
-#define NUM_TAPS             49       //滤波器个数
+#define NUM_TAPS             29       //滤波器个数
 
 
 void arm_fir_f32_lp_48(float32_t *Input_buffer,float32_t *Output_buffer);
