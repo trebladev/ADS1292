@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="xconfig_spiloopback" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/spiloopback_pem4f.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="D:/TIDA/CCS Codes/spiloopback_MSP_EXP432P401R_TI/spiloopback.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/spiloopback_pem4f.mak" src="package.bld"/>
+        <srcFile name="package/cfg/spiloopback_pem4f.oem4f.dep" src="package/cfg/spiloopback_pem4f.c"/>
+        <srcFile name="package/cfg/spiloopback_pem4f.dep" src="package/cfg/spiloopback_pem4f.cfg"/>
+        <srcFile name="package/cfg/spiloopback.xem4f.mak" src="package.bld"/>
+        <srcFile name="package/rel/xconfig_spiloopback.tar.dep" src="package/rel/xconfig_spiloopback.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M4F"
+            version="ti.targets.arm.elf.M4F{1,0,18.1,1"
+            rawVersion="18.1.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT:1"
+            isa="v7M4"
+            suffix="em4f"
+            rootDir="C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="spiloopback"
+        pname="spiloopback.pem4f"
+        target="ti.targets.arm.elf.M4F"
+        platform="ti.platforms.msp432:MSP432P401R"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/spiloopback_pem4f.cfg"
+        xCfgPrefix="package/cfg/spiloopback_pem4f"
+        cfgScript="D:/TIDA/CCS Codes/spiloopback_MSP_EXP432P401R_TI/spiloopback.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="spiloopback"
+        pname="spiloopback.xem4f"
+        target="ti.targets.arm.elf.M4F"
+        platform="ti.platforms.msp432:MSP432P401R"
+        profile="release"
+        xCfgScript="package/cfg/spiloopback_pem4f.cfg"
+        xCfgPrefix="package/cfg/spiloopback_pem4f"
+        cfgScript="D:/TIDA/CCS Codes/spiloopback_MSP_EXP432P401R_TI/spiloopback.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="spiloopback.xem4f"
+        args=""
+        groupName="spiloopback.xem4f"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="xconfig_spiloopback"
+        pname="xconfig_spiloopback.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin
+    name="MSP432 DriverLib Target Content"
+    id="com.ti.mcu.msp432.driverlib.product_3.21.0.05"
+    version="3.21.0.05"
+    provider-name="Texas Instruments Inc.">
+
+    <extension point="org.eclipse.rtsc.xdctools.ui.productInfo">
+        <repository location="../../../packages"/>
+        <repository location="../../../."/>
+        <docs location="../../.././"/>
+        <docs location="../../../doc"/>
+        <docs location="../../../doc/cdoc"/>
+        <info
+            installLocation="../../.."
+            productName="MSP432 DriverLib"
+            versionNumber="3.21.0.05"
+        />
+    </extension>
+
+    <extension point="org.eclipse.rtsc.xdctools.model.productView">
+        <productview
+            moduleName="ti.mcu.msp432.driverlib.product.ProductView"
+         />
+    </extension>
+
+    <extension point="org.eclipse.rtsc.xdctools.managedbuild.core.rtscProductTypes">
+        <productType
+            id="com.ti.mcu.msp432.driverlib"
+            name="MSP432 DriverLib"
+            folderPrefix="msp432driverlib"
+            rootMacroName="msp432_DRIVERLIB_ROOT"/>
+    </extension>
+
+    <extension point="org.eclipse.rtsc.xdctools.managedbuild.core.rtscProducts">
+        <product
+            productTypeId="com.ti.mcu.msp432.driverlib"
+            version="3.21.0.05">
+            <resources location="resources"/>
+        </product>
+    </extension>
+</plugin>

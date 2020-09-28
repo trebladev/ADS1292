@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.ti.mcu.msp432.driverlib.product_3.21.0.05"
+      version="3.21.0.05"
+      label="MSP432 DriverLib (Target Content)"
+      provider-name="Texas Instruments Inc.">
+
+   <description url="http://www.ti.com/mspware">
+MSP432 DriverLib (Target Content)
+
+msp432 DriverLib Target Content provides low-level peripheral driver support in the form of re-buildable C source code libraries.
+
+Different versions of DriverLib Target Content can be chosen on a per-project basis via their project settings. 
+   </description>
+
+   <copyright>
+Copyright Texas Instruments 2013
+   </copyright>
+
+   <license>
+      Released under Released under the Eclipse Public License 1.0.
+Visit http://www.eclipse.org/legal/epl-v10.html for details of license.
+   </license>
+
+    <url>
+        <update label="msp432 DriverLib Updates" url="http://www.ti.com/tool/mspdriverlib"/>
+        <discovery label="msp432 DriverLib Updates" url="http://www.ti.com/tool/mspdriverlib"/>
+    </url>
+
+   <plugin
+        id="com.ti.mcu.msp432.driverlib.product_3.21.0.05"
+        version="3.21.0.05"
+        unpack="false" 
+   />
+    
+</feature>

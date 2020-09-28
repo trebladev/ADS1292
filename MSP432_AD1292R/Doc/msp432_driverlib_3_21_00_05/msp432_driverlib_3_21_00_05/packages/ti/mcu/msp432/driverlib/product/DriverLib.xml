@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gep name="DriverLib" title="MSP432 DriverLib" version="1">
+  <page name="Welcome" title="Welcome" DPI="2540">
+    <html><body><table>
+      <tr>
+	<td><control type="checkbox" label="Add DriverLib to my configuration" value="value:this.$used" bold="true"/></td>
+      </tr>
+      <tr></tr>
+      <tr><td colspan="2">
+        <h1>Introduction</h1>
+        <form>
+	  <p>DriverLib provides low-level peripheral control functions
+	  that enable simple and efficient control of peripherals
+	  found on the MSP432.  The drivers are provided in source
+	  form to allow maximum reuse in a variety of development
+	  environments.
+	  </p>
+        </form>
+      </td></tr>
+      <tr>
+        <td>
+	  <h1>Getting Started</h1>
+	  <form>
+	    <li>See the <a href="help:http:/help/topic/com.ti.mcu.msp432.driverlib.product.ui/release_notes.html#Documentation">DriverLib User Guide</a> for your device family.</li>
+	    <li><a href="help:http:/help/topic/com.ti.mcu.msp432.driverlib.product.ui/release_notes.html">
+	    MSP432 DriverLib Release Notes</a></li>
+	  </form>
+        </td>
+        <td>
+	  <h1>More Information</h1>
+	  <form>
+	    <li>Additional information on how to use DriverLib can be found <a href="http://www.ti.com/tool/mspware">here</a></li>
+	  </form>
+        </td>
+      </tr>
+    </table></body></html>
+  </page>
+</gep>

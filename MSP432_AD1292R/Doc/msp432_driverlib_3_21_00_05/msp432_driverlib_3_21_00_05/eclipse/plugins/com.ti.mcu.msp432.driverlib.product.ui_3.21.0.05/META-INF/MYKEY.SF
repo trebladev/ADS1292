@@ -1,0 +1,219 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: q86uuV4yaMjLqYq6fILtCcuhTMQuu
+ XiAim+Oj9okj3Y=
+SHA-256-Digest-Manifest: X6DLM/L1sp7cPJnezYaOTWENL5T5iOCqvWiIdkekhlQ=
+Created-By: 1.7.0_60 (Oracle Corporation)
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/debug.h
+SHA-256-Digest: 6BXDtfvP4grD1WwEMKFopoOkWB5rS0GSlWJxZTgz3x8=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/cpu.h
+SHA-256-Digest: yZ93yhw6CrHL12eOrYwsT17CjNGenSQJeBcvUu0B3Dw=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/aes256.c
+SHA-256-Digest: 9jxjIDK3GCqKbIfO5aKeVqQuvhAQO8hEfNKmo9a1OmQ=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/uart.c
+SHA-256-Digest: z9hDSMlbDGsBILo5Tz4rfiinnqcS0LGgze3AdOpioP8=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/uart.h
+SHA-256-Digest: aUYs41RM72jImOKDOc6uuVA0+ass/dTIkdlEZ7gslyE=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/aes256.h
+SHA-256-Digest: OuB0exy5sFB6a40swb0+OZvIbTxsN0N0NK6CQjflwbA=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/cpu.c
+SHA-256-Digest: jZe+P+I1h9ZVXizcgg6uY5yqsRgODrSx/eun3GOhFJA=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/adc14.c
+SHA-256-Digest: XeeLwAcjMmHGGVUNVS9qeGOGcXna8Cgg+G9ulQUmSwM=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/systick.c
+SHA-256-Digest: BcEu6+VQzw1i/P6ySkH9rZx+oolGJSefyNxfxH/yfPk=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pmap.c
+SHA-256-Digest: 2mXylCEak69Tpsrm+kt2dvWcm9r7IqZzWxqSamQhIvE=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/timer32.c
+SHA-256-Digest: zxchC/gvlBUXHhH6fArqPc6Y21PHFkB3HISSt3ABhoM=
+
+Name: toc_top.xml
+SHA-256-Digest: qwBXctKCnarjH+hMsAzpnSbzTGiX1pyorBoWaLBwXPE=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/spi.h
+SHA-256-Digest: rXrQ+imU5Tax2sDNU3eNbPFgk7qdho/s3DP8fp67l2o=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/spi.c
+SHA-256-Digest: aI5wGWfMzasz03gJK9tl1gXs7QLjjgDynM1Q0gFLy44=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/systick.h
+SHA-256-Digest: IKTLkKUXA5SSGzeWhbtw9Wt6QkwRVhqTjAsFAhv6BWw=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/gpio.h
+SHA-256-Digest: X2nysASx8+uymC42+gDstcIHCRncpKe1yt8e8V5golo=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/comp_e.h
+SHA-256-Digest: edCkv0vhVZ42rtggGSnl89XcOdEJEIYlNszTMTmsDJ8=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/rom_map.h
+SHA-256-Digest: aXzWl2rdgn4cqGSb9ow6TsM1aOAK68/RcfeyXRu2cl0=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pss.h
+SHA-256-Digest: Fqya32+IML9jJH8JYnVbw4no0634huGXjeWs+wbuAxA=
+
+Name: plugin.properties
+SHA-256-Digest: EUN573CJ1LE2SxYRCXdT/l2lUKfLlRR5GalqovcQmP0=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/flash.h
+SHA-256-Digest: GltA/hFVQVC0AgcyB7Pv4Pwnk7l9oUJnZtzFf98F0zU=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/comp_e.c
+SHA-256-Digest: x4mLtWOb0D1p9pZ31za3KikTlVGcnQSOHrCinWcMVXU=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pmap.h
+SHA-256-Digest: M1eCF7z8jRjCRNHYSqw1RR7xhRfVFTZB0YJtL5dcaok=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/timer32.h
+SHA-256-Digest: 6V30Q6A/1B8v2RxcSzjpIFcFq3TEOmQ3buDV0bcA8rw=
+
+Name: about.ini
+SHA-256-Digest: f/pQer2eF82gmHuP6E5zhnbwDF21JIw6uPuu5Dvm5v8=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/reset.c
+SHA-256-Digest: ua/Ee3pOdKTynEhl6cAT7dfS3zR8PHajSqlPl/0JKbM=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/flash.c
+SHA-256-Digest: 9rB/z20L4/68byTgeSjATsyDUlP4SlwitGF0uwG5kyk=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/reset.h
+SHA-256-Digest: /gKvON4BPaLRFFWYw0Umsvu1aIcQ4p6xpdGNtXBCqY4=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/wdt_a.h
+SHA-256-Digest: bTPhvL1VBgEiLs/VFgo/GyJp4BX5ZUl0JJV0e1Gg6Y4=
+
+Name: eclipse_toc.xml
+SHA-256-Digest: HbJP3yVLgpte1O4VVIF7e0RG/Jow0lDfife07kU08O4=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/wdt_a.c
+SHA-256-Digest: 65ilpFA8ZAtA5PwMZxEp3ng+uUZjO0Vu11O5pDCUb1c=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pss.c
+SHA-256-Digest: Kc1gxPqCaPh0vPUKhfhKKWj8yy9f3M89/uOMLVYhl6s=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/rom.h
+SHA-256-Digest: sT8PPDRArCOJ5c0f9pdMpVFqSCEeGVB0nxeW6MbolMc=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/rtc_c.c
+SHA-256-Digest: VpXsFl9bTzIXoOXiH+7RryjjzKMBl2mROHZ0QNULim0=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/timer_a.h
+SHA-256-Digest: LnW7vRoHxExH4XMU9UOh7CmuNsFrUCPfqoYrMrGy97Q=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/cs.c
+SHA-256-Digest: JvbygregxZBFurk5rBadwNHmYjgnVSwKUIG5edVFIY0=
+
+Name: resources/empty/MSP432P4xx/rom/MSP432P4xx/msp432_driverlib_rom_i
+ mage.out
+SHA-256-Digest: CzlUHuaQK/kQ4l41f4NiGIgRAo2i/z92NKdzehdshZI=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/rtc_c.h
+SHA-256-Digest: C9mi8Ag/Qtu0UYpTIGvrCgFnyBmzRmP93pttxRRo5Mo=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/interrupt.c
+SHA-256-Digest: oPV4TDMpuA0LR3FMBSCkMxq2seTlKFUdorlh+JsoyLc=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/timer_a.c
+SHA-256-Digest: Dx/kWZusF0MiZuBaTXV013u3t97PZyjCE7uRXzirqhM=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/ref_a.c
+SHA-256-Digest: eR6XXpeIObFH3VsDsIvEQ/X+lrN16ubObTm+yDKArDw=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/ref_a.h
+SHA-256-Digest: 6Zzt7Csj5cSpdeZPi8lV/9nnSIQ6MPTjw/oYSYofYm4=
+
+Name: resources/empty/MSP432P4xx/main.c
+SHA-256-Digest: 5cQU6yGhGVdQ8SX4FNyR9szpMGzrfqEGnBXYn7kSedY=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/sysctl.c
+SHA-256-Digest: PiE0Li3x8zg7TabfrGe3efldY3qmFwx5dtUU1KCVTrM=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/driverlib.h
+SHA-256-Digest: Qc2YrvkvOhIBF5Z2zjZBJ2ZLXPIDfZ516/8BRIz/h3E=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/dma.c
+SHA-256-Digest: wy9w3wGcCIQgr02/AUWc7+PqkbCMC0n9V31xsIPUPwA=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/eusci.h
+SHA-256-Digest: 05yV6wSo61ZGQVvcBAmgOA9zQcIkRz7AgSjEz+HSED0=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/dma.h
+SHA-256-Digest: tm3UKtL0VbO1PBDyivilzFPmB7SqF7U2KIBhED4xUlc=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/gpio.c
+SHA-256-Digest: tcG7Fk1DaoJVu6TKB/4zyjiyZVLvY3GIG9tvGYMf0Zw=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/i2c.c
+SHA-256-Digest: 30hfoclukf3z5OYkCcMkI3rQoFnNlfnY6738l0qdwEM=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pcm.c
+SHA-256-Digest: NBSnL1YBe3KGSux2L3JI+SAv6U2iJXqzwtiZ+WuDbqQ=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/crc32.h
+SHA-256-Digest: qR2Z5wWAG/ebQ11jnVkbBlICxglJECpNIzkxaPhFNN4=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/pcm.h
+SHA-256-Digest: XkdeQXmzwUgHqnw9wGoR3x7uH/eLptfPOCG2PkQ/5OY=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/mpu.h
+SHA-256-Digest: bpOU2bxGyy2mexQoN7jKNVDvL61+7OV3rT//macQbvI=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/i2c.h
+SHA-256-Digest: /HXqQVI0MrWoYM2/+OJFRdaMpFPvsoV/eyNoKTATMW8=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/sysctl.h
+SHA-256-Digest: ZJOUB4uhbjfqTKkONL9yT9PcgpjzpnrcJyiBL17DjJY=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/hw_memmap.h
+SHA-256-Digest: 5bnDOfXJv/LaKEwbweJe2YumzUyDRoWFo+qlC2uRN4A=
+
+Name: resources/empty/MSP432P4xx/ccs/msp432p4xx_driverlib.lib
+SHA-256-Digest: 1DNbZIlxvtOcY+8wQtLP66KE5Lul0PjvcpNwJARsnAk=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/fpu.c
+SHA-256-Digest: KUdRWXYqDbIecY8xZvwUmDaFTaoOpAhUePlezCLs71Q=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/mpu.c
+SHA-256-Digest: mo+YeWkhv4vxK6RNeEKk8iS2hqS1Y+9uTC2k5DeWHrk=
+
+Name: plugin.xml
+SHA-256-Digest: meiyid5iumNlXq4euDHkio1crzbGj/oETkkG9U8E0qY=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/fpu.h
+SHA-256-Digest: Z7QXtNHu0K1KQ3VZBz2oZDlqtQSMUFZHtNfJrdf6jBs=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/crc32.c
+SHA-256-Digest: lVg05LgxHr5iAoXwLYgRKBWBy853vijQQ36Ab9MSu+k=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/interrupt.h
+SHA-256-Digest: ui29xGA19YeQ1czAZFWnc+wDwZbZFS39VlSbeeSIYCY=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/cs.h
+SHA-256-Digest: RhR5B+qdkL2nY/TbSBIlxwymHWb2Q4B0yyKf2WDOkuc=
+
+Name: resources/empty/MSP432P4xx/gcc/msp432p4xx_driverlib.a
+SHA-256-Digest: gqKPrQVBZ+ojoqc8dvcHotyq93p33oRphs9JPLorZb4=
+
+Name: resources/empty/MSP432P4xx/driverlib/MSP432P4xx/adc14.h
+SHA-256-Digest: vkohCvZbm9qxxmgajK0HyX78aCYCaacyh3soLtH7Glk=
+
+Name: resources/empty/MSP432P4xx/rom/MSP432P4xx/driverlib.c
+SHA-256-Digest: KW2RPS5RTFZl0JS+fRqdTPpiHg5KgXenndCIDfC53pA=
+
+Name: resources/empty/MSP432P4xx/rom/MSP432P4xx/msp432_driverlib_rom_i
+ mage.map
+SHA-256-Digest: Tjxr+0c1Im+ayjdB8GqdXUcssXe/FFdoRWM/Dj3neo4=
+
+Name: resources/empty/MSP432P4xx/rom/MSP432P4xx/msp432_driverlib_rom_i
+ mage.txt
+SHA-256-Digest: 45CCzyg2W3iRRrQTWbJVE2y/qeldcyzZ8iPlU8VESoE=
+

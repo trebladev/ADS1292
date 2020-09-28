@@ -1,0 +1,3 @@
+SPI configurations for AFE and ADS needs to be changed respectively (POL0 and POL1)
+EVM board use UART0 but in TIDA UART1 needs to be used, it is not working in EVM board - uart0.
+Need to check in the TIDA board.

@@ -1,0 +1,14 @@
+%%{
+    /* get this package's name and convert it to a directory path */
+    var inputDir = this.$package.$name.replace(/\./g, '/');
+    
+    /* get the output directory where DriverLib will be built */
+    var outputDir = this.outputDir;
+
+    /* generate makefile from makefile.xdt
+     *    $args[0] = the RTSC target, so the makefile knows how to run the
+     *               compiler and archiver
+     */
+    var tplt = xdc.loadTemplate(inputDir + "/makefile.xdt");
+    tplt.genFile(outputDir + "/makefile", this, [Program.build.target]);
+%%}

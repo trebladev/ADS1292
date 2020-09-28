@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="HTML Tidy for Windows (vers 15 August 2007), see www.w3.org" name="generator">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><!-- /* * Copyright 2007 by Texas Instruments Incorporated. * All rights reserved. Property of Texas Instruments Incorporated. * Restricted rights to use, duplicate or disclose this code are * granted through contract. * * */ -->
+
+
+
+<title>MSP432 DriverLib</title><!-- For now, we use the doxygen style sheet --><link href="docs/doc/MSP432P4xx/html/driverlib_html/doxygen.css" rel="stylesheet" type="text/css"></head>
+<body>
+<table width="100%">
+<tbody>
+<tr>
+<td bgcolor="black" width="1"><a href="http://www.ti.com"><img src="doc/MSP432P4xx/html/driverlib_html/tilogo.gif" alt="Texas Instruments" border="0"></a></td>
+<td bgcolor="red"><img style="width: 24px; height: 24px;" src="doc/MSP432P4xx/html/driverlib_html/titagline.gif"></td>
+</tr>
+</tbody>
+</table>
+<h1>MSP432 DriverLib &nbsp;3_21_00_05</h1>
+<h2>Release Notes&nbsp;</h2>
+Document Revision: 012116.0051<br>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>Set of development tools used for programming, configuring,
+and utilizing MSP432 devices.</p>
+This document is divided into the following sections:
+<ul>
+<li><a href="#Documentation">Documentation</a></li>
+<li><a href="#Whats_New">What's New</a></li>
+<li><a href="#Installation">Installation and Usage</a></li>
+<li><a href="#Device_Support">Device Support</a></li>
+<li><a href="#Validation">Validation Information</a></li>
+<li><a href="release_notes.html#Upgrade">Upgrade
+and
+Compatibility Information</a></li>
+<li><a href="#Versioning">Versioning</a></li>
+<li><a href="#Technical_Support">Technical Support
+and Product Updates</a></li>
+</ul>
+<h2><a name="Documentation" id="Documentation">Documentation</a></h2>
+<li style="margin-left: 40px;"><a href="doc/MSP432P4xx/MSP432_DriverLib_API_Guide-MSP432P4xx-3_21_00_05.html">MSP432
+Driver
+Library API
+Guide</a></li>
+<h2><a name="Whats_New" id="Whats_New">What's
+New</a></h2>
+<p><b>Milestone</b><b>&nbsp;Release (03_21_00_xx)</b></p><ul><li>This
+version of DriverLib has been updated to work with Rev C silicon and
+has an updated ROM table that links to fixed/new ROM functions.</li><li>Fixed various typos in the I2C code examples</li><li>Added code example for AES256 encryption by use of DMA</li><li>Changed control structure alignment in DMA examples to be 1024</li><li>Changed CRC32 code example to be more meaningful</li><li>Fixed minor typo in UART code examples</li><li>Updated Timer_A PWM code example to actually perform real PWM</li><li>Various typos fixed in documentation</li></ul><p><b>Milestone</b><b>&nbsp;Release (03_10_00_xx)</b></p><ul><li>This version of &nbsp;MSP432 driverlib has been updated to be compliant with the CMSIS-Core standard header files<span style="color: rgb(38, 38, 38); font-family: arial,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 16px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; display: inline ! important; float: none;"></span></li><li>Refer to <a href="http://www.ti.com/MSP432CMSIS">http://www.ti.com/MSP432CMSIS</a>&nbsp; for detailed changes, conversion guide and background information</li><li>The driverlib code examples have been updated with the following new files per each IDE requirement</li><ul><li>system_msp432p401r.c</li></ul><ul><li>startup_msp432p401r_ccs.c</li><li>startup_msp432p401r_ewarm.c</li><li>startup_msp432p401r_gcc.c</li></ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">The following new APIs are available in this version of driverlib</span></li><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_enableForcedDCDCOperation</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_disableForcedDCDCOperation</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">SysCtl_getTLVInfo<br></span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PCM_setCoreVoltageLevelNonBlocking</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PCM_setPowerModeNonBlocking</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PCM_setPowerStateNonBlocking</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PCM_gotoLPM4</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PCM_gotoLPM4InterruptSafe</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">I2C_slaveSendNAK</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">FlashCtl_initiateSectorErase</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">FlashCtl_initiateMassErase</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">FlashCtl_getMemoryInfo</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskBurstDataPost</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskBurstDataPre</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskData32Post</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskData32Pre</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskData8Post</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">__FlashCtl_remaskData8Pre<br></span></li></ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">The following APIs have been removed due to proposed hardware changes in future silicon revisions</span></li><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_setLowSidePerformanceMode</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_getLowSidePerformanceMode</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_disableLowSide</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">PSS_enableLowSide</span></li></ul><li style="text-align: left;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">The following API signatures have changed in this version</span></li><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>CS_setDCOExternalResistorCalibration</li><li>CS_startHFXT</li><li>CS_startHFXTWithTimeout</li><li>CS_startLFXT</li><li>CS_startLFXTWithTimeout</li></ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed various typos in the code example comments</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">The base address/module instance name in code examples&nbsp;have been changed from {PERIPHERAL_NAME}_MODULE to </span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">{PERIPHERAL_NAME}_BASE per the new device header file definitions. For example TIMER_A0_MODULE to TIMER_A0_BASE</span></li></ul><b>Milestone Release (01.04.00.18) Major CS Release</b><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed bug with LFXT and HFXT operation</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed various code examples</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Removed nonexistant functions from ROM map file</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed debugging when with library<br></span></li></ul><p><b>Incremental Release (01.04.00.17 ) RC3</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Updated to fixed support package</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Updated copyrights to 2015<br></span></li></ul><p><b>Incremental Release (01.04.00.16 ) RC2</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed various documentation related issues</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed empty project from source with KEIL</span></li></ul><p><b>Incremental Release (01.04.00.15 ) RC1</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Made
+the CS tuning function default to use the DCORSEL4 calibration data
+when using DCORSEL5 as those calibration values have not yet been
+populated</span></li></ul><p><b>Incremental Release (01.04.00.14 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed wrong comments in CS LFXT function</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed DCO tuning functions in CS module</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Added DCO tuning example<br></span></li></ul><b>Incremental Release (01.04.00.12 )</b><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed wrong bit being set in PSS Rude mode function</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Updated CCS code examples to use new XDS-110<br></span></li></ul><p><b>Incremental Release (01.04.00.11 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Added mask parameter to SPI interrupt status function</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Removed unused verify parameter from Flash APIs</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Added low side functions to PSS module</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Updated Flash examples to not use perpetual loops</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed PCM rude mode entry functions</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Removed MSP432L references<br></span></li></ul><p><b>Internal Tools Release (01.04.00.10 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Updated with latest header file and support package</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Removed flash parity functions</span></li></ul><p><b>Incremental Release (01.04.00.09 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Switched back to &nbsp;"safe" flash driver for use with preliminary silicon.</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed various documentation related issues</span></li><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Migrated to latest support package to match with market release<br></span></li></ul><p><b>Incremental Release (01.04.00.05 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Renamed&nbsp;eUSCI configuration structs to avoid clash with TI-RTOS</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></li><li>Updated of flash driver to match test engineering characterization</li></ul><p><b>Incremental Release (01.04.00.04 )</b></p><ul><li><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Fixed issue where wrong parameter was being used for shutdown function</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></li><li>Beta of &nbsp;new flash driver to use with pre-release silicon</li><li>Fixed debugging issue with IAR example projects</li><li>Fixed a few issues with documentation generation</li><li>Added KEIL example projects</li></ul><p><b>Major ES2 Release (01.03.00.17 )</b></p><ul><li>Changed over register accesses to use CMSIS register accesses instead of legacy MSP430&nbsp;<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">accesses</span></li><li>Rewrote a couple of MSP430 modules to be more efficient with ARM by using bitbanding</li><li>Changed offsets of bitbanding functions to use define in header file instead of hardcoded offset</li><li>Fixed various typos in documentation</li><li>Moved function header documentation to header files</li><li>Fixed IAR/GCC build issues</li><li>Changed over LPM/Flash naming conventions to MSP430 terminologies to match latest specification</li><li>Moved function headers to use .h file to allow quick reference in documentation when using the prebuilt library</li><li>Removed CS tune APIs until release to market as DCO calibration data does not exist</li><li>Added ROM image and debug symbol file for ROM debugging</li><li>Fixed typos with ASSERT statements</li></ul><p><b>Major ES Release (01.02.00.36 )</b></p>
+<ul><li>Fixed issue where drive strength was not being set correctly when starting LFXT/HFXT</li></ul><p><b>RC3 Release (01.02.00.35 )</b></p>
+<ul><li>Added missing MAP functions from ROM</li></ul><p><b>RC2 Release (01.02.00.34 )</b></p>
+<ul><li>Fixed SysCtl bug where infinite loop was preventing enabling/disabling SRAM banks</li></ul><p><b>RC1 Release (01.02.00.33 )</b></p>
+<ul><li>Fixed renamed modules to match new IP naming guidelines</li><li>Fixed remaining code examples</li><li>Cleaned up documentation to be consistent with actual parameters</li></ul><p><b>Incremental Release (01.02.00.32 )</b></p>
+<ul><li>Fixed typo in registerFunction comment headers that referred to modules incorrectly</li><li>Added macro to TimerA to set PWM duty cycle</li><li>Changed name of SysCtl SRAM parameters</li><li>Changed SysCtl module to use external names</li><li>Added check to CS module before changing clock source</li><li>Added check to SysCtl module to manage SRAM ready bit</li><li>Updated to new part names</li><li>More code example verification</li></ul><p><b>Incremental Release (01.02.00.31 )</b></p>
+<ul>
+<li>Restructure of code to match MSP432 DriverLib</li>
+<li>More verification of code examples</li>
+</ul>
+<p><b>Incremental Release (01.02.00.30 )</b></p>
+<ul>
+<li>Fixed various code examples</li>
+</ul>
+<p><b>Incremental Release (01.02.00.29 )</b></p>
+<ul>
+<li>Reorganized code examples in anticipation of device naming
+change</li>
+<li>Added a master "driverlib.h" file that includes all modules</li>
+</ul>
+<p><b>Incremental Release (01.02.00.28 )</b></p>
+<ul>
+<li>Added interrupt friendly SL/DSL entry functions to the PCM
+module</li>
+<li>Removed resetting tune parameter when setting the DCO
+center frequency</li>
+<li>Updated copyright year on header files</li>
+<li>Remove GraphicsLib until it can be properly tested</li>
+</ul>
+<p><b>Incremental Release (01.02.00.27 )</b></p>
+<ul>
+<li>Updated with latest header file from Anton</li>
+<li>Fixed ADC14 defines that were associated with the new
+header file</li>
+</ul>
+<p><b>Incremental Release (01.02.00.26 )</b></p>
+<ul>
+<li>Changed interrupt functions to work with PORT6 (assert
+statements and register statement)</li>
+<li>Fixed bug where 10-bit slave addresses were not being
+accepted</li>
+</ul>
+<p><b>Incremental Release (01.02.00.25 )</b></p>
+<ul>
+<li>Added CS crystal fault register functions to CS module</li>
+<li>Integrated latest beta support package&nbsp;</li>
+<li>Fixed setting SMCLK source so the source parameter isn't
+ignored</li>
+</ul>
+<p><b>Incremental Release (01.02.00.24 )</b></p>
+<ul>
+<li>Fixed rom_map.h file with latest definitions</li>
+</ul>
+<p><b>Incremental Release (01.02.00.23 )</b></p>
+<ul>
+<li>Fixed bug where CS interrupt functions were not unlocking
+registers prior to setting</li>
+<li>Added Graphics_Image structure for GrLib</li>
+</ul>
+<p><b>Incremental Release (01.02.00.22 )</b></p>
+<ul>
+<li>Changed all CCS code examples to ProjectSpec</li>
+<li>Cleaned up documentation for GraphicsLib</li>
+<li>Fixed some CCS code examples which were not compiling
+binaries.</li>
+</ul>
+<p><b>Incremental Release (01.02.00.21 )</b></p>
+<ul>
+<li>Fixed typo in release notes</li>
+<li>Added quick start guide to mainpage</li>
+<li>Rebuilt ROM &nbsp;header files with latest changes</li>
+</ul>
+<p><b>Incremental Release (01.02.00.20 )</b></p>
+<ul>
+<li>Added API headers to PDF guide</li>
+<li>CCS libraries and code examples are now compiled using CCSv6</li>
+<li>Added empty project in examples</li>
+</ul>
+<p><b>Incremental Release (01.02.00.19 )</b></p>
+<ul>
+<li>Added remaining &nbsp;documentation for PDF chapters
+and code examples</li>
+<li>Fixed code examples to make stack start at top of SRAM</li>
+</ul>
+<p><b>Incremental Release (01.02.00.18 )</b></p>
+<ul>
+<li>Generation of PDF User's Guide (WIP)</li>
+</ul>
+<p><b>Incremental Release (01.02.00.17&nbsp;)</b></p>
+<ul>
+<li>Removed Hungarian notation from GraphicsLib</li>
+<li>Fixed small non-functional bug for DriverLib flash
+controller</li>
+</ul>
+<p><b>Incremental Release (01.02.00.16)</b></p>
+<ul>
+<li>Changed GraphicsLib to new&nbsp;standard for API naming.</li>
+<li>Removed Hungarian notation for DriverLib (GraphicsLib is
+next)</li>
+</ul>
+<p><b>Incremental Release (01.02.00.15)</b></p>
+<ul>
+<li>Fixed formatting for code examples to be more consistent</li>
+<li>Added SysCtl code examples</li>
+<li>Fixed various spelling errors</li>
+</ul>
+<p><b>Incremental Release (01.02.00.14)</b></p>
+<ul>
+<li>Added preliminary TI-REX integration</li>
+<li>Added remaining preliminary code examples&nbsp;</li>
+<li>Changed optimization flag for GCC to -O4 for flash library</li>
+</ul>
+<p><b>Incremental Release (01.02.00.12)</b></p>
+<ul>
+<li>Includes incremental release of GraphicsLib with Sharp
+driver</li>
+<li>Added base address compatible functions to APIs that
+previously did not have base addresses</li>
+</ul>
+<p><b>Incremental Release (01.02.00.11)</b></p>
+<ul>
+<li>More code examples and module overview documentation</li>
+</ul>
+<p><b>Incremental Release (01.02.00.09)</b></p>
+<ul>
+<li>Changed name of &nbsp;ADC14_enablePulseSampleMode to
+ADC14_setSampleHoldTime</li>
+<li>Added SysCtl_getTempCalibrationConstant which gets the
+calibration constant for the temperature sensor</li>
+<li>Added more ADC14 code examples</li>
+</ul>
+<p><b>Incremental Release (01.02.00.07)</b></p>
+<ul>
+<li>Included project manifest with project</li>
+<li>Included recursive Makefile in directory structure</li>
+</ul>
+<p><b>Incremental Release (01.02.00.06)</b></p>
+<ul>
+<li>Reorganized directory structure to match&nbsp;standard
+structure</li>
+<li>Added a standard release note file</li>
+<li>Add new frequency set function in CS module for setting DCO
+frequency to a customer value provided by the user</li>
+<li>Added interrupt function in the Interrupt module which
+allows the user to set if the ISR sleeps on exit</li>
+<li>Various code example and documentation additions.</li>
+</ul>
+<p><b>Major Release (1.01.00.22)</b></p>
+<ul>
+<li>First major release which is feature complete.</li>
+<li>All peripherals for MSP432 are supported including:</li>
+<ul>
+<li>ADC14</li>
+<li>AES256</li>
+<li>Comp</li>
+<li>CRC32</li>
+<li>CS</li>
+<li>DMA</li>
+<li>FlashCtl</li>
+<li>FPU</li>
+<li>GPIO</li>
+<li>I2C</li>
+<li>Interrupt</li>
+<li>MPU</li>
+<li>PCM</li>
+<li>PMap</li>
+<li>PSS</li>
+<li>Ref</li>
+<li>ResetCtl</li>
+<li>RTC</li>
+<li>SPI</li>
+<li>SysCtl</li>
+<li>Timer32</li>
+<li>TimerA</li>
+<li>UART</li>
+<li>WDT</li>
+</ul>
+</ul>
+The MSP432 DriverLib&nbsp; release contains the following
+components:<br>
+<table border="1">
+<tbody>
+<tr>
+<td>doc </td>
+<td>API Guides and documentation&nbsp;</td>
+</tr>
+<tr>
+<td>driverlib&nbsp; </td>
+<td>MSP432 peripheral driver library</td>
+</tr>
+<tr>
+<td>examples&nbsp;</td>
+<td>Examples on how to use the various components of MSP432</td>
+</tr>
+<tr>
+<td>inc</td>
+<td>Device specific include files</td>
+</tr>
+</tbody>
+</table>
+<h2><a name="Installation" id="Installation">Installation
+and Usage</a></h2>
+<p class="MsoNormal" style="margin: 5pt 0in;">Download
+and unzip the zip file. For more information on how to use the
+peripheral driver library&nbsp; please
+refer to the DriverLib
+API Guide. </p>
+<h2><a name="Upgrade_Info" id="Host_Support">Upgrade
+Information</a></h2>
+To upgrade from previous versions of MSP432 Driver Library,
+simply delete all old instances of components used and replace with the
+new components
+<h2><a name="Device_Support" id="Device_Support">Device
+Support</a></h2>
+This release supports the Texas Instruments MSP432
+&nbsp;device family. <br>
+<br>
+The
+peripheral driver library has been built for the toolchains in the
+following chart. When toolchain debugging support is available, the
+&nbsp;library has been tested with the specified debugger. Although
+tested with a specific debugger, &nbsp;code examples and the driver
+library will work on a variety of different debuggers.<br>
+<br>
+<table style="width: 473px; height: 134px;" border="1">
+<tbody>
+<tr>
+<td style="font-weight: bold; text-decoration: underline;">Toolchain</td>
+<td style="font-weight: bold; text-decoration: underline;">Debugger</td>
+</tr>
+<tr>
+<td><a href="http://www.ti.com/tool/ccstudio" target="_blank">Texas Instruments Code Composer Studio 6.0</a>
+&nbsp; </td>
+<td>XDS100v3</td>
+</tr>
+<tr>
+<td><a target="_blank" href="http://www.iar.com/ewarm/">IAR Embedded Workbench for
+ARM 7.20</a> </td>
+<td>SEGGER J-LINK</td>
+</tr>
+<tr>
+<td><a target="_blank" href="https://launchpad.net/gcc-arm-embedded">GNU C Compiler
+4.8 (gcc)</a></td>
+<td>SEGGER J-LINK<br>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.keil.com/" target="_blank">Keil
+Embedded Development Tools for ARM 5.11</a></td>
+<td>KEIL U-LINK Pro<br>
+</td>
+</tr>
+</tbody>
+</table>
+<h2><a name="Validation" id="Validation">Validation
+Information</a></h2>
+<p>This release is a beta version with initial rounds of
+validation
+performed.&nbsp; <br>
+</p>
+<h2><a name="Known_Issues" id="Known_Issues">Known
+Issues</a></h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a name="Versioning" id="Versioning">Versioning</a></h2>
+<p>This is build 3_21_00_05 of MSP432 DriverLib</p>
+<h2><a name="Technical_Support" id="Technical_Support">Technical
+Support and Product Updates</a></h2>
+<h2>Support</h2>
+<ul>
+<li>For questions and support, please visit <a href="http://support.ti.com/">support.ti.com</a></li>
+</ul>
+<h2>Additional Resources</h2>
+For more information, visit <a href="http://www.ti.com">www.ti.com</a>.
+</body></html>

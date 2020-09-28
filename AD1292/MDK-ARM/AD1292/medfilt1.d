@@ -3,7 +3,7 @@ ad1292\medfilt1.o: ..\SYS\sys.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Include/core_cm4.h
-ad1292\medfilt1.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+ad1292\medfilt1.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Include/cmsis_version.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-ad1292\medfilt1.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+ad1292\medfilt1.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
 ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h
 ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
@@ -35,8 +35,8 @@ ad1292\medfilt1.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 ad1292\medfilt1.o: ..\Algorithm\medfilt1.h
 ad1292\medfilt1.o: ..\DSP_LIB\Include\arm_math.h
 ad1292\medfilt1.o: ../Drivers/CMSIS/Include/core_cm4.h
-ad1292\medfilt1.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-ad1292\medfilt1.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+ad1292\medfilt1.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+ad1292\medfilt1.o: D:\keil\ARM\ARMCC\Bin\..\include\math.h
 ad1292\medfilt1.o: ..\DSP_LIB\Include\arm_const_structs.h
 ad1292\medfilt1.o: ..\DSP_LIB\Include\arm_common_tables.h
 ad1292\medfilt1.o: ..\Algorithm\findpeaks.h

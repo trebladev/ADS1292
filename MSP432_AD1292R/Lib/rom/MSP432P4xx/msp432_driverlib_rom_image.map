@@ -1,0 +1,833 @@
+###############################################################################
+#
+# IAR ELF Linker V7.30.4.8167/W32 for ARM                 14/May/2015  02:15:43
+# Copyright 2007-2014 IAR Systems AB.
+#
+#    Output file  =  msp432_driverlib_rom_image.out
+#    Map file     =  msp432_driverlib_rom_image.map
+#    Command line =  
+#        --config driverlib.icf --entry ResetHandler --no_vfe --no_exceptions
+#        --inline --no_remove --map msp432_driverlib_rom_image.map driverlib.o
+#        api_table.o startup.o -o msp432_driverlib_rom_image.out
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x02000800 { ro section .rom_table };
+"P1":  place in [from 0x02000800 to 0x02008000] { ro };
+
+  Section                Kind        Address    Size  Object
+  -------                ----        -------    ----  ------
+"A1":                                          0x868
+  .rom_table             const    0x02000800   0x868  api_table.o [1]
+                                - 0x02001068   0x868
+
+"P1":                                         0x5b64
+  .text                  ro code  0x02001068  0x5b40  driverlib.o [1]
+  .text                  ro code  0x02006ba8    0x22  fpinit_M.o [4]
+  .text                  ro code  0x02006bca     0x2  startup.o [1]
+  __DLIB_PERTHREAD       const    0x02006bcc     0x0  driverlib.o [1]
+  __DLIB_PERTHREAD_init  const    0x02006bcc     0x0  driverlib.o [1]
+                                - 0x02006bcc  0x5b64
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module        ro code  ro data
+    ------        -------  -------
+C:\space\msp432-driverlib\rom: [1]
+    api_table.o              2 152
+    driverlib.o    23 360
+    startup.o           2
+    ------------------------------
+    Total:         23 362    2 152
+
+command line: [2]
+    ------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    ------------------------------
+    Total:
+
+m7M_tls.a: [4]
+    fpinit_M.o         34
+    ------------------------------
+    Total:             34
+
+----------------------------------
+    Grand Total:   23 396    2 152
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+ADC14_clearInterruptFlag
+                        0x0200201f    0x4  Code  Gb  driverlib.o [1]
+ADC14_configureConversionMemory
+                        0x0200159d  0x182  Code  Gb  driverlib.o [1]
+ADC14_configureMultiSequenceMode
+                        0x02001115  0x2d6  Code  Gb  driverlib.o [1]
+ADC14_configureSingleSampleMode
+                        0x020013eb  0x170  Code  Gb  driverlib.o [1]
+ADC14_disableComparatorWindow
+                        0x020018ab  0x16c  Code  Gb  driverlib.o [1]
+ADC14_disableConversion
+                        0x02001585    0xe  Code  Gb  driverlib.o [1]
+ADC14_disableInterrupt  0x02001fa1   0x14  Code  Gb  driverlib.o [1]
+ADC14_disableModule     0x02001073   0x14  Code  Gb  driverlib.o [1]
+ADC14_disableReferenceBurst
+                        0x02001f51   0x12  Code  Gb  driverlib.o [1]
+ADC14_disableSampleTimer
+                        0x0200200d   0x12  Code  Gb  driverlib.o [1]
+ADC14_enableComparatorWindow
+                        0x02001725  0x186  Code  Gb  driverlib.o [1]
+ADC14_enableConversion  0x02001561   0x1e  Code  Gb  driverlib.o [1]
+ADC14_enableInterrupt   0x02001f9b    0x6  Code  Gb  driverlib.o [1]
+ADC14_enableModule      0x02001069    0x4  Code  Gb  driverlib.o [1]
+ADC14_enableReferenceBurst
+                        0x02001f3d   0x14  Code  Gb  driverlib.o [1]
+ADC14_enableSampleTimer
+                        0x02001feb   0x22  Code  Gb  driverlib.o [1]
+ADC14_getEnabledInterruptStatus
+                        0x02001fbf   0x12  Code  Gb  driverlib.o [1]
+ADC14_getInterruptStatus
+                        0x02001fb5    0xa  Code  Gb  driverlib.o [1]
+ADC14_getMultiSequenceResult
+                        0x02001bd5   0x3a  Code  Gb  driverlib.o [1]
+ADC14_getResolution     0x020010c7    0xc  Code  Gb  driverlib.o [1]
+ADC14_getResult         0x02001a91  0x144  Code  Gb  driverlib.o [1]
+ADC14_getResultArray    0x02001c1d  0x2a0  Code  Gb  driverlib.o [1]
+ADC14_initModule        0x02001087   0x2c  Code  Gb  driverlib.o [1]
+ADC14_isBusy            0x02001593    0xa  Code  Gb  driverlib.o [1]
+ADC14_setComparatorWindowValue
+                        0x02001a17   0x4a  Code  Gb  driverlib.o [1]
+ADC14_setPowerMode      0x02001f69   0x32  Code  Gb  driverlib.o [1]
+ADC14_setResolution     0x020010b9    0xe  Code  Gb  driverlib.o [1]
+ADC14_setResultFormat   0x02001a61   0x20  Code  Gb  driverlib.o [1]
+ADC14_setSampleHoldTime
+                        0x020010f7   0x1e  Code  Gb  driverlib.o [1]
+ADC14_setSampleHoldTrigger
+                        0x020010d3   0x24  Code  Gb  driverlib.o [1]
+ADC14_toggleConversionTrigger
+                        0x02001fd1   0x1a  Code  Gb  driverlib.o [1]
+AES256_clearErrorFlag   0x020022b7    0x8  Code  Gb  driverlib.o [1]
+AES256_clearInterruptFlag
+                        0x02002187    0x8  Code  Gb  driverlib.o [1]
+AES256_decryptData      0x020020f5   0x5c  Code  Gb  driverlib.o [1]
+AES256_disableInterrupt
+                        0x020021a3    0x6  Code  Gb  driverlib.o [1]
+AES256_enableInterrupt  0x0200219b    0x8  Code  Gb  driverlib.o [1]
+AES256_encryptData      0x02002095   0x60  Code  Gb  driverlib.o [1]
+AES256_getDataOut       0x02002277   0x32  Code  Gb  driverlib.o [1]
+AES256_getErrorFlagStatus
+                        0x02002379    0xa  Code  Gb  driverlib.o [1]
+AES256_getInterruptFlagStatus
+                        0x0200218f    0x2  Code  Gb  driverlib.o [1]
+AES256_getInterruptStatus
+                        0x02002033    0x2  Code  Gb  driverlib.o [1]
+AES256_isBusy           0x020022a9    0xe  Code  Gb  driverlib.o [1]
+AES256_reset            0x020021af    0x8  Code  Gb  driverlib.o [1]
+AES256_setCipherKey     0x02002035   0x54  Code  Gb  driverlib.o [1]
+AES256_setDecipherKey   0x020022c5   0x62  Code  Gb  driverlib.o [1]
+AES256_startDecryptData
+                        0x02002211   0x56  Code  Gb  driverlib.o [1]
+AES256_startEncryptData
+                        0x020021b7   0x5a  Code  Gb  driverlib.o [1]
+AES256_startSetDecipherKey
+                        0x02002327   0x52  Code  Gb  driverlib.o [1]
+COMP_E_clearInterruptFlag
+                        0x020025df    0x2  Code  Gb  driverlib.o [1]
+COMP_E_disableInputBuffer
+                        0x020025b3    0x8  Code  Gb  driverlib.o [1]
+COMP_E_disableInterrupt
+                        0x020025dd    0x2  Code  Gb  driverlib.o [1]
+COMP_E_disableModule    0x0200258f    0xa  Code  Gb  driverlib.o [1]
+COMP_E_enableInputBuffer
+                        0x020025bb    0xa  Code  Gb  driverlib.o [1]
+COMP_E_enableInterrupt  0x020025d5    0x8  Code  Gb  driverlib.o [1]
+COMP_E_enableModule     0x02002585    0xa  Code  Gb  driverlib.o [1]
+COMP_E_getEnabledInterruptStatus
+                        0x020025f3    0xc  Code  Gb  driverlib.o [1]
+COMP_E_getInterruptStatus
+                        0x020025eb    0x8  Code  Gb  driverlib.o [1]
+COMP_E_initModule       0x02002383  0x19e  Code  Gb  driverlib.o [1]
+COMP_E_outputValue      0x020025cf    0x6  Code  Gb  driverlib.o [1]
+COMP_E_setInterruptEdgeDirection
+                        0x020025ff   0x16  Code  Gb  driverlib.o [1]
+COMP_E_setPowerMode     0x0200257b    0xa  Code  Gb  driverlib.o [1]
+COMP_E_setReferenceAccuracy
+                        0x02002567   0x14  Code  Gb  driverlib.o [1]
+COMP_E_setReferenceVoltage
+                        0x02002521   0x46  Code  Gb  driverlib.o [1]
+COMP_E_shortInputs      0x02002599    0xa  Code  Gb  driverlib.o [1]
+COMP_E_swapIO           0x020025c5    0xa  Code  Gb  driverlib.o [1]
+COMP_E_toggleInterruptEdgeDirection
+                        0x02002619    0xa  Code  Gb  driverlib.o [1]
+COMP_E_unshortInputs    0x020025a9    0xa  Code  Gb  driverlib.o [1]
+CPU_basepriGet          0x020026cd    0x6  Code  Gb  driverlib.o [1]
+CPU_basepriSet          0x020026c5    0x6  Code  Gb  driverlib.o [1]
+CPU_cpsid               0x020026a9    0x8  Code  Gb  driverlib.o [1]
+CPU_cpsie               0x020026b9    0x8  Code  Gb  driverlib.o [1]
+CPU_primask             0x020026b1    0x6  Code  Gb  driverlib.o [1]
+CPU_wfi                 0x020026c1    0x4  Code  Gb  driverlib.o [1]
+CRC32_getResult         0x0200267f    0xc  Code  Gb  driverlib.o [1]
+CRC32_getResultReversed
+                        0x02002695    0xa  Code  Gb  driverlib.o [1]
+CRC32_set16BitData      0x02002643    0xe  Code  Gb  driverlib.o [1]
+CRC32_set16BitDataReversed
+                        0x02002665    0xe  Code  Gb  driverlib.o [1]
+CRC32_set32BitData      0x02002651    0x6  Code  Gb  driverlib.o [1]
+CRC32_set32BitDataReversed
+                        0x02002673    0x4  Code  Gb  driverlib.o [1]
+CRC32_set8BitData       0x02002635    0xe  Code  Gb  driverlib.o [1]
+CRC32_set8BitDataReversed
+                        0x02002657    0xe  Code  Gb  driverlib.o [1]
+CRC32_setSeed           0x02002623   0x12  Code  Gb  driverlib.o [1]
+CS_clearInterruptFlag   0x02002c37   0x12  Code  Gb  driverlib.o [1]
+CS_disableClockRequest  0x020027c9   0x14  Code  Gb  driverlib.o [1]
+CS_disableDCOExternalResistor
+                        0x02002831   0x10  Code  Gb  driverlib.o [1]
+CS_disableFaultCounter  0x02002bcd   0x22  Code  Gb  driverlib.o [1]
+CS_disableInterrupt     0x0200285f   0x14  Code  Gb  driverlib.o [1]
+CS_enableClockRequest   0x020027b7   0x12  Code  Gb  driverlib.o [1]
+CS_enableDCOExternalResistor
+                        0x0200281d   0x14  Code  Gb  driverlib.o [1]
+CS_enableFaultCounter   0x02002bab   0x1a  Code  Gb  driverlib.o [1]
+CS_enableInterrupt      0x0200284d   0x12  Code  Gb  driverlib.o [1]
+CS_getDCOFrequency      0x02002885  0x102  Code  Gb  driverlib.o [1]
+CS_getEnabledInterruptStatus
+                        0x02002873    0xa  Code  Gb  driverlib.o [1]
+CS_getInterruptStatus   0x0200287d    0x8  Code  Gb  driverlib.o [1]
+CS_initClockSignal      0x020026d3   0xd4  Code  Gb  driverlib.o [1]
+CS_resetFaultCounter    0x02002bf5   0x1a  Code  Gb  driverlib.o [1]
+CS_setDCOCenteredFrequency
+                        0x020027dd   0x16  Code  Gb  driverlib.o [1]
+CS_setDCOExternalResistorCalibration
+                        0x02002b65   0x46  Code  Gb  driverlib.o [1]
+CS_setDCOFrequency      0x02002995  0x1c6  Code  Gb  driverlib.o [1]
+CS_setReferenceOscillatorFrequency
+                        0x020027a7   0x10  Code  Gb  driverlib.o [1]
+CS_startFaultCounter    0x02002c15   0x22  Code  Gb  driverlib.o [1]
+CS_tuneDCOFrequency     0x020027f3   0x2a  Code  Gb  driverlib.o [1]
+DMA_assignChannel       0x02002edd  0x180  Code  Gb  driverlib.o [1]
+DMA_assignInterrupt     0x02003063   0x46  Code  Gb  driverlib.o [1]
+DMA_clearErrorStatus    0x02002c63    0x4  Code  Gb  driverlib.o [1]
+DMA_clearInterruptFlag  0x02003119    0x4  Code  Gb  driverlib.o [1]
+DMA_disableChannel      0x02002c7f   0x12  Code  Gb  driverlib.o [1]
+DMA_disableChannelAttribute
+                        0x02002d15   0x40  Code  Gb  driverlib.o [1]
+DMA_disableInterrupt    0x020030db   0x32  Code  Gb  driverlib.o [1]
+DMA_disableModule       0x02002c53    0x8  Code  Gb  driverlib.o [1]
+DMA_enableChannel       0x02002c6d   0x12  Code  Gb  driverlib.o [1]
+DMA_enableChannelAttribute
+                        0x02002cd5   0x40  Code  Gb  driverlib.o [1]
+DMA_enableInterrupt     0x020030a9   0x28  Code  Gb  driverlib.o [1]
+DMA_enableModule        0x02002c4d    0x6  Code  Gb  driverlib.o [1]
+DMA_getChannelAttribute
+                        0x02002d55   0x48  Code  Gb  driverlib.o [1]
+DMA_getChannelMode      0x02002ead   0x2a  Code  Gb  driverlib.o [1]
+DMA_getChannelSize      0x02002e8f   0x1e  Code  Gb  driverlib.o [1]
+DMA_getControlAlternateBase
+                        0x02002cb5    0x8  Code  Gb  driverlib.o [1]
+DMA_getControlBase      0x02002cad    0x8  Code  Gb  driverlib.o [1]
+DMA_getErrorStatus      0x02002c5b    0x8  Code  Gb  driverlib.o [1]
+DMA_getInterruptStatus  0x0200310d    0x8  Code  Gb  driverlib.o [1]
+DMA_isChannelEnabled    0x02002c91   0x14  Code  Gb  driverlib.o [1]
+DMA_requestChannel      0x02002cbd   0x12  Code  Gb  driverlib.o [1]
+DMA_requestSoftwareTransfer
+                        0x0200305d    0x6  Code  Gb  driverlib.o [1]
+DMA_setChannelControl   0x02002da1   0x1c  Code  Gb  driverlib.o [1]
+DMA_setChannelScatterGather
+                        0x02002e45   0x4a  Code  Gb  driverlib.o [1]
+DMA_setChannelTransfer  0x02002dc5   0x80  Code  Gb  driverlib.o [1]
+DMA_setControlBase      0x02002ca5    0x8  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_changeClockPhasePolarity
+                        0x020061cd    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_clearInterruptFlag
+                        0x02006231    0x4  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_disable     0x02006213    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_disableInterrupt
+                        0x020061ff    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_enable      0x02006211    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_enableInterrupt
+                        0x020061f7    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_getInterruptStatus
+                        0x02006209    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_getReceiveBufferAddressForDMA
+                        0x02006215    0x4  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_getTransmitBufferAddressForDMA
+                        0x02006219    0x4  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_isBusy      0x0200621d    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_masterChangeClock
+                        0x020061af    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_receiveData
+                        0x020061f3    0x4  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_select4PinFunctionality
+                        0x020061ad    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_slaveInit   0x020061cb    0x2  Code  Gb  driverlib.o [1]
+EUSCI_A_SPI_transmitData
+                        0x020061ef    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_changeClockPhasePolarity
+                        0x02006271    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_clearInterruptFlag
+                        0x020062a5    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_disable     0x02006297    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_disableInterrupt
+                        0x02006285    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_enable      0x02006295    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_enableInterrupt
+                        0x0200627b    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_getInterruptStatus
+                        0x02006291    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_getReceiveBufferAddressForDMA
+                        0x02006299    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_getTransmitBufferAddressForDMA
+                        0x0200629d    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_isBusy      0x020062a1    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_masterChangeClock
+                        0x02006245    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_receiveData
+                        0x02006277    0x4  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_select4PinFunctionality
+                        0x02006235    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_slaveInit   0x02006247    0x2  Code  Gb  driverlib.o [1]
+EUSCI_B_SPI_transmitData
+                        0x02006273    0x4  Code  Gb  driverlib.o [1]
+FPU_disableModule       0x020042b9    0xe  Code  Gb  driverlib.o [1]
+FPU_disableStacking     0x020042e7    0xe  Code  Gb  driverlib.o [1]
+FPU_enableLazyStacking  0x020042d9    0xe  Code  Gb  driverlib.o [1]
+FPU_enableModule        0x020042ab    0xe  Code  Gb  driverlib.o [1]
+FPU_enableStacking      0x020042c7   0x12  Code  Gb  driverlib.o [1]
+FPU_setFlushToZeroMode  0x0200431d    0xe  Code  Gb  driverlib.o [1]
+FPU_setHalfPrecisionMode
+                        0x020042f5    0xe  Code  Gb  driverlib.o [1]
+FPU_setNaNMode          0x02004309    0xe  Code  Gb  driverlib.o [1]
+FPU_setRoundingMode     0x0200432b    0xe  Code  Gb  driverlib.o [1]
+FlashCtl_clearInterruptFlag
+                        0x020042a3    0x8  Code  Gb  driverlib.o [1]
+FlashCtl_clearProgramVerification
+                        0x0200413d   0x2a  Code  Gb  driverlib.o [1]
+FlashCtl_disableInterrupt
+                        0x020041cf    0x8  Code  Gb  driverlib.o [1]
+FlashCtl_disableReadBuffering
+                        0x0200388d   0x3a  Code  Gb  driverlib.o [1]
+FlashCtl_disableWordProgramming
+                        0x02004187    0x8  Code  Gb  driverlib.o [1]
+FlashCtl_enableInterrupt
+                        0x020041c5    0xa  Code  Gb  driverlib.o [1]
+FlashCtl_enableReadBuffering
+                        0x02003851   0x38  Code  Gb  driverlib.o [1]
+FlashCtl_enableWordProgramming
+                        0x02004167   0x20  Code  Gb  driverlib.o [1]
+FlashCtl_eraseSector    0x02003ed1   0xe8  Code  Gb  driverlib.o [1]
+FlashCtl_getEnabledInterruptStatus
+                        0x020041d7    0xa  Code  Gb  driverlib.o [1]
+FlashCtl_getInterruptStatus
+                        0x0200425b    0x8  Code  Gb  driverlib.o [1]
+FlashCtl_getReadMode    0x0200418f   0x1e  Code  Gb  driverlib.o [1]
+FlashCtl_getWaitState   0x020040f5   0x1e  Code  Gb  driverlib.o [1]
+FlashCtl_initiateMassErase
+                        0x02004245   0x16  Code  Gb  driverlib.o [1]
+FlashCtl_initiateSectorErase
+                        0x020041ed   0x54  Code  Gb  driverlib.o [1]
+FlashCtl_isSectorProtected
+                        0x020039e5   0x3c  Code  Gb  driverlib.o [1]
+FlashCtl_isWordProgrammingEnabled
+                        0x020041ad   0x18  Code  Gb  driverlib.o [1]
+FlashCtl_performMassErase
+                        0x02003c31  0x2a0  Code  Gb  driverlib.o [1]
+FlashCtl_programMemory  0x02003fbd  0x108  Code  Gb  driverlib.o [1]
+FlashCtl_protectSector  0x02003965   0x76  Code  Gb  driverlib.o [1]
+FlashCtl_setProgramVerification
+                        0x02004113   0x2a  Code  Gb  driverlib.o [1]
+FlashCtl_setReadMode    0x02004263   0x40  Code  Gb  driverlib.o [1]
+FlashCtl_setWaitState   0x020040cb   0x2a  Code  Gb  driverlib.o [1]
+FlashCtl_unprotectSector
+                        0x020038d1   0x7e  Code  Gb  driverlib.o [1]
+FlashCtl_verifyMemory   0x02003a31  0x1de  Code  Gb  driverlib.o [1]
+GPIO_PORT_TO_BASE       0x020045bc   0x30  Data  Lc  driverlib.o [1]
+GPIO_clearInterruptFlag
+                        0x020044c5    0xe  Code  Gb  driverlib.o [1]
+GPIO_disableInterrupt   0x020044b1    0xc  Code  Gb  driverlib.o [1]
+GPIO_enableInterrupt    0x020044a1   0x10  Code  Gb  driverlib.o [1]
+GPIO_getEnabledInterruptStatus
+                        0x02004389   0x32  Code  Gb  driverlib.o [1]
+GPIO_getInputPinValue   0x020044f9   0x16  Code  Gb  driverlib.o [1]
+GPIO_getInterruptStatus
+                        0x020044d3    0xc  Code  Gb  driverlib.o [1]
+GPIO_interruptEdgeSelect
+                        0x020044df   0x1a  Code  Gb  driverlib.o [1]
+GPIO_setAsInputPin      0x02004441   0x30  Code  Gb  driverlib.o [1]
+GPIO_setAsInputPinWithPullDownResistor
+                        0x0200434d   0x3c  Code  Gb  driverlib.o [1]
+GPIO_setAsInputPinWithPullUpResistor
+                        0x020043df   0x36  Code  Gb  driverlib.o [1]
+GPIO_setAsOutputPin     0x02004415   0x24  Code  Gb  driverlib.o [1]
+GPIO_setAsPeripheralModuleFunctionInputPin
+                        0x02004565   0x56  Code  Gb  driverlib.o [1]
+GPIO_setAsPeripheralModuleFunctionOutputPin
+                        0x0200450f   0x56  Code  Gb  driverlib.o [1]
+GPIO_setDriveStrengthHigh
+                        0x020043bb   0x10  Code  Gb  driverlib.o [1]
+GPIO_setDriveStrengthLow
+                        0x020043cb   0x14  Code  Gb  driverlib.o [1]
+GPIO_setOutputHighOnPin
+                        0x02004471   0x10  Code  Gb  driverlib.o [1]
+GPIO_setOutputLowOnPin  0x02004481    0xe  Code  Gb  driverlib.o [1]
+GPIO_toggleOutputOnPin  0x0200448f   0x12  Code  Gb  driverlib.o [1]
+I2C_clearInterruptFlag  0x02004a07    0x4  Code  Gb  driverlib.o [1]
+I2C_disableInterrupt    0x02004a03    0x4  Code  Gb  driverlib.o [1]
+I2C_disableModule       0x02004651    0x4  Code  Gb  driverlib.o [1]
+I2C_disableMultiMasterMode
+                        0x020049e3    0xc  Code  Gb  driverlib.o [1]
+I2C_enableInterrupt     0x020049ff    0x4  Code  Gb  driverlib.o [1]
+I2C_enableModule        0x0200464d    0x4  Code  Gb  driverlib.o [1]
+I2C_enableMultiMasterMode
+                        0x020049d7    0xc  Code  Gb  driverlib.o [1]
+I2C_getEnabledInterruptStatus
+                        0x02004a0d    0x2  Code  Gb  driverlib.o [1]
+I2C_getInterruptStatus  0x02004a0b    0x2  Code  Gb  driverlib.o [1]
+I2C_getMode             0x020049f7    0x8  Code  Gb  driverlib.o [1]
+I2C_getReceiveBufferAddressForDMA
+                        0x020049b7    0x4  Code  Gb  driverlib.o [1]
+I2C_getTransmitBufferAddressForDMA
+                        0x020049bb    0x4  Code  Gb  driverlib.o [1]
+I2C_initMaster          0x020045ed   0x3c  Code  Gb  driverlib.o [1]
+I2C_initSlave           0x02004629   0x24  Code  Gb  driverlib.o [1]
+I2C_isBusBusy           0x02004669    0x8  Code  Gb  driverlib.o [1]
+I2C_masterIsStartSent   0x020049c9    0xa  Code  Gb  driverlib.o [1]
+I2C_masterIsStopSent    0x020049bf    0xa  Code  Gb  driverlib.o [1]
+I2C_masterReceiveMultiByteFinish
+                        0x02004905   0x24  Code  Gb  driverlib.o [1]
+I2C_masterReceiveMultiByteFinishWithTimeout
+                        0x02004929   0x40  Code  Gb  driverlib.o [1]
+I2C_masterReceiveMultiByteNext
+                        0x020048fd    0x2  Code  Gb  driverlib.o [1]
+I2C_masterReceiveMultiByteStop
+                        0x02004969    0xa  Code  Gb  driverlib.o [1]
+I2C_masterReceiveSingle
+                        0x02004997   0x20  Code  Gb  driverlib.o [1]
+I2C_masterReceiveSingleByte
+                        0x02004973   0x24  Code  Gb  driverlib.o [1]
+I2C_masterReceiveStart  0x020048ed   0x10  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteFinish
+                        0x020047f9   0x3e  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteFinishWithTimeout
+                        0x02004841   0x4c  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteNext
+                        0x0200479f   0x26  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteNextWithTimeout
+                        0x020047c5   0x30  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteStart
+                        0x0200471f   0x32  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteStartWithTimeout
+                        0x0200475b   0x44  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteStop
+                        0x02004893   0x22  Code  Gb  driverlib.o [1]
+I2C_masterSendMultiByteStopWithTimeout
+                        0x020048b5   0x32  Code  Gb  driverlib.o [1]
+I2C_masterSendSingleByte
+                        0x02004671   0x44  Code  Gb  driverlib.o [1]
+I2C_masterSendSingleByteWithTimeout
+                        0x020046b5   0x64  Code  Gb  driverlib.o [1]
+I2C_masterSendStart     0x020049d3    0x4  Code  Gb  driverlib.o [1]
+I2C_setMode             0x02004659    0xa  Code  Gb  driverlib.o [1]
+I2C_setSlaveAddress     0x02004655    0x4  Code  Gb  driverlib.o [1]
+I2C_slaveGetData        0x02004667    0x2  Code  Gb  driverlib.o [1]
+I2C_slavePutData        0x02004663    0x4  Code  Gb  driverlib.o [1]
+Interrupt_disableInterrupt
+                        0x02004bb1   0x60  Code  Gb  driverlib.o [1]
+Interrupt_disableMaster
+                        0x02004a1d    0x6  Code  Gb  driverlib.o [1]
+Interrupt_disableSleepOnIsrExit
+                        0x02004d51    0x8  Code  Gb  driverlib.o [1]
+Interrupt_enableInterrupt
+                        0x02004b4d   0x60  Code  Gb  driverlib.o [1]
+Interrupt_enableMaster  0x02004a15    0x8  Code  Gb  driverlib.o [1]
+Interrupt_enableSleepOnIsrExit
+                        0x02004d49    0x8  Code  Gb  driverlib.o [1]
+Interrupt_getPriority   0x02004ae1   0x1a  Code  Gb  driverlib.o [1]
+Interrupt_getPriorityGrouping
+                        0x02004a65   0x4a  Code  Gb  driverlib.o [1]
+Interrupt_getPriorityMask
+                        0x02004d59    0xa  Code  Gb  driverlib.o [1]
+Interrupt_getVectorTableAddress
+                        0x02004d39    0x8  Code  Gb  driverlib.o [1]
+Interrupt_isEnabled     0x02004c1d   0x6c  Code  Gb  driverlib.o [1]
+Interrupt_pendInterrupt
+                        0x02004c91   0x50  Code  Gb  driverlib.o [1]
+Interrupt_setPriority   0x02004ab9   0x28  Code  Gb  driverlib.o [1]
+Interrupt_setPriorityGrouping
+                        0x02004a2d   0x18  Code  Gb  driverlib.o [1]
+Interrupt_setPriorityMask
+                        0x02004d45    0x4  Code  Gb  driverlib.o [1]
+Interrupt_setVectorTableAddress
+                        0x02004d31    0x8  Code  Gb  driverlib.o [1]
+Interrupt_unpendInterrupt
+                        0x02004ce9   0x40  Code  Gb  driverlib.o [1]
+MPU_disableInterrupt    0x02004dc5    0xe  Code  Gb  driverlib.o [1]
+MPU_disableModule       0x02004d6b    0x8  Code  Gb  driverlib.o [1]
+MPU_disableRegion       0x02004d8f   0x10  Code  Gb  driverlib.o [1]
+MPU_enableInterrupt     0x02004db7    0xe  Code  Gb  driverlib.o [1]
+MPU_enableModule        0x02004d63    0x8  Code  Gb  driverlib.o [1]
+MPU_enableRegion        0x02004d7f   0x10  Code  Gb  driverlib.o [1]
+MPU_getRegion           0x02004dd3   0x14  Code  Gb  driverlib.o [1]
+MPU_getRegionCount      0x02004d73    0xc  Code  Gb  driverlib.o [1]
+MPU_setRegion           0x02004d9f   0x18  Code  Gb  driverlib.o [1]
+PCM_clearInterruptFlag  0x020059b1    0xa  Code  Gb  driverlib.o [1]
+PCM_disableInterrupt    0x020058e7    0x4  Code  Gb  driverlib.o [1]
+PCM_disableRudeMode     0x02005925    0xe  Code  Gb  driverlib.o [1]
+PCM_enableInterrupt     0x020058dd    0xa  Code  Gb  driverlib.o [1]
+PCM_enableRudeMode      0x02005909    0xc  Code  Gb  driverlib.o [1]
+PCM_getCoreVoltageLevel
+                        0x020050d7   0x36  Code  Gb  driverlib.o [1]
+PCM_getEnabledInterruptStatus
+                        0x020058fd    0x6  Code  Gb  driverlib.o [1]
+PCM_getInterruptStatus  0x020058f5    0x8  Code  Gb  driverlib.o [1]
+PCM_getPowerMode        0x02005225   0x32  Code  Gb  driverlib.o [1]
+PCM_getPowerState       0x02005723    0xc  Code  Gb  driverlib.o [1]
+PCM_gotoLPM0            0x02005769   0x18  Code  Gb  driverlib.o [1]
+PCM_gotoLPM0InterruptSafe
+                        0x02005989   0x24  Code  Gb  driverlib.o [1]
+PCM_gotoLPM3            0x02005789  0x11c  Code  Gb  driverlib.o [1]
+PCM_gotoLPM3InterruptSafe
+                        0x02005939    0x8  Code  Gb  driverlib.o [1]
+PCM_gotoLPM4            0x020058a5   0x32  Code  Gb  driverlib.o [1]
+PCM_gotoLPM4InterruptSafe
+                        0x02005941   0x36  Code  Gb  driverlib.o [1]
+PCM_setCoreVoltageLevel
+                        0x020050d1    0x2  Code  Gb  driverlib.o [1]
+PCM_setCoreVoltageLevelNonBlocking
+                        0x020050cd    0x4  Code  Gb  driverlib.o [1]
+PCM_setCoreVoltageLevelWithTimeout
+                        0x0200510d    0x4  Code  Gb  driverlib.o [1]
+PCM_setPowerMode        0x0200521b    0x2  Code  Gb  driverlib.o [1]
+PCM_setPowerModeNonBlocking
+                        0x02005217    0x4  Code  Gb  driverlib.o [1]
+PCM_setPowerModeWithTimeout
+                        0x02005221    0x4  Code  Gb  driverlib.o [1]
+PCM_setPowerState       0x02005719    0x2  Code  Gb  driverlib.o [1]
+PCM_setPowerStateNonBlocking
+                        0x02005715    0x4  Code  Gb  driverlib.o [1]
+PCM_setPowerStateWithTimeout
+                        0x0200571f    0x4  Code  Gb  driverlib.o [1]
+PCM_shutdownDevice      0x0200572f   0x34  Code  Gb  driverlib.o [1]
+PMAP_configurePorts     0x02004de7   0x38  Code  Gb  driverlib.o [1]
+PSS_clearInterruptFlag  0x02005ac9    0xa  Code  Gb  driverlib.o [1]
+PSS_disableForcedDCDCOperation
+                        0x02005abf    0xa  Code  Gb  driverlib.o [1]
+PSS_disableHighSide     0x02005a17    0xa  Code  Gb  driverlib.o [1]
+PSS_disableHighSideMonitor
+                        0x02005a67    0xa  Code  Gb  driverlib.o [1]
+PSS_disableHighSidePinToggle
+                        0x020059ed    0xa  Code  Gb  driverlib.o [1]
+PSS_disableInterrupt    0x02005aa3    0xa  Code  Gb  driverlib.o [1]
+PSS_enableForcedDCDCOperation
+                        0x02005ab5    0xa  Code  Gb  driverlib.o [1]
+PSS_enableHighSide      0x02005a01    0x8  Code  Gb  driverlib.o [1]
+PSS_enableHighSideMonitor
+                        0x02005a4f    0x8  Code  Gb  driverlib.o [1]
+PSS_enableHighSidePinToggle
+                        0x020059c5   0x22  Code  Gb  driverlib.o [1]
+PSS_enableInterrupt     0x02005a99    0xa  Code  Gb  driverlib.o [1]
+PSS_getHighSidePerformanceMode
+                        0x02005a3f   0x10  Code  Gb  driverlib.o [1]
+PSS_getHighSideVoltageTrigger
+                        0x02005a8d    0xc  Code  Gb  driverlib.o [1]
+PSS_getInterruptStatus  0x02005aad    0x8  Code  Gb  driverlib.o [1]
+PSS_setHighSidePerformanceMode
+                        0x02005a25   0x1a  Code  Gb  driverlib.o [1]
+PSS_setHighSideVoltageTrigger
+                        0x02005a75   0x14  Code  Gb  driverlib.o [1]
+REF_A_disableReferenceVoltage
+                        0x02005b19    0x6  Code  Gb  driverlib.o [1]
+REF_A_disableReferenceVoltageOutput
+                        0x02005b0b    0x6  Code  Gb  driverlib.o [1]
+REF_A_disableTempSensor
+                        0x02005ae5    0x8  Code  Gb  driverlib.o [1]
+REF_A_enableReferenceVoltage
+                        0x02005b11    0x8  Code  Gb  driverlib.o [1]
+REF_A_enableReferenceVoltageOutput
+                        0x02005b03    0x8  Code  Gb  driverlib.o [1]
+REF_A_enableTempSensor  0x02005af9    0x4  Code  Gb  driverlib.o [1]
+REF_A_getBandgapMode    0x02005b1f    0xc  Code  Gb  driverlib.o [1]
+REF_A_getBufferedBandgapVoltageStatus
+                        0x02005b43    0x8  Code  Gb  driverlib.o [1]
+REF_A_getVariableReferenceVoltageStatus
+                        0x02005b4b    0x8  Code  Gb  driverlib.o [1]
+REF_A_isBandgapActive   0x02005b2b    0x8  Code  Gb  driverlib.o [1]
+REF_A_isRefGenActive    0x02005b3b    0x8  Code  Gb  driverlib.o [1]
+REF_A_isRefGenBusy      0x02005b33    0x8  Code  Gb  driverlib.o [1]
+REF_A_setBufferedBandgapVoltageOneTimeTrigger
+                        0x02005b5b    0x8  Code  Gb  driverlib.o [1]
+REF_A_setReferenceVoltage
+                        0x02005ad3   0x12  Code  Gb  driverlib.o [1]
+REF_A_setReferenceVoltageOneTimeTrigger
+                        0x02005b53    0x8  Code  Gb  driverlib.o [1]
+RTC_C_clearInterruptFlag
+                        0x02005e51   0x38  Code  Gb  driverlib.o [1]
+RTC_C_convertBCDToBinary
+                        0x02005db1    0x6  Code  Gb  driverlib.o [1]
+RTC_C_convertBinaryToBCD
+                        0x02005db7    0x4  Code  Gb  driverlib.o [1]
+RTC_C_definePrescaleEvent
+                        0x02005d4f   0x10  Code  Gb  driverlib.o [1]
+RTC_C_disableInterrupt  0x02005df3   0x36  Code  Gb  driverlib.o [1]
+RTC_C_enableInterrupt   0x02005dc1   0x32  Code  Gb  driverlib.o [1]
+RTC_C_getCalendarTime   0x02005cb5   0x58  Code  Gb  driverlib.o [1]
+RTC_C_getEnabledInterruptStatus
+                        0x02005e89   0x5c  Code  Gb  driverlib.o [1]
+RTC_C_getInterruptStatus
+                        0x02005e29   0x24  Code  Gb  driverlib.o [1]
+RTC_C_getPrescaleValue  0x02005d65   0x1e  Code  Gb  driverlib.o [1]
+RTC_C_holdClock         0x02005bf1   0x18  Code  Gb  driverlib.o [1]
+RTC_C_initCalendar      0x02005c4b   0x6a  Code  Gb  driverlib.o [1]
+RTC_C_setCalendarAlarm  0x02005d0d   0x22  Code  Gb  driverlib.o [1]
+RTC_C_setCalendarEvent  0x02005d2f   0x10  Code  Gb  driverlib.o [1]
+RTC_C_setCalibrationData
+                        0x02005c1d   0x14  Code  Gb  driverlib.o [1]
+RTC_C_setCalibrationFrequency
+                        0x02005c09   0x14  Code  Gb  driverlib.o [1]
+RTC_C_setPrescaleValue  0x02005d89   0x28  Code  Gb  driverlib.o [1]
+RTC_C_setTemperatureCompensation
+                        0x02005c31   0x1a  Code  Gb  driverlib.o [1]
+RTC_C_startClock        0x02005bd9   0x18  Code  Gb  driverlib.o [1]
+Region$$Table$$Base     0x00000000          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000000          --   Gb  - Linker created -
+ResetCtl_clearHardResetSource
+                        0x02005bab    0xa  Code  Gb  driverlib.o [1]
+ResetCtl_clearPCMFlags  0x02005bcb    0x4  Code  Gb  driverlib.o [1]
+ResetCtl_clearPSSFlags  0x02005bbd    0x6  Code  Gb  driverlib.o [1]
+ResetCtl_clearSoftResetSource
+                        0x02005b81    0xa  Code  Gb  driverlib.o [1]
+ResetCtl_getHardResetSource
+                        0x02005ba3    0x8  Code  Gb  driverlib.o [1]
+ResetCtl_getPCMSource   0x02005bc3    0x8  Code  Gb  driverlib.o [1]
+ResetCtl_getPSSSource   0x02005bb5    0x8  Code  Gb  driverlib.o [1]
+ResetCtl_getSoftResetSource
+                        0x02005b79    0x8  Code  Gb  driverlib.o [1]
+ResetCtl_initiateHardReset
+                        0x02005b8b    0xe  Code  Gb  driverlib.o [1]
+ResetCtl_initiateHardResetWithSource
+                        0x02005b99    0xa  Code  Gb  driverlib.o [1]
+ResetCtl_initiateSoftReset
+                        0x02005b63    0xc  Code  Gb  driverlib.o [1]
+ResetCtl_initiateSoftResetWithSource
+                        0x02005b6f    0xa  Code  Gb  driverlib.o [1]
+ResetHandler            0x02006bcb    0x2  Code  Gb  startup.o [1]
+SPI_changeClockPhasePolarity
+                        0x02005ff1   0x10  Code  Gb  driverlib.o [1]
+SPI_changeMasterClock   0x02005fa9   0x10  Code  Gb  driverlib.o [1]
+SPI_clearInterruptFlag  0x02006177   0x2e  Code  Gb  driverlib.o [1]
+SPI_disableInterrupt    0x020060eb   0x2c  Code  Gb  driverlib.o [1]
+SPI_disableModule       0x02006057    0xe  Code  Gb  driverlib.o [1]
+SPI_enableInterrupt     0x020060bf   0x2c  Code  Gb  driverlib.o [1]
+SPI_enableModule        0x0200603d    0xe  Code  Gb  driverlib.o [1]
+SPI_getEnabledInterruptStatus
+                        0x02006141   0x36  Code  Gb  driverlib.o [1]
+SPI_getInterruptStatus  0x02006117   0x2a  Code  Gb  driverlib.o [1]
+SPI_getReceiveBufferAddressForDMA
+                        0x02006071   0x12  Code  Gb  driverlib.o [1]
+SPI_getTransmitBufferAddressForDMA
+                        0x02006083   0x12  Code  Gb  driverlib.o [1]
+SPI_initMaster          0x02005ee5   0xa4  Code  Gb  driverlib.o [1]
+SPI_initSlave           0x02005fb9   0x38  Code  Gb  driverlib.o [1]
+SPI_isBusy              0x02006099   0x26  Code  Gb  driverlib.o [1]
+SPI_receiveData         0x02006021   0x12  Code  Gb  driverlib.o [1]
+SPI_selectFourPinFunctionality
+                        0x02005f8f   0x1a  Code  Gb  driverlib.o [1]
+SPI_transmitData        0x02006005   0x14  Code  Gb  driverlib.o [1]
+SysCtl_disableGlitchFilter
+                        0x020063b5    0x4  Code  Gb  driverlib.o [1]
+SysCtl_disableNMISource
+                        0x020063f9    0x8  Code  Gb  driverlib.o [1]
+SysCtl_disablePeripheralAtCPUHalt
+                        0x02006369    0xa  Code  Gb  driverlib.o [1]
+SysCtl_disableSRAMBank  0x020062ef   0x4c  Code  Gb  driverlib.o [1]
+SysCtl_disableSRAMBankRetention
+                        0x0200634f   0x12  Code  Gb  driverlib.o [1]
+SysCtl_enableGlitchFilter
+                        0x020063ad    0x8  Code  Gb  driverlib.o [1]
+SysCtl_enableNMISource  0x02006401    0xa  Code  Gb  driverlib.o [1]
+SysCtl_enablePeripheralAtCPUHalt
+                        0x02006361    0x8  Code  Gb  driverlib.o [1]
+SysCtl_enableSRAMBank   0x020062d9    0xe  Code  Gb  driverlib.o [1]
+SysCtl_enableSRAMBankRetention
+                        0x0200633b   0x14  Code  Gb  driverlib.o [1]
+SysCtl_getFlashSize     0x020062b9    0x8  Code  Gb  driverlib.o [1]
+SysCtl_getNMISourceStatus
+                        0x0200640b    0x8  Code  Gb  driverlib.o [1]
+SysCtl_getSRAMSize      0x020062b1    0x8  Code  Gb  driverlib.o [1]
+SysCtl_getTLVInfo       0x020063c3   0x36  Code  Gb  driverlib.o [1]
+SysCtl_getTempCalibrationConstant
+                        0x020063a3    0xa  Code  Gb  driverlib.o [1]
+SysCtl_rebootDevice     0x020062c1    0xc  Code  Gb  driverlib.o [1]
+SysCtl_setWDTPasswordViolationResetType
+                        0x0200638d   0x16  Code  Gb  driverlib.o [1]
+SysCtl_setWDTTimeoutResetType
+                        0x02006373   0x16  Code  Gb  driverlib.o [1]
+SysTick_disableInterrupt
+                        0x0200643b    0x4  Code  Gb  driverlib.o [1]
+SysTick_disableModule   0x02006427    0x6  Code  Gb  driverlib.o [1]
+SysTick_enableInterrupt
+                        0x0200642d    0x4  Code  Gb  driverlib.o [1]
+SysTick_enableModule    0x02006419    0xe  Code  Gb  driverlib.o [1]
+SysTick_getPeriod       0x02006459    0xa  Code  Gb  driverlib.o [1]
+SysTick_getValue        0x02006463    0x8  Code  Gb  driverlib.o [1]
+SysTick_setPeriod       0x02006449    0xa  Code  Gb  driverlib.o [1]
+Timer32_clearInterruptFlag
+                        0x02006923    0x8  Code  Gb  driverlib.o [1]
+Timer32_disableInterrupt
+                        0x02006917    0x4  Code  Gb  driverlib.o [1]
+Timer32_enableInterrupt
+                        0x02006907    0x6  Code  Gb  driverlib.o [1]
+Timer32_getInterruptStatus
+                        0x0200692b    0x4  Code  Gb  driverlib.o [1]
+Timer32_getValue        0x020068d1    0x4  Code  Gb  driverlib.o [1]
+Timer32_haltTimer       0x020068fb    0xc  Code  Gb  driverlib.o [1]
+Timer32_initModule      0x020067ff   0x7e  Code  Gb  driverlib.o [1]
+Timer32_setCount        0x0200687d   0x2a  Code  Gb  driverlib.o [1]
+Timer32_setCountInBackground
+                        0x020068a7   0x2a  Code  Gb  driverlib.o [1]
+Timer32_startTimer      0x020068d5   0x26  Code  Gb  driverlib.o [1]
+Timer_A_clearCaptureCompareInterrupt
+                        0x02006715   0x14  Code  Gb  driverlib.o [1]
+Timer_A_clearInterruptFlag
+                        0x02006713    0x2  Code  Gb  driverlib.o [1]
+Timer_A_clearTimer      0x02006657    0xa  Code  Gb  driverlib.o [1]
+Timer_A_configureContinuousMode
+                        0x02006569   0x26  Code  Gb  driverlib.o [1]
+Timer_A_configureUpDownMode
+                        0x020065cd   0x3c  Code  Gb  driverlib.o [1]
+Timer_A_configureUpMode
+                        0x0200658f   0x3e  Code  Gb  driverlib.o [1]
+Timer_A_disableCaptureCompareInterrupt
+                        0x020067b7   0x16  Code  Gb  driverlib.o [1]
+Timer_A_disableInterrupt
+                        0x0200672d    0xa  Code  Gb  driverlib.o [1]
+Timer_A_enableCaptureCompareInterrupt
+                        0x0200679b   0x1c  Code  Gb  driverlib.o [1]
+Timer_A_enableInterrupt
+                        0x02006729    0x4  Code  Gb  driverlib.o [1]
+Timer_A_generatePWM     0x020066bd   0x44  Code  Gb  driverlib.o [1]
+Timer_A_getCaptureCompareCount
+                        0x020066b5    0x6  Code  Gb  driverlib.o [1]
+Timer_A_getCaptureCompareEnabledInterruptStatus
+                        0x020067d9   0x26  Code  Gb  driverlib.o [1]
+Timer_A_getCaptureCompareInterruptStatus
+                        0x020067d3    0x6  Code  Gb  driverlib.o [1]
+Timer_A_getCounterValue
+                        0x02006549   0x1c  Code  Gb  driverlib.o [1]
+Timer_A_getEnabledInterruptStatus
+                        0x0200678f    0xc  Code  Gb  driverlib.o [1]
+Timer_A_getInterruptStatus
+                        0x02006785    0x2  Code  Gb  driverlib.o [1]
+Timer_A_getOutputForOutputModeOutBitValue
+                        0x02006697   0x1e  Code  Gb  driverlib.o [1]
+Timer_A_getSynchronizedCaptureCompareInput
+                        0x02006689    0xe  Code  Gb  driverlib.o [1]
+Timer_A_initCapture     0x02006611   0x28  Code  Gb  driverlib.o [1]
+Timer_A_initCompare     0x02006639   0x1e  Code  Gb  driverlib.o [1]
+Timer_A_setCompareValue
+                        0x0200670d    0x6  Code  Gb  driverlib.o [1]
+Timer_A_setOutputForOutputModeOutBitValue
+                        0x020066bb    0x2  Code  Gb  driverlib.o [1]
+Timer_A_startCounter    0x02006565    0x4  Code  Gb  driverlib.o [1]
+Timer_A_stopTimer       0x02006701    0xc  Code  Gb  driverlib.o [1]
+UART_clearInterruptFlag
+                        0x02006ac9    0x2  Code  Gb  driverlib.o [1]
+UART_disableInterrupt   0x02006a93   0x14  Code  Gb  driverlib.o [1]
+UART_disableModule      0x020069f7    0x4  Code  Gb  driverlib.o [1]
+UART_enableInterrupt    0x02006a7f   0x14  Code  Gb  driverlib.o [1]
+UART_enableModule       0x020069f3    0x4  Code  Gb  driverlib.o [1]
+UART_getEnabledInterruptStatus
+                        0x02006aab   0x1e  Code  Gb  driverlib.o [1]
+UART_getInterruptStatus
+                        0x02006aa7    0x4  Code  Gb  driverlib.o [1]
+UART_getReceiveBufferAddressForDMA
+                        0x02006a69    0x4  Code  Gb  driverlib.o [1]
+UART_getTransmitBufferAddressForDMA
+                        0x02006a6d    0x4  Code  Gb  driverlib.o [1]
+UART_initModule         0x0200692f   0x7a  Code  Gb  driverlib.o [1]
+UART_queryStatusFlags   0x020069fb    0x6  Code  Gb  driverlib.o [1]
+UART_receiveData        0x020069d1   0x22  Code  Gb  driverlib.o [1]
+UART_resetDormant       0x02006a0d    0x8  Code  Gb  driverlib.o [1]
+UART_selectDeglitchTime
+                        0x02006a71    0x6  Code  Gb  driverlib.o [1]
+UART_setDormant         0x02006a01    0x8  Code  Gb  driverlib.o [1]
+UART_transmitAddress    0x02006a15   0x10  Code  Gb  driverlib.o [1]
+UART_transmitBreak      0x02006a29   0x32  Code  Gb  driverlib.o [1]
+UART_transmitData       0x020069b1   0x1c  Code  Gb  driverlib.o [1]
+WDT_A_clearTimer        0x02006aed    0x8  Code  Gb  driverlib.o [1]
+WDT_A_holdTimer         0x02006ad5    0xa  Code  Gb  driverlib.o [1]
+WDT_A_initIntervalTimer
+                        0x02006b35    0xe  Code  Gb  driverlib.o [1]
+WDT_A_initWatchdogTimer
+                        0x02006b27    0xe  Code  Gb  driverlib.o [1]
+WDT_A_setPasswordViolationReset
+                        0x02006aff   0x14  Code  Gb  driverlib.o [1]
+WDT_A_setTimeoutReset   0x02006b13   0x14  Code  Gb  driverlib.o [1]
+WDT_A_startTimer        0x02006adf    0xa  Code  Gb  driverlib.o [1]
+_FlashCtl_Program32     0x02003625   0x82  Code  Lc  driverlib.o [1]
+_FlashCtl_Program8      0x02003599   0x7e  Code  Lc  driverlib.o [1]
+_FlashCtl_ProgramBurst  0x020036b9  0x154  Code  Lc  driverlib.o [1]
+__FlashCtl_remaskBurstDataPost
+                        0x0200338b   0xe2  Code  Gb  driverlib.o [1]
+__FlashCtl_remaskBurstDataPre
+                        0x02003491   0xe4  Code  Gb  driverlib.o [1]
+__FlashCtl_remaskData32Post
+                        0x02003223   0x92  Code  Gb  driverlib.o [1]
+__FlashCtl_remaskData32Pre
+                        0x020032c9   0x94  Code  Gb  driverlib.o [1]
+__FlashCtl_remaskData8Post
+                        0x0200312b   0x66  Code  Gb  driverlib.o [1]
+__FlashCtl_remaskData8Pre
+                        0x020031b5   0x68  Code  Gb  driverlib.o [1]
+__PCM_setCoreVoltageLevelAdvanced
+                        0x02004e39  0x294  Code  Lc  driverlib.o [1]
+__PCM_setPowerModeAdvanced
+                        0x02005111  0x106  Code  Lc  driverlib.o [1]
+__PCM_setPowerStateAdvanced
+                        0x0200526d  0x4a2  Code  Lc  driverlib.o [1]
+__getBurstProgramRegs   0x02003810   0x40  Data  Lc  driverlib.o [1]
+__iar_init_vfp          0x02006ba9         Code  Gb  fpinit_M.o [4]
+_ctlRegs                0x02001ebc   0x80  Data  Lc  driverlib.o [1]
+g_pulDisRegs            0x02004c14    0x8  Data  Lc  driverlib.o [1]
+g_pulEnRegs             0x02004c88    0x8  Data  Lc  driverlib.o [1]
+g_pulPendRegs           0x02004ce0    0x8  Data  Lc  driverlib.o [1]
+g_pulPriority           0x02004a44   0x20  Data  Lc  driverlib.o [1]
+g_pulRegs               0x02004afc   0x50  Data  Lc  driverlib.o [1]
+g_pulUnpendRegs         0x02004d28    0x8  Data  Lc  driverlib.o [1]
+privateTimer_AProcessClockSourceDivider
+                        0x02006491   0xb8  Code  Lc  driverlib.o [1]
+
+
+[1] = C:\space\msp432-driverlib\rom
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+
+  23 396 bytes of readonly  code memory
+   2 152 bytes of readonly  data memory
+
+Errors: none
+Warnings: none

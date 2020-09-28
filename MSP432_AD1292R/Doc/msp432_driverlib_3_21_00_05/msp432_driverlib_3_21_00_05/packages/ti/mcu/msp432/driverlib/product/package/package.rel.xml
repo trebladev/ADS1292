@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/release.dtd -->
+<release name="ti_mcu_msp432_driverlib_product" label="default" date="1453358158781" buildCount="1" producerId="C%3A%5Cspace%5Cmsp432-driverlib%5Cimports%5Crtsc/">
+<package name="ti.mcu.msp432.driverlib.product"
+    version="1, 0, 0"/>
+<imports>
+</imports>
+<references>
+    <package name="xdc"
+        version="1, 1, 1, 1387425180932"
+        providerId="xdccore">
+        <file name="IPackage.xdc"/>
+        <file name="IPackage.xs"/>
+        <file name="Warnings.xs"/>
+        <file name="om2.xs"/>
+        <file name="package.xs"/>
+        <file name="template.xs"/>
+        <file name="utils.js"/>
+        <file name="xdc.tci"/>
+        <file name="xmlgen.xs"/>
+        <file name="xmlgen2.xs"/>
+    </package>
+    <package name="xdc.services.global"
+        version="1, 0, 0, 1387425225772"
+        providerId="xdccore">
+        <file name="Clock.xs"/>
+        <file name="Trace.xs"/>
+        <file name="java\package.jar"/>
+    </package>
+    <package name="xdc.bld"
+        version="1, 0, 2, 1387425189113"
+        providerId="xdccore">
+        <file name="BuildEnvironment.xs"/>
+        <file name="Configuration.xs"/>
+        <file name="Executable.xs"/>
+        <file name="ITarget.xs"/>
+        <file name="ITarget2.xs"/>
+        <file name="ITarget3.xs"/>
+        <file name="ITargetFilter.xs"/>
+        <file name="Library.xs"/>
+        <file name="Manifest.xs"/>
+        <file name="PackageContents.xs"/>
+        <file name="Repository.xs"/>
+        <file name="Script.xs"/>
+        <file name="Utils.xs"/>
+        <file name="_gen.xs"/>
+        <file name="bld.js"/>
+        <file name="package.xs"/>
+    </package>
+    <package name="xdc.tools.product"
+        version="1, 0, 0, 1386454594379"
+        providerId="xdccore">
+        <file name="IProductView.xdc"/>
+    </package>
+    <package name="xdc.shelf"
+        version="1, 0, 0, 1387425251529"
+        providerId="xdccore">
+        <file name="java\antlr.jar"/>
+        <file name="java\ecj.jar"/>
+        <file name="java\js.jar"/>
+        <file name="java\tar.jar"/>
+    </package>
+    <package name="xdc.services.intern.cmd"
+        version="1, 0, 0, 0, 1387425228211"
+        providerId="xdccore">
+        <file name="java\package.jar"/>
+    </package>
+    <package name="xdc.services.intern.gen"
+        version="1, 0, 0, 0, 1387425229822"
+        providerId="xdccore">
+        <file name="java\package.jar"/>
+    </package>
+    <package name="xdc.services.intern.xsr"
+        version="1, 0, 0, 1387425231452"
+        providerId="xdccore">
+        <file name="java\package.jar"/>
+    </package>
+    <package name="xdc.services.spec"
+        version="1, 0, 0, 0, 1387425236296"
+        providerId="xdccore">
+        <file name="java\package.jar"/>
+    </package>
+    <xdcRoot base="D:/xdctools/xdctools_3_25_06_96/">
+        <file name="/packages/xdc/package.xdc"/>
+        <xdcCorePkg version="16, 0, 2, 0, 1387425198647" producerId="/db/ztree/library/trees/xdc/xdc-z63x/src/packages" buildCount="428" releaseName="xdc_corevers" label="default" date="1387425198647"/>
+    </xdcRoot>
+</references>
+<orphans>
+    <file name="C:\space\msp432-driverlib\imports\rtsc\config.bld"/>
+</orphans>
+</release>

@@ -1,0 +1,68 @@
+<projectSpec>
+  <project postBuildStep="${CCS_INSTALL_ROOT}/utils/tiobj2bin/tiobj2bin ${BuildArtifactFileName} ${BuildArtifactFileBaseName}.bin ${CG_TOOL_ROOT}/bin/armofd ${CG_TOOL_ROOT}/bin/armhex ${CCS_INSTALL_ROOT}/utils/tiobj2bin/mkhex4bin" compilerBuildOptions="-I${CCS_BASE_ROOT}/arm/include/ -I${CG_TOOL_ROOT}/include/ -I${CCS_BASE_ROOT}/arm/include/CMSIS -I${PROJECT_ROOT} -I${MSPWAREDLIB_ROOT} -mv7M4 --code_state=16 --float_support=FPv4SPD16 --gcc --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=USE_CMSIS_REGISTER_FORMAT --define=ccs" device="Cortex M.MSP432P401R" name="driverlib_empty_project_from_source" ignoreDefaultDeviceSettings="true" linkerCommandFile="driverlib_empty_project_from_source_ccs.cmd" linkerBuildOptions="--stack_size=512">
+    <pathVariable name="MSPWAREDLIB_ROOT" path="../../../../../driverlib/MSP432P4xx/" scope="project" />
+    <file action="link" path="../main.c" openOnCreation="true" />
+    <file action="link" path="../driverlib_empty_project_from_source_ccs.cmd" />
+    <file action="link" path="../startup_msp432p401r_ccs.c" />
+    <file action="link" path="../system_msp432p401r.c" />
+    <file action="link" path="../../../MSP432P401R.ccxml" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/adc14.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/adc14.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/aes256.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/aes256.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/comp_e.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/comp_e.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/cpu.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/cpu.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/crc32.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/crc32.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/cs.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/cs.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/debug.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/dma.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/dma.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/driverlib.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/eusci.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/flash.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/flash.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/fpu.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/fpu.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/gpio.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/gpio.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/i2c.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/i2c.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/interrupt.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/interrupt.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/mpu.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/mpu.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pcm.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pcm.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pmap.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pmap.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pss.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/pss.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/ref_a.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/ref_a.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/reset.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/reset.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/rom_map.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/rom.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/rtc_c.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/rtc_c.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/spi.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/spi.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/systick.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/systick.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/sysctl.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/sysctl.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/timer32.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/timer32.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/timer_a.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/timer_a.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/uart.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/uart.h" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/wdt_a.c" targetDirectory="driverlib/" />
+    <file action="link" path="../../../../../driverlib/MSP432P4xx/wdt_a.h" targetDirectory="driverlib/" />
+   
+  </project>
+</projectSpec>

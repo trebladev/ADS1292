@@ -1,0 +1,125 @@
+/*
+ * AFE4403.c
+ *
+ *  Created on: Apr 30, 2018
+ *      Author: x0238818
+ */
+
+/* XDCtools Header files */
+#include <xdc/std.h>
+#include <xdc/runtime/System.h>
+#include <xdc/cfg/global.h>
+
+/* BIOS Header files */
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+#include <ti/sysbios/knl/Semaphore.h>
+
+#include <AFE4403.h>
+#include <AFE4403_default.h>
+#include <MSP432_SPI.h>
+#include <MSP432_UART.h>
+#include <MSP432_UART_TX.h>
+#include <MSP432_GPIO.h>
+
+//#define AFE_REG_CONFIG
+
+uint32_t LED2VAL[1000];
+uint32_t LED1VAL[1000];
+void AFE_main_task(void)
+{
+
+    AFE4403_write_register_configs();
+
+    int i=0;
+    int j=0;
+    while(1)
+    {
+
+        Semaphore_pend(SEM_AFE_RDY_GOES_LOW, BIOS_WAIT_FOREVER);
+
+        uint32_t read_value, read_value_1, read_value_2, read_value_3, read_value_4;
+
+        read_value = AFE4403_reg_read(0x2A);
+        read_value_1 = AFE4403_reg_read(0x2B);
+        read_value_2 = AFE4403_reg_read(0x2C);
+        read_value_3 = AFE4403_reg_read(0x2D);
+        //read_value_4 = AFE4403_reg_read(0x05);
+/*
+        read_value = AFE4403_reg_read(0x01);
+        read_value_1 = AFE4403_reg_read(0x02);
+        read_value_2 = AFE4403_reg_read(0x03);
+        read_value_3 = AFE4403_reg_read(0x04);
+*/
+
+        LED2VAL[i++] = read_value;
+        LED1VAL[j++] = read_value_2;
+
+        if(i>=1000)
+        {
+            i=0;
+            j=0;
+        }
+
+        UART_packet_format(read_value,read_value_1,read_value_2,read_value_3,read_value_4);
+        //System_printf("AFE_main_task\n");
+    }
+
+}
+
+void AFE4403_enable_read(void)
+{
+    SPI_write(0x00,0x000001);
+}
+
+
+void AFE4403_disable_read(void)
+{
+    SPI_write(0x00,0x000000);
+}
+
+void AFE4403_reg_write(uint8_t reg_address, uint32_t data)
+{
+    SPI_write(reg_address,data);
+}
+
+unsigned long AFE4403_reg_read(uint8_t reg_address)
+{
+    uint32_t data=0;
+    uint32_t retVal = 0;
+
+    AFE4403_enable_read();
+
+    SPI_read(reg_address, &data);
+    retVal = data;
+
+    AFE4403_disable_read();
+
+    if (reg_address >= 0x2A && reg_address <= 0x2D)
+     {
+       retVal &= 0x003FFFFF;     // convert it to a 22 bit value
+       if (retVal >= pow(2,21) )   // check if the ADC value is positive or negative
+       {
+         return (retVal - pow(2,22)  );
+       }
+     }
+
+    return retVal;
+}
+
+void AFE4403_write_register_configs(void)
+{
+    int i=0;
+
+    while(AFE_REG[i][0] != 0xFF)
+    {
+         AFE4403_reg_write(AFE_REG[i][0], AFE_REG[i][1]);
+         i++;
+    }
+}
+
+void AFE_ADC_RDY_goes_low(void)
+{
+    Semaphore_post(SEM_AFE_RDY_GOES_LOW);  //Post the semaphore
+}
+

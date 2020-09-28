@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiaEventData>
+   <hdr>
+      <hdrType>
+         <word>0</word>
+         <width>5</width>
+         <lsb>27</lsb>
+         <enumValue value="0">
+            <name>Event</name>
+         </enumValue>
+         <enumValue value="1">
+            <name>EventWithTimestamp</name>
+         </enumValue>
+         <enumValue value="2">
+            <name>EventWithSnapshotId</name>
+         </enumValue>
+         <enumValue value="3">
+            <name>EventWithSnapshotIdAndTimestamp</name>
+         </enumValue>
+      </hdrType>
+      <hdrLayout>
+         <!-- Header for an event with no timestamps or calling address -->
+         <header name="Event">
+            <numWords>2</numWords>
+            <word index="0">
+               <bitfield name="lengthInMAUs">
+                  <width>11</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="sequenceID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="1">
+               <bitfield name="eventID">
+               <width>16</width>
+               <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="moduleID">
+               <width>16</width>
+               <lsb>0</lsb>
+               </bitfield>
+            </word>
+         </header>
+         <!-- Header for an event with 64b timestamp -->
+         <header name="EventWithTimestamp">
+            <numWords>4</numWords>
+            <word index="0">
+               <bitfield name="lengthInMAUs">
+                  <width>11</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="sequenceID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="1">
+               <bitfield name="timestampLSW">
+                  <width>32</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="2">
+               <bitfield name="timestampMSW">
+                  <width>32</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="3">
+               <bitfield name="eventID">
+                  <width>16</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="moduleID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+         </header>
+         <!-- Header for a snapshot event (no timestamps) -->
+         <header name="EventWithSnapshotId">
+            <numWords>2</numWords>
+            <word index="0">
+               <bitfield name="lengthInMAUs">
+                  <width>11</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="sequenceID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="1">
+               <bitfield name="eventID">
+                  <width>16</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="moduleID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+         </header>
+         <!-- Header for a snapshot event with 64b timestamps -->
+         <header name="EventWithSnapshotIdAndTimestamp">
+            <numWords>4</numWords>
+            <word index="0">
+               <bitfield name="lengthInMAUs">
+                  <width>11</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="sequenceID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="1">
+               <bitfield name="timestampLSW">
+                  <width>32</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="2">
+               <bitfield name="timestampMSW">
+                  <width>32</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+            <word index="3">
+               <bitfield name="eventID">
+                  <width>16</width>
+                  <lsb>16</lsb>
+               </bitfield>
+               <bitfield name="moduleID">
+                  <width>16</width>
+                  <lsb>0</lsb>
+               </bitfield>
+            </word>
+         </header>
+      </hdrLayout>
+   </hdr>
+   <evtMap id="5096">
+      <longName>xdc.runtime.Log.L_construct</longName>
+      <shortName>Log_L_construct</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>4</diagMask>
+      <msg>%3C--+construct%3A+%25p%28%27%25s%27%29</msg>
+      <eventType>LIFECYCLE</eventType>
+   </evtMap>
+   <evtMap id="5120">
+      <longName>xdc.runtime.Log.L_create</longName>
+      <shortName>Log_L_create</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>4</diagMask>
+      <msg>%3C--+create%3A+%25p%28%27%25s%27%29</msg>
+      <eventType>LIFECYCLE</eventType>
+   </evtMap>
+   <evtMap id="5141">
+      <longName>xdc.runtime.Log.L_destruct</longName>
+      <shortName>Log_L_destruct</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>4</diagMask>
+      <msg>--%3E+destruct%3A+%28%25p%29</msg>
+      <eventType>LIFECYCLE</eventType>
+   </evtMap>
+   <evtMap id="5160">
+      <longName>xdc.runtime.Log.L_delete</longName>
+      <shortName>Log_L_delete</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>4</diagMask>
+      <msg>--%3E+delete%3A+%28%25p%29</msg>
+      <eventType>LIFECYCLE</eventType>
+   </evtMap>
+   <evtMap id="5177">
+      <longName>xdc.runtime.Log.L_error</longName>
+      <shortName>Log_L_error</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+%25%24F%25%24S</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5191">
+      <longName>xdc.runtime.Log.L_warning</longName>
+      <shortName>Log_L_warning</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>128</diagMask>
+      <msg>WARNING%3A+%25%24F%25%24S</msg>
+      <eventType>WARNING</eventType>
+   </evtMap>
+   <evtMap id="5207">
+      <longName>xdc.runtime.Log.L_info</longName>
+      <shortName>Log_L_info</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>16384</diagMask>
+      <msg>%25%24F%25%24S</msg>
+      <eventType>INFO</eventType>
+   </evtMap>
+   <evtMap id="5214">
+      <longName>xdc.runtime.Log.L_start</longName>
+      <shortName>Log_L_start</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>32768</diagMask>
+      <msg>Start%3A+%25%24S</msg>
+      <eventType>ANALYSIS</eventType>
+   </evtMap>
+   <evtMap id="5225">
+      <longName>xdc.runtime.Log.L_stop</longName>
+      <shortName>Log_L_stop</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>32768</diagMask>
+      <msg>Stop%3A+%25%24S</msg>
+      <eventType>ANALYSIS</eventType>
+   </evtMap>
+   <evtMap id="5235">
+      <longName>xdc.runtime.Log.L_startInstance</longName>
+      <shortName>Log_L_startInstance</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>32768</diagMask>
+      <msg>StartInstance%3A+%25%24S</msg>
+      <eventType>ANALYSIS</eventType>
+   </evtMap>
+   <evtMap id="5254">
+      <longName>xdc.runtime.Log.L_stopInstance</longName>
+      <shortName>Log_L_stopInstance</shortName>
+      <moduleId>32776</moduleId>
+      <diagMask>32768</diagMask>
+      <msg>StopInstance%3A+%25%24S</msg>
+      <eventType>ANALYSIS</eventType>
+   </evtMap>
+   <evtMap id="5272">
+      <longName>ti.uia.events.UIAErr.error</longName>
+      <shortName>UIAErr_error</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+ErrorCode%3A0x%25x</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5294">
+      <longName>ti.uia.events.UIAErr.errorWithStr</longName>
+      <shortName>UIAErr_errorWithStr</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+ErrorCode%3A0x%25x.+%25%24S</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5321">
+      <longName>ti.uia.events.UIAErr.hwError</longName>
+      <shortName>UIAErr_hwError</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>HW+ERROR%3A+ErrorCode%3A0x%25x</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5346">
+      <longName>ti.uia.events.UIAErr.hwErrorWithStr</longName>
+      <shortName>UIAErr_hwErrorWithStr</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>HW+ERROR%3A+ErrorCode%3A0x%25x.+%25%24S</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5376">
+      <longName>ti.uia.events.UIAErr.fatal</longName>
+      <shortName>UIAErr_fatal</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>FATAL+ERROR%3A+ErrorCode%3A0x%25x</msg>
+      <eventType>EMERGENCY</eventType>
+   </evtMap>
+   <evtMap id="5404">
+      <longName>ti.uia.events.UIAErr.fatalWithStr</longName>
+      <shortName>UIAErr_fatalWithStr</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>FATAL+ERROR%3A+ErrorCode%3A0x%25x.+%25%24S</msg>
+      <eventType>EMERGENCY</eventType>
+   </evtMap>
+   <evtMap id="5437">
+      <longName>ti.uia.events.UIAErr.critical</longName>
+      <shortName>UIAErr_critical</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>CRITICAL+ERROR%3A+ErrorCode%3A0x%25x</msg>
+      <eventType>CRITICAL</eventType>
+   </evtMap>
+   <evtMap id="5468">
+      <longName>ti.uia.events.UIAErr.criticalWithStr</longName>
+      <shortName>UIAErr_criticalWithStr</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>CRITICAL+ERROR%3A+ErrorCode%3A0x%25x.+%25%24S</msg>
+      <eventType>CRITICAL</eventType>
+   </evtMap>
+   <evtMap id="5504">
+      <longName>ti.uia.events.UIAErr.exception</longName>
+      <shortName>UIAErr_exception</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Exception+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5529">
+      <longName>ti.uia.events.UIAErr.uncaughtException</longName>
+      <shortName>UIAErr_uncaughtException</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Uncaught+Exception+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5563">
+      <longName>ti.uia.events.UIAErr.nullPointerException</longName>
+      <shortName>UIAErr_nullPointerException</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Null+Pointer+Exception+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5601">
+      <longName>ti.uia.events.UIAErr.unexpectedInterrupt</longName>
+      <shortName>UIAErr_unexpectedInterrupt</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Unexpected+Interrupt+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5637">
+      <longName>ti.uia.events.UIAErr.memoryAccessFault</longName>
+      <shortName>UIAErr_memoryAccessFault</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Memory+Access+Fault+at+%25%24F.+[ADRS]0x%25x</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5683">
+      <longName>ti.uia.events.UIAErr.securityException</longName>
+      <shortName>UIAErr_securityException</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Security+Exception+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5717">
+      <longName>ti.uia.events.UIAErr.divisionByZero</longName>
+      <shortName>UIAErr_divisionByZero</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Division+by+zero+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5749">
+      <longName>ti.uia.events.UIAErr.overflowException</longName>
+      <shortName>UIAErr_overflowException</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Overflow+exception+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5783">
+      <longName>ti.uia.events.UIAErr.indexOutOfRange</longName>
+      <shortName>UIAErr_indexOutOfRange</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Index+out+of+range+at+%25%24F.+[INDEX]0x%25x</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5829">
+      <longName>ti.uia.events.UIAErr.notImplemented</longName>
+      <shortName>UIAErr_notImplemented</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Attempt+to+access+feature+that+is+not+implemented+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5894">
+      <longName>ti.uia.events.UIAErr.stackOverflow</longName>
+      <shortName>UIAErr_stackOverflow</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Stack+Overflow+detected+at+%25%24F.</msg>
+      <eventType>CRITICAL</eventType>
+   </evtMap>
+   <evtMap id="5933">
+      <longName>ti.uia.events.UIAErr.illegalInstruction</longName>
+      <shortName>UIAErr_illegalInstruction</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Illegal+Instruction+executed+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="5977">
+      <longName>ti.uia.events.UIAErr.entryPointNotFound</longName>
+      <shortName>UIAErr_entryPointNotFound</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Entry+Point+Not+Found+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="6014">
+      <longName>ti.uia.events.UIAErr.moduleNotFound</longName>
+      <shortName>UIAErr_moduleNotFound</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Module+not+found+at+%25%24F.+[MODULE_ID]0x%25x.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="6063">
+      <longName>ti.uia.events.UIAErr.floatingPointError</longName>
+      <shortName>UIAErr_floatingPointError</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Floating+Point+Error+at+%25%24F.</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="6099">
+      <longName>ti.uia.events.UIAErr.invalidParameter</longName>
+      <shortName>UIAErr_invalidParameter</shortName>
+      <moduleId>32789</moduleId>
+      <diagMask>128</diagMask>
+      <msg>ERROR%3A+Invalid+Parameter+at+%25%24F.+[ParamNum]%25d+[ParamValue]0x%25x</msg>
+      <eventType>ERROR</eventType>
+   </evtMap>
+   <evtMap id="6162">
+      <longName>ti.uia.events.UIAEvt.warning</longName>
+      <shortName>UIAEvt_warning</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>128</diagMask>
+      <msg>WARNING%3A+EventCode%3A0x%25x</msg>
+      <eventType>WARNING</eventType>
+   </evtMap>
+   <evtMap id="6186">
+      <longName>ti.uia.events.UIAEvt.warningWithStr</longName>
+      <shortName>UIAEvt_warningWithStr</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>128</diagMask>
+      <msg>WARNING%3A+EventCode%3A0x%25x.+%25%24S</msg>
+      <eventType>WARNING</eventType>
+   </evtMap>
+   <evtMap id="6215">
+      <longName>ti.uia.events.UIAEvt.info</longName>
+      <shortName>UIAEvt_info</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>16384</diagMask>
+      <msg>INFO%3A+EventCode%3A+0x%25x</msg>
+      <eventType>INFO</eventType>
+   </evtMap>
+   <evtMap id="6237">
+      <longName>ti.uia.events.UIAEvt.infoWithStr</longName>
+      <shortName>UIAEvt_infoWithStr</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>16384</diagMask>
+      <msg>INFO%3A+EventCode%3A0x%25x.++%25%24S</msg>
+      <eventType>INFO</eventType>
+   </evtMap>
+   <evtMap id="6264">
+      <longName>ti.uia.events.UIAEvt.detail</longName>
+      <shortName>UIAEvt_detail</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>16384</diagMask>
+      <msg>DETAIL%3A+EventCode%3A0x%25x</msg>
+      <eventType>DETAILS</eventType>
+   </evtMap>
+   <evtMap id="6287">
+      <longName>ti.uia.events.UIAEvt.detailWithStr</longName>
+      <shortName>UIAEvt_detailWithStr</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>16384</diagMask>
+      <msg>DETAIL%3A+EventCode%3A0x%25x.++%25%24S</msg>
+      <eventType>DETAILS</eventType>
+   </evtMap>
+   <evtMap id="6316">
+      <longName>ti.uia.events.UIAEvt.intWithKey</longName>
+      <shortName>UIAEvt_intWithKey</shortName>
+      <moduleId>32790</moduleId>
+      <diagMask>32768</diagMask>
+      <msg>VALUE%3D%25d+%28AuxData%3D%25d%2C+%25d%29+Key%3A%25%24S</msg>
+      <eventType>ANALYSIS</eventType>
+      <dvtEventDescriptor name="metaEventIntWithKey">
+         <versionId>2.0</versionId>
+         <analysisType>ti.uia.events.DvtTypes.DvtAnalysisType_STATISTIC</analysisType>
+         <displayText>intWithKey</displayText>
+         <tooltipText>Value with a key string</tooltipText>
+         <isMultiEventRecordItem>false</isMultiEventRecordItem>
+         <numParameters>4</numParameters>
+         <parameter index="0">
+            <name>value</name>
+            <dvtDataDesc>ti.uia.events.DvtTypes.DvtDataDesc_VALUE</dvtDataDesc>
+            <dataTypeName>Int</dataTypeName>
+            <units>none</units>
+            <isHidden>false</isHidden>
+         </parameter>
+         <parameter index="1">
+            <name>aux1</name>
+            <dvtDataDesc>ti.uia.events.DvtTypes.DvtDataDesc_VALUE</dvtDataDesc>
+            <dataTypeName>Int</dataTypeName>
+            <units>none</units>
+            <isHidden>false</isHidden>
+         </parameter>
+         <parameter index="2">
+            <name>aux2</name>
+            <dvtDataDesc>ti.uia.events.DvtTypes.DvtDataDesc_VALUE</dvtDataDesc>
+            <dataTypeName>Int</dataTypeName>
+            <units>none</units>
+            <isHidden>false</isHidden>
+         </parameter>
+         <parameter index="3">
+            <name>key</name>
+            <dvtDataDesc>ti.uia.events.DvtTypes.DvtDataDesc_FMTSTR</dvtDataDesc>
+            <dataTypeName>String</dataTypeName>
+            <units>none</units>
+            <isHidden>false</isHidden>
+         </parameter>
+      </dvtEventDescriptor>
+   </evtMap>
+   <evtMap id="6350">
+      <longName>ti.uia.events.UIAProfile.enterFunctionAdrs</longName>
+      <shortName>UIAProfile_enterFunctionAdrs</shortName>
+      <moduleId>32791</moduleId>
+      <diagMask>1</diagMask>
+      <msg>enterFunctionAdrs%3A+taskHandle%3D0x%25x%2C+adrs%3D0x%25x</msg>
+      <eventType>ENTRY</eventType>
+   </evtMap>
+   <evtMap id="6396">
+      <longName>ti.uia.events.UIAProfile.exitFunctionAdrs</longName>
+      <shortName>UIAProfile_exitFunctionAdrs</shortName>
+      <moduleId>32791</moduleId>
+      <diagMask>2</diagMask>
+      <msg>exitFunctionAdrs%3A+taskHandle%3D0x%25x%2C+adrs%3D0x%25x</msg>
+      <eventType>EXIT</eventType>
+   </evtMap>
+   <evtMap id="6441">
+      <longName>ti.uia.events.UIAProfile.enterFunctionName</longName>
+      <shortName>UIAProfile_enterFunctionName</shortName>
+      <moduleId>32791</moduleId>
+      <diagMask>1</diagMask>
+      <msg>enterFunctionName%3A+taskHandle%3D0x%25x%2C+name%3D%25s</msg>
+      <eventType>ENTRY</eventType>
+   </evtMap>
+   <evtMap id="6485">
+      <longName>ti.uia.events.UIAProfile.exitFunctionName</longName>
+      <shortName>UIAProfile_exitFunctionName</shortName>
+      <moduleId>32791</moduleId>
+      <diagMask>2</diagMask>
+      <msg>exitFunctionName%3A+taskHandle%3D0x%25x%2C+name%3D%25s</msg>
+      <eventType>EXIT</eventType>
+   </evtMap>
+   <evtMap id="6528">
+      <longName>ti.sysbios.knl.Clock.LW_delayed</longName>
+      <shortName>Clock_LW_delayed</shortName>
+      <moduleId>32798</moduleId>
+      <diagMask>1024</diagMask>
+      <msg>LW_delayed%3A+delay%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6550">
+      <longName>ti.sysbios.knl.Clock.LM_tick</longName>
+      <shortName>Clock_LM_tick</shortName>
+      <moduleId>32798</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_tick%3A+tick%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6568">
+      <longName>ti.sysbios.knl.Clock.LM_begin</longName>
+      <shortName>Clock_LM_begin</shortName>
+      <moduleId>32798</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_begin%3A+clk%3A+0x%25x%2C+func%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="6600">
+      <longName>ti.sysbios.knl.Event.LM_post</longName>
+      <shortName>Event_LM_post</shortName>
+      <moduleId>32801</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_post%3A+event%3A+0x%25x%2C+currEvents%3A+0x%25x%2C+eventId%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="6654">
+      <longName>ti.sysbios.knl.Event.LM_pend</longName>
+      <shortName>Event_LM_pend</shortName>
+      <moduleId>32801</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_pend%3A+event%3A+0x%25x%2C+currEvents%3A+0x%25x%2C+andMask%3A+0x%25x%2C+orMask%3A+0x%25x%2C+timeout%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6735">
+      <longName>ti.sysbios.knl.Semaphore.LM_post</longName>
+      <shortName>Semaphore_LM_post</shortName>
+      <moduleId>32803</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_post%3A+sem%3A+0x%25x%2C+count%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6765">
+      <longName>ti.sysbios.knl.Semaphore.LM_pend</longName>
+      <shortName>Semaphore_LM_pend</shortName>
+      <moduleId>32803</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_pend%3A+sem%3A+0x%25x%2C+count%3A+%25d%2C+timeout%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6808">
+      <longName>ti.sysbios.knl.Swi.LM_begin</longName>
+      <shortName>Swi_LM_begin</shortName>
+      <moduleId>32804</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_begin%3A+swi%3A+0x%25x%2C+func%3A+0x%25x%2C+preThread%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6855">
+      <longName>ti.sysbios.knl.Swi.LD_end</longName>
+      <shortName>Swi_LD_end</shortName>
+      <moduleId>32804</moduleId>
+      <diagMask>512</diagMask>
+      <msg>LD_end%3A+swi%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="6873">
+      <longName>ti.sysbios.knl.Swi.LM_post</longName>
+      <shortName>Swi_LM_post</shortName>
+      <moduleId>32804</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_post%3A+swi%3A+0x%25x%2C+func%3A+0x%25x%2C+pri%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="6913">
+      <longName>ti.sysbios.knl.Task.LM_switch</longName>
+      <shortName>Task_LM_switch</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_switch%3A+oldtsk%3A+0x%25x%2C+oldfunc%3A+0x%25x%2C+newtsk%3A+0x%25x%2C+newfunc%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="6981">
+      <longName>ti.sysbios.knl.Task.LM_sleep</longName>
+      <shortName>Task_LM_sleep</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_sleep%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x%2C+timeout%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="7026">
+      <longName>ti.sysbios.knl.Task.LD_ready</longName>
+      <shortName>Task_LD_ready</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>512</diagMask>
+      <msg>LD_ready%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x%2C+pri%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="7067">
+      <longName>ti.sysbios.knl.Task.LD_block</longName>
+      <shortName>Task_LD_block</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>512</diagMask>
+      <msg>LD_block%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="7099">
+      <longName>ti.sysbios.knl.Task.LM_yield</longName>
+      <shortName>Task_LM_yield</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_yield%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x%2C+currThread%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="7147">
+      <longName>ti.sysbios.knl.Task.LM_setPri</longName>
+      <shortName>Task_LM_setPri</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_setPri%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x%2C+oldPri%3A+%25d%2C+newPri+%25d</msg>
+   </evtMap>
+   <evtMap id="7203">
+      <longName>ti.sysbios.knl.Task.LD_exit</longName>
+      <shortName>Task_LD_exit</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>512</diagMask>
+      <msg>LD_exit%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="7234">
+      <longName>ti.sysbios.knl.Task.LM_setAffinity</longName>
+      <shortName>Task_LM_setAffinity</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_setAffinity%3A+tsk%3A+0x%25x%2C+func%3A+0x%25x%2C+oldCore%3A+%25d%2C+oldAffinity+%25d%2C+newAffinity+%25d</msg>
+   </evtMap>
+   <evtMap id="7317">
+      <longName>ti.sysbios.knl.Task.LM_schedule</longName>
+      <shortName>Task_LM_schedule</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>1024</diagMask>
+      <msg>LD_schedule%3A+coreId%3A+%25d%2C+workFlag%3A+%25d%2C+curSetLocal%3A+%25d%2C+curSetX%3A+%25d%2C+curMaskLocal%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="7403">
+      <longName>ti.sysbios.knl.Task.LM_noWork</longName>
+      <shortName>Task_LM_noWork</shortName>
+      <moduleId>32805</moduleId>
+      <diagMask>1024</diagMask>
+      <msg>LD_noWork%3A+coreId%3A+%25d%2C+curSetLocal%3A+%25d%2C+curSetX%3A+%25d%2C+curMaskLocal%3A+%25d</msg>
+   </evtMap>
+   <evtMap id="7473">
+      <longName>ti.sysbios.family.arm.m3.Hwi.LM_begin</longName>
+      <shortName>Hwi_LM_begin</shortName>
+      <moduleId>32818</moduleId>
+      <diagMask>768</diagMask>
+      <msg>LM_begin%3A+hwi%3A+0x%25x%2C+func%3A+0x%25x%2C+preThread%3A+%25d%2C+intNum%3A+%25d%2C+irp%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="7543">
+      <longName>ti.sysbios.family.arm.m3.Hwi.LD_end</longName>
+      <shortName>Hwi_LD_end</shortName>
+      <moduleId>32818</moduleId>
+      <diagMask>512</diagMask>
+      <msg>LD_end%3A+hwi%3A+0x%25x</msg>
+   </evtMap>
+   <evtMap id="7561">
+      <longName>ti.uia.loggers.LoggerStopMode.L_test</longName>
+      <shortName>LoggerStopMode_L_test</shortName>
+      <moduleId>32829</moduleId>
+      <diagMask>256</diagMask>
+      <msg>LoggerStopMode+Test</msg>
+   </evtMap>
+   <evtMap id="7581">
+      <longName>ti.sysbios.utils.Load.LS_cpuLoad</longName>
+      <shortName>Load_LS_cpuLoad</shortName>
+      <moduleId>32831</moduleId>
+      <diagMask>2048</diagMask>
+      <msg>LS_cpuLoad%3A+%25d%25%25</msg>
+   </evtMap>
+   <evtMap id="7598">
+      <longName>ti.sysbios.utils.Load.LS_hwiLoad</longName>
+      <shortName>Load_LS_hwiLoad</shortName>
+      <moduleId>32831</moduleId>
+      <diagMask>2048</diagMask>
+      <msg>LS_hwiLoad%3A+%25d%2C%25d</msg>
+   </evtMap>
+   <evtMap id="7616">
+      <longName>ti.sysbios.utils.Load.LS_swiLoad</longName>
+      <shortName>Load_LS_swiLoad</shortName>
+      <moduleId>32831</moduleId>
+      <diagMask>2048</diagMask>
+      <msg>LS_swiLoad%3A+%25d%2C%25d</msg>
+   </evtMap>
+   <evtMap id="7634">
+      <longName>ti.sysbios.utils.Load.LS_taskLoad</longName>
+      <shortName>Load_LS_taskLoad</shortName>
+      <moduleId>32831</moduleId>
+      <diagMask>2048</diagMask>
+      <msg>LS_taskLoad%3A+0x%25x%2C%25d%2C%25d%2C0x%25x</msg>
+   </evtMap>
+   <modIdMap id="32770">
+      <moduleName>xdc.runtime.Assert</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Assert.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32771">
+      <moduleName>xdc.runtime.Core</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32772">
+      <moduleName>xdc.runtime.Defaults</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32773">
+      <moduleName>xdc.runtime.Diags</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Diags.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32774">
+      <moduleName>xdc.runtime.Error</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Error.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32775">
+      <moduleName>xdc.runtime.Gate</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Gate.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32776">
+      <moduleName>xdc.runtime.Log</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Log.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32777">
+      <moduleName>xdc.runtime.Main</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32778">
+      <moduleName>xdc.runtime.Memory</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Memory.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32779">
+      <moduleName>xdc.runtime.Registry</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Registry.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32780">
+      <moduleName>xdc.runtime.Startup</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Startup.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32781">
+      <moduleName>xdc.runtime.System</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>System.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32782">
+      <moduleName>xdc.runtime.SysStd</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>SysStd.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32783">
+      <moduleName>xdc.runtime.Text</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Text.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32784">
+      <moduleName>xdc.runtime.Timestamp</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>Timestamp.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32785">
+      <moduleName>xdc.runtime.Types</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="1">
+      <moduleName>xdc.runtime.Main_Module_GateProxy</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="2">
+      <moduleName>xdc.runtime.Memory_HeapProxy</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="3">
+      <moduleName>xdc.runtime.System_SupportProxy</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="4">
+      <moduleName>xdc.runtime.System_Module_GateProxy</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="5">
+      <moduleName>xdc.runtime.Timestamp_SupportProxy</moduleName>
+      <packageVersion>2,1,0,0</packageVersion>
+      <packageBase>C:/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32788">
+      <moduleName>ti.uia.events.DvtTypes</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/events/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32789">
+      <moduleName>ti.uia.events.UIAErr</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/events/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32790">
+      <moduleName>ti.uia.events.UIAEvt</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/events/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32791">
+      <moduleName>ti.uia.events.UIAProfile</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/events/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32793">
+      <moduleName>ti.uia.runtime.EventHdr</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32794">
+      <moduleName>ti.uia.runtime.QueueDescriptor</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/runtime/</packageBase>
+      <cFileName>QueueDescriptor.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32795">
+      <moduleName>ti.uia.runtime.UIAMetaData</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/runtime/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32798">
+      <moduleName>ti.sysbios.knl.Clock</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Clock.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32799">
+      <moduleName>ti.sysbios.knl.Idle</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Idle.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32800">
+      <moduleName>ti.sysbios.knl.Intrinsics</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Intrinsics.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32801">
+      <moduleName>ti.sysbios.knl.Event</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Event.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32802">
+      <moduleName>ti.sysbios.knl.Queue</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Queue.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32803">
+      <moduleName>ti.sysbios.knl.Semaphore</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Semaphore.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32804">
+      <moduleName>ti.sysbios.knl.Swi</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Swi.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32805">
+      <moduleName>ti.sysbios.knl.Task</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>Task.c</cFileName>
+   </modIdMap>
+   <modIdMap id="6">
+      <moduleName>ti.sysbios.knl.Clock_TimerProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="7">
+      <moduleName>ti.sysbios.knl.Intrinsics_SupportProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="8">
+      <moduleName>ti.sysbios.knl.Task_SupportProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/knl/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32807">
+      <moduleName>ti.sysbios.heaps.HeapMem</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/heaps/</packageBase>
+      <cFileName>HeapMem.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32808">
+      <moduleName>ti.sysbios.heaps.HeapTrack</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/heaps/</packageBase>
+      <cFileName>HeapTrack.c</cFileName>
+   </modIdMap>
+   <modIdMap id="9">
+      <moduleName>ti.sysbios.heaps.HeapMem_Module_GateProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/heaps/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32810">
+      <moduleName>ti.sysbios.hal.Hwi</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/hal/</packageBase>
+      <cFileName>Hwi.c</cFileName>
+   </modIdMap>
+   <modIdMap id="10">
+      <moduleName>ti.sysbios.hal.Hwi_HwiProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/hal/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32811">
+      <moduleName>ti.sysbios.BIOS</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/</packageBase>
+      <cFileName>BIOS.c</cFileName>
+   </modIdMap>
+   <modIdMap id="11">
+      <moduleName>ti.sysbios.BIOS_RtsGateProxy</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32816">
+      <moduleName>ti.sysbios.family.arm.msp432.init.Boot</moduleName>
+      <packageVersion>1,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/msp432/init/</packageBase>
+      <cFileName>Boot.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32818">
+      <moduleName>ti.sysbios.family.arm.m3.Hwi</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/m3/</packageBase>
+      <cFileName>Hwi.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32819">
+      <moduleName>ti.sysbios.family.arm.m3.IntrinsicsSupport</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/m3/</packageBase>
+      <cFileName>null</cFileName>
+   </modIdMap>
+   <modIdMap id="32820">
+      <moduleName>ti.sysbios.family.arm.m3.TaskSupport</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/m3/</packageBase>
+      <cFileName>TaskSupport.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32821">
+      <moduleName>ti.sysbios.family.arm.m3.Timer</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/m3/</packageBase>
+      <cFileName>Timer.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32822">
+      <moduleName>ti.sysbios.family.arm.m3.TimestampProvider</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/m3/</packageBase>
+      <cFileName>TimestampProvider.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32824">
+      <moduleName>ti.sysbios.gates.GateHwi</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/gates/</packageBase>
+      <cFileName>GateHwi.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32825">
+      <moduleName>ti.sysbios.gates.GateMutex</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/gates/</packageBase>
+      <cFileName>GateMutex.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32826">
+      <moduleName>ti.sysbios.family.arm.msp432.Timer</moduleName>
+      <packageVersion>1,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/msp432/</packageBase>
+      <cFileName>Timer.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32827">
+      <moduleName>ti.sysbios.family.arm.msp432.ClockFreqs</moduleName>
+      <packageVersion>1,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/family/arm/msp432/</packageBase>
+      <cFileName>ClockFreqs.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32829">
+      <moduleName>ti.uia.loggers.LoggerStopMode</moduleName>
+      <packageVersion>1,0,0,2,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/uia_2_00_06_52/packages/ti/uia/loggers/</packageBase>
+      <cFileName>LoggerStopMode.c</cFileName>
+   </modIdMap>
+   <modIdMap id="32831">
+      <moduleName>ti.sysbios.utils.Load</moduleName>
+      <packageVersion>2,0,0,0,0</packageVersion>
+      <packageBase>C:/ti/tirtos_msp43x_2_20_00_06/products/bios_6_46_00_23/packages/ti/sysbios/utils/</packageBase>
+      <cFileName>Load.c</cFileName>
+   </modIdMap>
+   <transport2>
+      <uploadMode>JTAGSTOPMODE</uploadMode>
+      <isMultiCoreTransport>false</isMultiCoreTransport>
+      <supportControl>false</supportControl>
+      <format>UIAPACKET</format>
+      <transportType>JTAGSTOPMODE</transportType>
+   </transport2>
+   <transport>
+   <!-- This tag must be here for DVT to work. All data is in transport2 -->
+   </transport>
+   <services>
+   </services>
+   <LoggingSetupConfig>
+      <!-- System Analyzer Event Sources -->
+      <SystemAnalyzerEventSources>
+         <RTOS_Execution_Analysis>true</RTOS_Execution_Analysis>
+         <RTOS_Execution_Analysis_Caption> </RTOS_Execution_Analysis_Caption>
+         <RTOS_Load_Analysis>true</RTOS_Load_Analysis>
+         <RTOS_Load_Analysis_Caption> </RTOS_Load_Analysis_Caption>
+         <Context_Aware_Function_Profiler>true</Context_Aware_Function_Profiler>
+         <Context_Aware_Function_Profiler_Caption> </Context_Aware_Function_Profiler_Caption>
+         <Task_Profiler>false</Task_Profiler>
+         <Task_Profiler_Caption>Enable &quot;Task Profiler&quot;</Task_Profiler_Caption>
+         <EWIP_Events>true</EWIP_Events>
+         <EWIP_Events_Caption> </EWIP_Events_Caption>
+         <Benchmarking>false</Benchmarking>
+         <Benchmarking_Caption>Enable &quot;Benchmarking&quot;</Benchmarking_Caption>
+         <Counting_and_Graphing>false</Counting_and_Graphing>
+         <Counting_and_Graphing_Caption>Enable &quot;Counting and Graphing&quot;</Counting_and_Graphing_Caption>
+         <Snapshot_Events>false</Snapshot_Events>
+         <Snapshot_Events_Caption>Enable &quot;Snapshot Events&quot;</Snapshot_Events_Caption>
+         <Multicore_Event_Correlation>false</Multicore_Event_Correlation>
+         <Multicore_Event_Correlation_Caption>Enable &quot;Multicore Event Correlation&quot;</Multicore_Event_Correlation_Caption>
+         <Task_Context>true</Task_Context>
+         <Task_Context_Caption> </Task_Context_Caption>
+         <HWI_Context>false</HWI_Context>
+         <HWI_Context_Caption>Enable &quot;RTOS Execution Analysis&quot; - &quot;Hwi&quot;</HWI_Context_Caption>
+         <SWI_Context>true</SWI_Context>
+         <SWI_Context_Caption> </SWI_Context_Caption>
+         <Semaphores>true</Semaphores>
+         <Semaphores_Caption> </Semaphores_Caption>
+         <CPU_Load>true</CPU_Load>
+         <CPU_Load_Caption> </CPU_Load_Caption>
+         <Task_Load>false</Task_Load>
+         <Task_Load_Caption>Enable &quot;RTOS Load Analysis&quot; - &quot;Task Load&quot;</Task_Load_Caption>
+         <HWI_Load>false</HWI_Load>
+         <HWI_Load_Caption>Enable &quot;RTOS Load Analysis&quot; - &quot;Hwi Load&quot;</HWI_Load_Caption>
+         <SWI_Load>false</SWI_Load>
+         <SWI_Load_Caption>Enable &quot;RTOS Load Analysis&quot; - &quot;Swi Load&quot;</SWI_Load_Caption>
+      </SystemAnalyzerEventSources>
+      <!-- User-friendly buffer names (aligned with LoggingSetup.xml captions) -->
+      <BufferNames>
+         <logger name="Load Logger">Load Logger Events Buffer</logger>
+         <logger name="Main Logger">Main Logger Events Buffer</logger>
+         <logger name="SYSBIOS System Logger">SYSBIOS System Logger Events Buffer</logger>
+      </BufferNames>
+      <mainLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#1</instance>
+         <name>Main Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </mainLogger>
+      <loadLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#0</instance>
+         <name>Load Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </loadLogger>
+      <taskLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </taskLogger>
+      <hwiLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </hwiLogger>
+      <swiLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </swiLogger>
+      <semaphoreLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </semaphoreLogger>
+      <eventLogger>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
+      </eventLogger>
+      <syncLogger>
+         <instance>null</instance>
+         <name>null</name>
+      </syncLogger>
+      <!-- transportType enumeration values -->
+      <TransportTypeEnum>
+         <Name Value="0">JTAG_STOPMODE</Name>
+         <Name Value="1">JTAG_RUNMODE</Name>
+         <Name Value="3">SERIAL</Name>
+         <Name Value="4">ETHERNET</Name>
+         <Name Value="5">USER</Name>
+         <Name Value="6">NONE</Name>
+      </TransportTypeEnum>
+   </LoggingSetupConfig>
+   <!-- CPU Clock settings for MSP432P401R cortexm4 device. -->
+   <cpuClock>
+      <maxClockFreqMSW>0</maxClockFreqMSW>
+      <maxClockFreqLSW>32000000</maxClockFreqLSW>
+      <canFrequencyBeChanged>false</canFrequencyBeChanged>
+   </cpuClock>
+   <eventCorrelation>
+      <isEnabled>false</isEnabled>
+      <cpuTimestamp>
+         <!-- cortexm4 device uses an internal timestamp -->
+         <maxTimerFreqMSW>0</maxTimerFreqMSW>
+         <maxTimerFreqLSW>32000000</maxTimerFreqLSW>
+         <cyclesPerTick>1</cyclesPerTick>
+      </cpuTimestamp>
+   </eventCorrelation>
+</uiaEventData>

@@ -1,0 +1,41 @@
+/*
+ * Project_Defines.h
+ *
+ *  Created on: Jun 5, 2018
+ *      Author: x0238818
+ */
+
+#ifndef PROJECT_DEFINES_H_
+#define PROJECT_DEFINES_H_
+
+#define AFE_ENABLE 0
+<<<<<<< HEAD
+#define ADS_ENABLE 1     // Also enable ADS_STAND_ALONE
+=======
+#define ADS_ENABLE 1
+>>>>>>> bitbucket/TIDA_Board_debug
+
+#define EVM_BOARD  0
+#define TIDA_BOARD 1
+
+#define SYNCHRONIZE 0     // Enable this for the complete sync of AFE,ADS,TMP,Pace detect.
+
+#define TEMP_MODULE_EN  0 //If testing in EVM make sure that the ADS and AFE are not enabled, since I2C and SPI uses the same Base module.
+
+<<<<<<< HEAD
+#define ADS_STAND_ALONE 1 //Use this if you are using only ADS in TIDA/EVM board.
+=======
+//#define ADS_STAND_ALONE 0 //Use this if you are using only ADS in TIDA/EVM board.
+>>>>>>> bitbucket/TIDA_Board_debug
+
+#define PACE_DETECT_EN  0
+
+#define SAMP_500_SPS  0x1F4 //500sps
+
+uint32_t Led_1, Led_1_amb, Led_2, Led_2_amb, ecg, resp, motion, leadoff_detect;
+uint16_t Tmp_1,Tmp_2,Tmp_3;
+uint8_t pace_height,pace_width,pace_rise_time,pace_detected,patient_alarmed;
+
+uint8_t AFE_READ_DONE;
+
+#endif /* PROJECT_DEFINES_H_ */

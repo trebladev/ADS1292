@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mcu.msp432.driverlib.product" version="1, 0, 0" producerId="C%3A%5Cspace%5Cmsp432-driverlib%5Cimports%5Crtsc/">
+    <units>
+        <module name="ProductView"/>
+        <module name="DriverLib"/>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mcu_msp432_driverlib_product.zip.dep" src="package/rel/ti_mcu_msp432_driverlib_product.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mcu_msp432_driverlib_product"
+        pname="ti_mcu_msp432_driverlib_product.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="icons"/>
+        <file name="DriverLib.xml"/>
+        <file name="DriverLib.xdt"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

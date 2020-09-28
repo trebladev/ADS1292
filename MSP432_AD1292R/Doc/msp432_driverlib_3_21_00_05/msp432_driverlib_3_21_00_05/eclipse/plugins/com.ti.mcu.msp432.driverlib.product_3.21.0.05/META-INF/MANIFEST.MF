@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.he
+ lp,org.eclipse.rtsc.xdctools.ui;resolution:=optional
+Bundle-Vendor: Texas Instruments Inc.
+Eclipse-LazyStart: true
+Bundle-Version: 3.21.0.05
+Bundle-Name: MSP432 DriverLib Embedded Runtime Content
+Bundle-Localization: plugin
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.rtsc.xdctools.ui.CCSActivator;resolution
+ :=optional
+Created-By: 1.7.0_60 (Oracle Corporation)
+Bundle-SymbolicName: com.ti.mcu.msp432.driverlib.product_3.21.0.05;sin
+ gleton:=true
+
+Name: plugin.xml
+SHA-256-Digest: fIxJTpEcHFpgwQ7UCm710Mnh5suq0neTOCx/Nd1pyl8=
+
+Name: about.ini
+SHA-256-Digest: vDy79MtWji7eBGvotlX/cKN0JawNxYTn9i6bMIJ4mPs=
+

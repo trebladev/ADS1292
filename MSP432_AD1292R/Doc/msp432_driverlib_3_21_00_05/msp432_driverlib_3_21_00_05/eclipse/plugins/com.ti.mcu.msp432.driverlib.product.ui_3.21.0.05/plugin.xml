@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin
+    name="MSP432 DriverLib IDE Support"
+    id="com.ti.mcu.msp432.driverlib.product.ui"
+    version="3.21.0.05"
+    provider-name="Texas Instruments Inc.">
+
+    <extension point="org.eclipse.help.toc">
+        <toc file="toc_top.xml" primary="true"/>
+        <toc file="eclipse_toc.xml"/>
+    </extension>
+
+    <extension point="org.eclipse.help.contentProducer">
+        <contentProducer>
+            <producer class="org.eclipse.rtsc.xdctools.ui.help.HelpContentProducer"/>
+        </contentProducer>
+    </extension>
+
+    <extension
+         point="org.eclipse.core.variables.dynamicVariables">
+     <variable 
+        name="msp432_DRIVERLIB_ROOT"
+        resolver="org.eclipse.rtsc.xdctools.ui.macros.MacroResolver"
+        description="Returns the absolute path to the location of DriverLib (msp432) selected in Window->Preferences->CCS->RTSC preference page. If no DriverLib version is selected, returns the location of the highest available version.">
+     </variable>
+   </extension>
+
+    <extension point="com.ti.common.project.core.projectTemplates">
+        <templateGroup
+            id="ti.mcu.msp432.driverlib.examples"
+            description="Examples using MSP432 DriverLib."
+            name="MSP432 DriverLib">
+            <property name="productType" value="com.ti.mcu.msp432.driverlib"/>
+        </templateGroup>
+        <templateGroup
+            id="ti.mcu.msp432.driverlib.fragments"
+            description="These templates are used to add MSP432 DriverLib to an existing project."
+            name="MSP432 DriverLib Additions">
+            <property name="productType" value="com.ti.mcu.msp432.driverlib"/>
+        </templateGroup>
+
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="TI"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_0_title"
+                 id="com.ti.mcu.msp432.driverlib.example_0"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 description="%example_0_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <property name="buildProfile" value="debug"/>
+                 <property name="isHybrid" value="false"/>
+                 <group id="ti.mcu.msp432.driverlib.examples"/>
+                 <file path="resources/./empty/MSP432P4xx/main.c" openOnCreation="true" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/ccs/msp432p4xx_driverlib.lib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="GNU"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_1_title"
+                 id="com.ti.mcu.msp432.driverlib.example_1"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 linkerBuildOptions="-lnosys"
+                 isFragment="true"
+                 description="%example_1_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <group id="ti.mcu.msp432.driverlib.fragments"/>
+                 <file path="resources/./empty/MSP432P4xx/gcc/msp432p4xx_driverlib.a" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="GNU"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_2_title"
+                 id="com.ti.mcu.msp432.driverlib.example_2"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 linkerBuildOptions="-lnosys"
+                 isFragment="true"
+                 description="%example_2_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <group id="ti.mcu.msp432.driverlib.fragments"/>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="TI"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_3_title"
+                 id="com.ti.mcu.msp432.driverlib.example_3"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 isFragment="true"
+                 description="%example_3_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <group id="ti.mcu.msp432.driverlib.fragments"/>
+                 <file path="resources/./empty/MSP432P4xx/ccs/msp432p4xx_driverlib.lib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="TI"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_4_title"
+                 id="com.ti.mcu.msp432.driverlib.example_4"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 isFragment="true"
+                 description="%example_4_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <group id="ti.mcu.msp432.driverlib.fragments"/>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="GNU"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_5_title"
+                 id="com.ti.mcu.msp432.driverlib.example_5"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/MSP432P4xx"
+                 linkerBuildOptions="-lnosys"
+                 description="%example_5_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <property name="buildProfile" value="debug"/>
+                 <property name="isHybrid" value="false"/>
+                 <group id="ti.mcu.msp432.driverlib.examples"/>
+                 <file path="resources/./empty/MSP432P4xx/main.c" openOnCreation="true" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/gcc/msp432p4xx_driverlib.a" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="TI"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_6_title"
+                 id="com.ti.mcu.msp432.driverlib.example_6"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/msp432P4xx"
+                 description="%example_6_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <property name="buildProfile" value="debug"/>
+                 <property name="isHybrid" value="false"/>
+                 <group id="ti.mcu.msp432.driverlib.examples"/>
+                 <file path="resources/./empty/MSP432P4xx/main.c" openOnCreation="true" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+        <templateSet>
+            <applicability>
+                <when>
+                    <context
+                       deviceId="MSP432P4*"
+                       toolChain="GNU"
+                    />
+               </when>
+            </applicability>
+             <template
+                 title="%example_7_title"
+                 id="com.ti.mcu.msp432.driverlib.example_7"
+                 compilerBuildOptions="-I${PROJECT_ROOT}/driverlib/msp432P4xx"
+                 linkerBuildOptions="-lnosys"
+                 description="%example_7_description">
+                 <property name="products" value="com.ti.mcu.msp432.driverlib"/>
+                 <property name="buildProfile" value="debug"/>
+                 <property name="isHybrid" value="false"/>
+                 <group id="ti.mcu.msp432.driverlib.examples"/>
+                 <file path="resources/./empty/MSP432P4xx/main.c" openOnCreation="true" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/driverlib" openOnCreation="false" excludeFromBuild="false">
+                 </file>
+                 <file path="resources/./empty/MSP432P4xx/rom" openOnCreation="false" excludeFromBuild="true">
+                 </file>
+             </template>
+        </templateSet>
+    </extension>
+
+
+</plugin>

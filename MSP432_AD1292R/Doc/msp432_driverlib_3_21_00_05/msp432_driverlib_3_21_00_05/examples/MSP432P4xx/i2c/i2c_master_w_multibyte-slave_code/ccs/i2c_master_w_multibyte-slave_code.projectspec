@@ -1,0 +1,11 @@
+<projectSpec>
+  <project postBuildStep="${CCS_INSTALL_ROOT}/utils/tiobj2bin/tiobj2bin ${BuildArtifactFileName} ${BuildArtifactFileBaseName}.bin ${CG_TOOL_ROOT}/bin/armofd ${CG_TOOL_ROOT}/bin/armhex ${CCS_INSTALL_ROOT}/utils/tiobj2bin/mkhex4bin" compilerBuildOptions="-I${CCS_BASE_ROOT}/arm/include/ -I${CCS_BASE_ROOT}/arm/include/CMSIS -I${CG_TOOL_ROOT}/include/ -I${PROJECT_ROOT} -I${MSPWAREDLIB_ROOT} -mv7M4 --code_state=16 --float_support=FPv4SPD16 --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --gcc --define=ccs" device="Cortex M.MSP432P401R" name="i2c_master_w_multibyte-slave_code" ignoreDefaultDeviceSettings="true" linkerCommandFile="i2c_master_w_multibyte-slave_code_ccs.cmd" linkerBuildOptions="--stack_size=512">
+    <pathVariable name="MSPWAREDLIB_ROOT" path="../../../../../driverlib/MSP432P4xx/" scope="project" />
+    <file action="copy" path="../i2c_master_w_multibyte-slave_code.c" openOnCreation="true" />
+    <file action="copy" path="../i2c_master_w_multibyte-slave_code_ccs.cmd" />
+    <file action="copy" path="../startup_msp432p401r_ccs.c" />
+    <file action="copy" path="../system_msp432p401r.c" />
+    <file action="copy" path="../../../MSP432P401R.ccxml" />
+    <file action="link" path="${MSPWAREDLIB_ROOT}/ccs/msp432p4xx_driverlib.lib" />
+  </project>
+</projectSpec>
