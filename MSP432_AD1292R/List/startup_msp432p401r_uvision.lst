@@ -286,9 +286,9 @@ ARM Macro Assembler    Page 5
 ]
   167 00000000                 IMPORT           SystemInit
   168 00000000                 IMPORT           __main
-  169 00000000 4809            LDR              R0, =SystemInit
+  169 00000000 4806            LDR              R0, =SystemInit
   170 00000002 4780            BLX              R0
-  171 00000004 4809            LDR              R0, =__main
+  171 00000004 4806            LDR              R0, =__main
   172 00000006 4700            BX               R0
   173 00000008                 ENDP
   174 00000008         
@@ -504,44 +504,32 @@ ARM Macro Assembler    Page 8
   310 0000001C         ; User Initial Stack & Heap
   311 0000001C         
   312 0000001C                 IF               :DEF:__MICROLIB
-  319 0000001C         
-  320 0000001C                 IMPORT           __use_two_region_memory
-  321 0000001C                 EXPORT           __user_initial_stackheap
-  322 0000001C         
-  323 0000001C         __user_initial_stackheap
-                               PROC
-  324 0000001C 4804            LDR              R0, =  Heap_Mem
-  325 0000001E 4905            LDR              R1, =(Stack_Mem + Stack_Size)
-  326 00000020 4A03            LDR              R2, = (Heap_Mem +  Heap_Size)
-  327 00000022 4B05            LDR              R3, = Stack_Mem
-  328 00000024 4770            BX               LR
-  329 00000026                 ENDP
-  330 00000026         
-  331 00000026 00 00           ALIGN
+  313 0000001C         
+  314 0000001C                 EXPORT           __initial_sp
+  315 0000001C                 EXPORT           __heap_base
+  316 0000001C                 EXPORT           __heap_limit
+  317 0000001C         
+  318 0000001C                 ELSE
+  333                          ENDIF
+  334 0000001C         
+  335 0000001C         
+  336 0000001C                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=..\obj\startup_msp432p401r_uvision.d -o..\obj\startup_msp432p40
 
 
 
 ARM Macro Assembler    Page 9 
 
 
-  332 00000028         
-  333 00000028                 ENDIF
-  334 00000028         
-  335 00000028         
-  336 00000028                 END
-              00000000 
-              00000000 
-              00000000 
-              00000200 
-              00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=..\obj\startup_msp432p401r_uvision.d -o..\obj\startup_msp432p40
-1r_uvision.o -I.\RTE\_Target_1 -ID:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\In
-clude -ID:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include -ID:\keil\ARM\PACK\T
-exasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include --predefine="__EVAL SETA 1"
- --predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1" --predefin
-e="__MSP432P401R__ SETA 1" --list=..\list\startup_msp432p401r_uvision.lst RTE\D
-evice\MSP432P401R\startup_msp432p401r_uvision.s
+1r_uvision.o -I.\RTE\_Target_1 -ID:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\I
+nclude -ID:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include -ID:\keil5\ARM\PAC
+K\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include --predefine="__MICROLIB 
+SETA 1" --predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1" --p
+redefine="__MSP432P401R__ SETA 1" --list=..\list\startup_msp432p401r_uvision.ls
+t RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 
 
 
@@ -562,9 +550,8 @@ Symbol: Stack_Mem
    Definitions
       At line 46 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
-      At line 325 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-      At line 327 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-
+      None
+Comment: Stack_Mem unused
 __initial_sp 00000200
 
 Symbol: __initial_sp
@@ -572,7 +559,8 @@ Symbol: __initial_sp
       At line 47 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
       At line 73 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-Comment: __initial_sp used once
+      At line 314 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
+
 3 symbols
 
 
@@ -594,25 +582,24 @@ Symbol: Heap_Mem
    Definitions
       At line 58 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
-      At line 324 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-      At line 326 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-
+      None
+Comment: Heap_Mem unused
 __heap_base 00000000
 
 Symbol: __heap_base
    Definitions
       At line 57 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
-      None
-Comment: __heap_base unused
+      At line 315 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
+Comment: __heap_base used once
 __heap_limit 00000000
 
 Symbol: __heap_limit
    Definitions
       At line 59 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
-      None
-Comment: __heap_limit unused
+      At line 316 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
+Comment: __heap_limit used once
 4 symbols
 
 
@@ -1176,15 +1163,7 @@ Relocatable symbols
       At line 94 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
       At line 224 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 
-__user_initial_stackheap 0000001C
-
-Symbol: __user_initial_stackheap
-   Definitions
-      At line 323 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-   Uses
-      At line 321 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-Comment: __user_initial_stackheap used once
-54 symbols
+53 symbols
 
 
 
@@ -1198,8 +1177,7 @@ Symbol: Heap_Size
       At line 54 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
       At line 58 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-      At line 326 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-
+Comment: Heap_Size used once
 Stack_Size 00000200
 
 Symbol: Stack_Size
@@ -1207,8 +1185,7 @@ Symbol: Stack_Size
       At line 43 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
    Uses
       At line 46 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-      At line 325 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-
+Comment: Stack_Size used once
 __Vectors_Size 00000144
 
 Symbol: __Vectors_Size
@@ -1240,13 +1217,5 @@ Symbol: __main
    Uses
       At line 171 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 Comment: __main used once
-__use_two_region_memory 00000000
-
-Symbol: __use_two_region_memory
-   Definitions
-      At line 320 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
-   Uses
-      None
-Comment: __use_two_region_memory unused
-3 symbols
-409 symbols in table
+2 symbols
+405 symbols in table
