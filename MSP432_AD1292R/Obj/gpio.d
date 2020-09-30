@@ -1,0 +1,13 @@
+..\obj\gpio.o: ..\Src\gpio.c
+..\obj\gpio.o: ..\Lib\driverlib\MSP432P4xx\gpio.h
+..\obj\gpio.o: ..\Lib\inc\msp.h
+..\obj\gpio.o: ..\Lib\inc\msp432p401r.h
+..\obj\gpio.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gpio.o: ..\Lib\inc\msp_compatibility.h
+..\obj\gpio.o: ..\Lib\inc\msp432p401r_classic.h
+..\obj\gpio.o: ..\Lib\inc\CMSIS\Include\core_cm4.h
+..\obj\gpio.o: ..\Lib\inc\CMSIS\Include\cmsis_version.h
+..\obj\gpio.o: ..\Lib\inc\CMSIS\Include\cmsis_compiler.h
+..\obj\gpio.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
+..\obj\gpio.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
+..\obj\gpio.o: ..\Lib\inc\system_msp432p401r.h

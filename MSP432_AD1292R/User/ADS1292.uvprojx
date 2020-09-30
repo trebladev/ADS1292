@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>__MSP432P401R__,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Lib\inc\CMSIS\Include;..\Lib\driverlib\MSP432P4xx;..\Lib\inc;..\Inc</IncludePath>
+              <IncludePath>..\Lib\inc\CMSIS\Include;..\Lib\driverlib\MSP432P4xx;..\Lib\inc;..\Inc;..\Hardware</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -419,6 +419,18 @@
         </Group>
         <Group>
           <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>AD1292.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\AD1292.c</FilePath>
+            </File>
+            <File>
+              <FileName>AD1292.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\AD1292.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Sys</GroupName>
@@ -448,6 +460,16 @@
               <FileType>5</FileType>
               <FilePath>..\Inc\usart.h</FilePath>
             </File>
+            <File>
+              <FileName>gpio_u.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\gpio_u.h</FilePath>
+            </File>
+            <File>
+              <FileName>spi_u.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\spi_u.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -462,6 +484,16 @@
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_u.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\gpio_u.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_u.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\spi_u.c</FilePath>
             </File>
           </Files>
         </Group>
