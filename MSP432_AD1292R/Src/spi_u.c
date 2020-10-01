@@ -6,7 +6,7 @@ const eUSCI_SPI_MasterConfig spiMasterConfig =
         12000000,                                   // SMCLK = DCO = 3MHZ
         4000000,                                    // SPICLK = 500khz
         EUSCI_B_SPI_MSB_FIRST,                     // MSB First
-        EUSCI_B_SPI_PHASE_DATA_CAPTURED_ONFIRST_CHANGED_ON_NEXT,    // Phase
+        EUSCI_B_SPI_PHASE_DATA_CHANGED_ONFIRST_CAPTURED_ON_NEXT,    // Phase
         EUSCI_B_SPI_CLOCKPOLARITY_INACTIVITY_LOW, // High polarity
         EUSCI_B_SPI_3PIN                           // 3Wire SPI Mode
 };

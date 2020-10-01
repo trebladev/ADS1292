@@ -7,12 +7,14 @@
 #include <arm_math.h>
 #include <gpio_u.h>
 #include <AD1292.h>
+#include <spi_u.h>
 
 uint8_t TXData = 2;
 
 int main()
 {
 		u8 res,i,sum;	
+		float val;
 	  uint8_t data_to_send[60];//串口发送缓存
 		uint8_t usbstatus=0;	
 		u32 cannle[2];	//存储两个通道的数据
@@ -34,6 +36,8 @@ int main()
 		
 		
 		Usart_Init();
+		
+	
 
 		FPU_enableModule();
     /* Configuring P1.0 as output */
@@ -48,6 +52,8 @@ int main()
 		//MAP_Interrupt_enableMaster(); 
 		
 		GPIO_Init();
+		
+		SPI_Init();
 		
 		delay_init(CS_getMCLK());
 		
@@ -83,6 +89,9 @@ int main()
 								//有符号数为再转为无符号，无符号数为逻辑右移
 								cannle[0] = p_Temp[0];
 								cannle[1]	= p_Temp[1];
+								
+								val = cannle[1];
+								/*
 								data_to_send[4]=cannle[0]>>24;		//25-32位
 								data_to_send[5]=cannle[0]>>16;  	//17-24
 								data_to_send[6]=cannle[0]>>8;		//9-16
@@ -97,7 +106,8 @@ int main()
 										sum += data_to_send[i];							
 								data_to_send[12] = sum;	//校验和																		
 								//DMA_Enable(DMA1_Channel4,13);//串口1DMA 
-																							
+								*/
+								printf("%f\r\n",val);
 								ads1292_recive_flag=0;
 								sum = 0;	
 				}
@@ -135,11 +145,11 @@ void PORT3_IRQHandler(void)
 {
     uint32_t status;
 
-    status = MAP_GPIO_getEnabledInterruptStatus(GPIO_PORT_P1);
-    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, status);
+    status = MAP_GPIO_getEnabledInterruptStatus(GPIO_PORT_P3);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P3, status);
 
     /* Toggling the output on the LED */
-    if(status & !GPIO_PIN3)
+    if(status == GPIO_PIN6)
     {
         PA8_IRQHandler();//MAP_GPIO_toggleOutputOnPin(GPIO_PORT_P1, GPIO_PIN0);
     }
