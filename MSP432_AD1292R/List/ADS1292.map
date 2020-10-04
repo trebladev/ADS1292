@@ -1130,15 +1130,15 @@ Image Symbol Table
     i.is_A_Module                            0x00002426   Section        0  spi.o(i.is_A_Module)
     is_A_Module                              0x00002427   Thumb Code    46  spi.o(i.is_A_Module)
     i.main                                   0x00002454   Section        0  main.o(i.main)
-    .constdata                               0x00002568   Section       40  usart.o(.constdata)
-    .constdata                               0x00002590   Section       28  spi_u.o(.constdata)
-    .constdata                               0x000025ac   Section      144  interrupt.o(.constdata)
-    g_pulEnRegs                              0x000025ac   Data           8  interrupt.o(.constdata)
-    g_pulDisRegs                             0x000025b4   Data           8  interrupt.o(.constdata)
-    g_pulPendRegs                            0x000025bc   Data           8  interrupt.o(.constdata)
-    g_pulUnpendRegs                          0x000025c4   Data           8  interrupt.o(.constdata)
-    g_pulPriority                            0x000025cc   Data          32  interrupt.o(.constdata)
-    g_pulRegs                                0x000025ec   Data          80  interrupt.o(.constdata)
+    .constdata                               0x00002570   Section       40  usart.o(.constdata)
+    .constdata                               0x00002598   Section       28  spi_u.o(.constdata)
+    .constdata                               0x000025b4   Section      144  interrupt.o(.constdata)
+    g_pulEnRegs                              0x000025b4   Data           8  interrupt.o(.constdata)
+    g_pulDisRegs                             0x000025bc   Data           8  interrupt.o(.constdata)
+    g_pulPendRegs                            0x000025c4   Data           8  interrupt.o(.constdata)
+    g_pulUnpendRegs                          0x000025cc   Data           8  interrupt.o(.constdata)
+    g_pulPriority                            0x000025d4   Data          32  interrupt.o(.constdata)
+    g_pulRegs                                0x000025f4   Data          80  interrupt.o(.constdata)
     .data                                    0x20000000   Section       56  ad1292.o(.data)
     f                                        0x20000030   Data           4  ad1292.o(.data)
     i                                        0x20000034   Data           4  ad1292.o(.data)
@@ -1366,11 +1366,11 @@ Image Symbol Table
     delay_us                                 0x000023a1   Thumb Code    72  delay.o(i.delay_us)
     fputc                                    0x000023ed   Thumb Code    44  main.o(i.fputc)
     get_volt                                 0x0000241d   Thumb Code    10  ad1292.o(i.get_volt)
-    main                                     0x00002455   Thumb Code   216  main.o(i.main)
-    uartConfig                               0x00002568   Data          40  usart.o(.constdata)
-    spiMasterConfig                          0x00002590   Data          28  spi_u.o(.constdata)
-    Region$$Table$$Base                      0x0000263c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000265c   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x00002455   Thumb Code   222  main.o(i.main)
+    uartConfig                               0x00002570   Data          40  usart.o(.constdata)
+    spiMasterConfig                          0x00002598   Data          28  spi_u.o(.constdata)
+    Region$$Table$$Base                      0x00002644   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002664   Number         0  anon$$obj.o(Region$$Table)
     Ads1292_Config1                          0x20000000   Data           1  ad1292.o(.data)
     Ads1292_Config2                          0x20000001   Data           5  ad1292.o(.data)
     Ads1292_Ch1set                           0x20000006   Data           3  ad1292.o(.data)
@@ -1397,9 +1397,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000181
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000026d4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000026dc, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000265c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002664, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1514,30 +1514,30 @@ Memory Map of the image
     0x000023ec   0x000023ec   0x00000030   Code   RO            5    i.fputc             main.o
     0x0000241c   0x0000241c   0x0000000a   Code   RO          279    i.get_volt          ad1292.o
     0x00002426   0x00002426   0x0000002e   Code   RO          940    i.is_A_Module       msp432p4xx_driverlib.lib(spi.o)
-    0x00002454   0x00002454   0x00000114   Code   RO            7    i.main              main.o
-    0x00002568   0x00002568   0x00000028   Data   RO          456    .constdata          usart.o
-    0x00002590   0x00002590   0x0000001c   Data   RO          516    .constdata          spi_u.o
-    0x000025ac   0x000025ac   0x00000090   Data   RO          795    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
-    0x0000263c   0x0000263c   0x00000020   Data   RO         1544    Region$$Table       anon$$obj.o
+    0x00002454   0x00002454   0x0000011c   Code   RO            7    i.main              main.o
+    0x00002570   0x00002570   0x00000028   Data   RO          456    .constdata          usart.o
+    0x00002598   0x00002598   0x0000001c   Data   RO          516    .constdata          spi_u.o
+    0x000025b4   0x000025b4   0x00000090   Data   RO          795    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
+    0x00002644   0x00002644   0x00000020   Data   RO         1544    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x0000265c, Size: 0x00000078, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00002664, Size: 0x00000078, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0000265c   0x00000038   Data   RW          281    .data               ad1292.o
-    0x20000038   0x00002694   0x00000004   Data   RW          420    .data               delay.o
-    0x2000003c   0x00002698   0x00000008   Data   RW          584    .data               msp432p4xx_driverlib.lib(cs.o)
-    0x20000044   0x000026a0   0x00000030   Data   RW          748    .data               msp432p4xx_driverlib.lib(gpio.o)
-    0x20000074   0x000026d0   0x00000004   Data   RW         1518    .data               mc_w.l(stdout.o)
+    0x20000000   0x00002664   0x00000038   Data   RW          281    .data               ad1292.o
+    0x20000038   0x0000269c   0x00000004   Data   RW          420    .data               delay.o
+    0x2000003c   0x000026a0   0x00000008   Data   RW          584    .data               msp432p4xx_driverlib.lib(cs.o)
+    0x20000044   0x000026a8   0x00000030   Data   RW          748    .data               msp432p4xx_driverlib.lib(gpio.o)
+    0x20000074   0x000026d8   0x00000004   Data   RW         1518    .data               mc_w.l(stdout.o)
 
 
-    Execution Region ER_ZI (Exec base: 0x20000078, Load base: 0x000026d4, Size: 0x00000218, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000078, Load base: 0x000026dc, Size: 0x00000218, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000078        -       0x00000015   Zero   RW          280    .bss                ad1292.o
-    0x2000008d   0x000026d4   0x00000003   PAD
+    0x2000008d   0x000026dc   0x00000003   PAD
     0x20000090        -       0x00000200   Zero   RW          218    STACK               startup_msp432p401r_uvision.o
 
 
@@ -1551,7 +1551,7 @@ Image component sizes
       1470        194          0         56         21      13710   ad1292.o
        200         20          0          4          0       1735   delay.o
         46          0          0          0          0        480   gpio_u.o
-       352         64          0          0          0      28958   main.o
+       360         66          0          0          0      29050   main.o
        112         12         28          0          0       1717   spi_u.o
         36          8        324          0        512        868   startup_msp432p401r_uvision.o
         92          6          0          0          0        500   sys.o
@@ -1559,7 +1559,7 @@ Image component sizes
         36          8         40          0          0       1042   usart.o
 
     ----------------------------------------------------------------------
-      2504        346        424         60        536      49567   Object Totals
+      2512        348        424         60        536      49659   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          0          0          3          0   (incl. Padding)
 
@@ -1626,15 +1626,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9252        854        568        120        536      49795   Grand Totals
-      9252        854        568        120        536      49795   ELF Image Totals
-      9252        854        568        120          0          0   ROM Totals
+      9260        856        568        120        536      49887   Grand Totals
+      9260        856        568        120        536      49887   ELF Image Totals
+      9260        856        568        120          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9820 (   9.59kB)
+    Total RO  Size (Code + RO Data)                 9828 (   9.60kB)
     Total RW  Size (RW Data + ZI Data)               656 (   0.64kB)
-    Total ROM Size (Code + RO Data + RW Data)       9940 (   9.71kB)
+    Total ROM Size (Code + RO Data + RW Data)       9948 (   9.71kB)
 
 ==============================================================================
 

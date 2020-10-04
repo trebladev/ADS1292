@@ -1,7 +1,7 @@
 ..\obj\sys.o: ..\Sys\sys.c
 ..\obj\sys.o: ..\Inc\sys.h
-..\obj\sys.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\sys.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\sys.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\sys.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\sys.o: ..\Lib\driverlib\MSP432P4xx\driverlib.h
 ..\obj\sys.o: ..\Lib\driverlib\MSP432P4xx\adc14.h
 ..\obj\sys.o: ..\Lib\inc\msp.h
@@ -14,7 +14,7 @@
 ..\obj\sys.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
 ..\obj\sys.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
 ..\obj\sys.o: ..\Lib\inc\system_msp432p401r.h
-..\obj\sys.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\sys.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\sys.o: ..\Lib\driverlib\MSP432P4xx\aes256.h
 ..\obj\sys.o: ..\Lib\driverlib\MSP432P4xx\comp_e.h
 ..\obj\sys.o: ..\Lib\driverlib\MSP432P4xx\cpu.h

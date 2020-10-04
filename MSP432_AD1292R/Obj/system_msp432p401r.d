@@ -1,5 +1,5 @@
 ..\obj\system_msp432p401r.o: RTE\Device\MSP432P401R\system_msp432p401r.c
-..\obj\system_msp432p401r.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\system_msp432p401r.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\system_msp432p401r.o: ..\Lib\inc\msp.h
 ..\obj\system_msp432p401r.o: ..\Lib\inc\msp432p401r.h
 ..\obj\system_msp432p401r.o: ..\Lib\inc\msp_compatibility.h

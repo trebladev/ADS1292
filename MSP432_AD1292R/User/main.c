@@ -11,10 +11,18 @@
 
 uint8_t TXData = 2;
 
+typedef union TEST
+{
+	u32 a;
+	u8  b[4];
+}TEST_u;	
+
 int main()
 {
+		TEST_u utest1;
 		u8 res,i,sum;	
 		float val;
+	volatile int test;
 	  uint8_t data_to_send[60];//串口发送缓存
 		uint8_t usbstatus=0;	
 		u32 cannle[2];	//存储两个通道的数据
@@ -81,8 +89,10 @@ int main()
 				if(ads1292_recive_flag)
 					{										
 								cannle[0]=ads1292_Cache[3]<<16 | ads1292_Cache[4]<<8 | ads1292_Cache[5];//获取原始数据		
-								cannle[1]=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
-						
+								utest1.b[0] = ads1292_Cache[8];
+								utest1.b[1] = ads1292_Cache[7];
+								utest1.b[2] = ads1292_Cache[6];
+								test = utest1.a;
 								p_Temp[0] = get_volt(cannle[0]);	//把采到的3个字节转成有符号32位数
 								p_Temp[1] = get_volt(cannle[1]);	//把采到的3个字节转成有符号32位数
 					
