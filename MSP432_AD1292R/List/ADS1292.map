@@ -21,11 +21,22 @@ Section Cross References
     main.o(i.main) refers to cs.o(i.CS_getMCLK) for CS_getMCLK
     main.o(i.main) refers to delay.o(i.delay_init) for delay_init
     main.o(i.main) refers to ad1292.o(i.ADS1292_Init) for ADS1292_Init
+    main.o(i.main) refers to fir_48.o(i.arm_fir48_init) for arm_fir48_init
     main.o(i.main) refers to printfa.o(i.__0printf) for __2printf
     main.o(i.main) refers to ad1292.o(i.Set_ADS1292_Collect) for Set_ADS1292_Collect
     main.o(i.main) refers to gpio.o(i.GPIO_enableInterrupt) for GPIO_enableInterrupt
-    main.o(i.main) refers to ad1292.o(i.get_volt) for get_volt
+    main.o(i.main) refers to ad1292.o(i.Get_val_init_data) for Get_val_init_data
+    main.o(i.main) refers to ad1292.o(i.ADS1292_val_init) for ADS1292_val_init
+    main.o(i.main) refers to ad1292.o(i.get_channel_1_val) for get_channel_1_val
+    main.o(i.main) refers to fir_48.o(i.arm_fir_f32_lp_48) for arm_fir_f32_lp_48
+    main.o(i.main) refers to arm_copy_f32.o(.text) for arm_copy_f32
+    main.o(i.main) refers to medfilt1.o(i.midfilt1) for midfilt1
+    main.o(i.main) refers to findpeaks.o(i.maxim_peaks_above_min_height) for maxim_peaks_above_min_height
+    main.o(i.main) refers to bpm.o(i.bpm_calculate) for bpm_calculate
+    main.o(i.main) refers to usart_hmi.o(i.send_ending_flag) for send_ending_flag
     main.o(i.main) refers to f2d.o(.text) for __aeabi_f2d
+    main.o(i.main) refers to main.o(.bss) for breath_init_cache
+    main.o(i.main) refers to main.o(.data) for b1
     main.o(i.main) refers to ad1292.o(.data) for ads1292_recive_flag
     main.o(i.main) refers to ad1292.o(.bss) for ads1292_Cache
     startup_msp432p401r_uvision.o(RESET) refers to startup_msp432p401r_uvision.o(STACK) for __initial_sp
@@ -75,6 +86,7 @@ Section Cross References
     ad1292.o(i.ADS1292_val_init) refers to ddiv.o(.text) for __aeabi_ddiv
     ad1292.o(i.ADS1292_val_init) refers to d2f.o(.text) for __aeabi_d2f
     ad1292.o(i.ADS1292_val_init) refers to ad1292.o(.data) for maxIndex
+    ad1292.o(i.Get_val_init_data) refers to ad1292.o(i.get_channel_1_val) for get_channel_1_val
     ad1292.o(i.Get_val_init_data) refers to ad1292.o(i.get_volt) for get_volt
     ad1292.o(i.Get_val_init_data) refers to ad1292.o(.data) for ads1292_recive_flag
     ad1292.o(i.Get_val_init_data) refers to ad1292.o(.bss) for ads1292_Cache
@@ -86,6 +98,8 @@ Section Cross References
     ad1292.o(i.Set_ADS1292_Collect) refers to ad1292.o(i.ADS1292_Single_Test) for ADS1292_Single_Test
     ad1292.o(i.Set_ADS1292_Collect) refers to ad1292.o(i.ADS1292_Noise_Test) for ADS1292_Noise_Test
     ad1292.o(i.Set_ADS1292_Collect) refers to ad1292.o(i.ADS1292_Send_CMD) for ADS1292_Send_CMD
+    ad1292.o(i.get_channel_1_val) refers to ad1292.o(.bss) for ads1292_Cache
+    ad1292.o(i.get_channel_1_val) refers to ad1292.o(.data) for utest1
     sys.o(i.Msp432_Clock_Init) refers to gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin) for GPIO_setAsPeripheralModuleFunctionOutputPin
     sys.o(i.Msp432_Clock_Init) refers to cs.o(i.CS_setExternalClockSourceFrequency) for CS_setExternalClockSourceFrequency
     sys.o(i.Msp432_Clock_Init) refers to pcm.o(i.PCM_setCoreVoltageLevel) for PCM_setCoreVoltageLevel
@@ -112,6 +126,38 @@ Section Cross References
     spi_u.o(i.SPI_ReadWriteByte) refers to spi.o(i.SPI_isBusy) for SPI_isBusy
     spi_u.o(i.SPI_ReadWriteByte) refers to spi.o(i.SPI_transmitData) for SPI_transmitData
     spi_u.o(i.SPI_ReadWriteByte) refers to spi.o(i.SPI_receiveData) for SPI_receiveData
+    fir_48.o(i.arm_fir48_init) refers to arm_fir_init_f32.o(.text) for arm_fir_init_f32
+    fir_48.o(i.arm_fir48_init) refers to fir_48.o(.data) for block_size
+    fir_48.o(i.arm_fir48_init) refers to fir_48.o(.bss) for firStateF32_48
+    fir_48.o(i.arm_fir48_init) refers to fir_48.o(.constdata) for B
+    fir_48.o(i.arm_fir5_init) refers to arm_fir_init_f32.o(.text) for arm_fir_init_f32
+    fir_48.o(i.arm_fir5_init) refers to fir_48.o(.data) for block_size
+    fir_48.o(i.arm_fir5_init) refers to fir_48.o(.bss) for firStateF32_5
+    fir_48.o(i.arm_fir5_init) refers to fir_48.o(.constdata) for B5
+    fir_48.o(i.arm_fir_f32_lp_48) refers to arm_fir_f32.o(.text) for arm_fir_f32
+    fir_48.o(i.arm_fir_f32_lp_48) refers to fir_48.o(.data) for block_size
+    fir_48.o(i.arm_fir_f32_lp_48) refers to fir_48.o(.bss) for S
+    fir_48.o(i.arm_fir_f32_lp_5) refers to arm_fir_f32.o(.text) for arm_fir_f32
+    fir_48.o(i.arm_fir_f32_lp_5) refers to fir_48.o(.data) for block_size
+    fir_48.o(i.arm_fir_f32_lp_5) refers to fir_48.o(.bss) for S
+    bpm.o(i.bpm_calculate) refers to dflti.o(.text) for __aeabi_i2d
+    bpm.o(i.bpm_calculate) refers to ddiv.o(.text) for __aeabi_ddiv
+    bpm.o(i.bpm_calculate) refers to dmul.o(.text) for __aeabi_dmul
+    bpm.o(i.bpm_calculate) refers to dfixi.o(.text) for __aeabi_d2iz
+    findpeaks.o(i.maxim_remove_close_peaks) refers to findpeaks.o(i.maxim_sort_indices_descend) for maxim_sort_indices_descend
+    medfilt1.o(i.midfilt1) refers to arm_copy_f32.o(.text) for arm_copy_f32
+    medfilt1.o(i.midfilt1) refers to findpeaks.o(i.maxim_sort_ascend) for maxim_sort_ascend
+    medfilt1.o(i.midfilt1) refers to medfilt1.o(.bss) for mid_cache
+    usart_hmi.o(i.draw_curve) refers to usart_hmi.o(i.draw_point) for draw_point
+    usart_hmi.o(i.draw_curve) refers to delay.o(i.delay_us) for delay_us
+    usart_hmi.o(i.draw_curve) refers to printfa.o(i.__0printf) for __2printf
+    usart_hmi.o(i.draw_curve) refers to usart_hmi.o(i.send_ending_flag) for send_ending_flag
+    usart_hmi.o(i.draw_curve) refers to usart_hmi.o(.data) for x
+    usart_hmi.o(i.draw_point) refers to printfa.o(i.__0printf) for __2printf
+    usart_hmi.o(i.draw_point) refers to usart_hmi.o(i.send_ending_flag) for send_ending_flag
+    usart_hmi.o(i.send_ending_flag) refers to uart.o(i.UART_transmitData) for UART_transmitData
+    usart_hmi.o(i.send_ending_flag) refers to usart_hmi.o(.data) for Ending
+    usart_hmi.o(i.set_number_control_val) refers to printfa.o(i.__0sprintf) for __2sprintf
     cs.o(i.CS_getACLK) refers to cs.o(i._CSComputeCLKFrequency) for _CSComputeCLKFrequency
     cs.o(i.CS_getBCLK) refers to cs.o(i._CSComputeCLKFrequency) for _CSComputeCLKFrequency
     cs.o(i.CS_getDCOFrequency) refers to sysctl.o(i.SysCtl_getTLVInfo) for SysCtl_getTLVInfo
@@ -335,6 +381,7 @@ Section Cross References
     wdt_a.o(i.WDT_A_setTimeoutReset) refers to sysctl.o(i.SysCtl_setWDTTimeoutResetType) for SysCtl_setWDTTimeoutResetType
     wdt_a.o(i.WDT_A_unregisterInterrupt) refers to interrupt.o(i.Interrupt_disableInterrupt) for Interrupt_disableInterrupt
     wdt_a.o(i.WDT_A_unregisterInterrupt) refers to interrupt.o(i.Interrupt_unregisterInterrupt) for Interrupt_unregisterInterrupt
+    arm_fir_init_f32.o(.text) refers to memseta.o(.text) for __aeabi_memclr4
     rtc_c.o(i.RTC_C_registerInterrupt) refers to interrupt.o(i.Interrupt_registerInterrupt) for Interrupt_registerInterrupt
     rtc_c.o(i.RTC_C_registerInterrupt) refers to interrupt.o(i.Interrupt_enableInterrupt) for Interrupt_enableInterrupt
     rtc_c.o(i.RTC_C_unregisterInterrupt) refers to interrupt.o(i.Interrupt_disableInterrupt) for Interrupt_disableInterrupt
@@ -582,8 +629,14 @@ Section Cross References
     printfa.o(i._printf_pre_padding) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._snputc) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._sputc) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
     ddiv.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     ddiv.o(.text) refers to depilogue.o(.text) for _double_round
+    dflti.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dfixi.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfixi.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     f2d.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers to fepilogue.o(.text) for _float_round
@@ -601,7 +654,6 @@ Section Cross References
     dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
     dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
     dfixul.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     dfixul.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
@@ -615,7 +667,6 @@ Removing Unused input sections from the image.
     Removing main.o(.revsh_text), (4 bytes).
     Removing main.o(.rrx_text), (6 bytes).
     Removing main.o(i.fputs), (72 bytes).
-    Removing main.o(.data), (1 bytes).
     Removing startup_msp432p401r_uvision.o(HEAP), (0 bytes).
     Removing system_msp432p401r.o(.rev16_text), (4 bytes).
     Removing system_msp432p401r.o(.revsh_text), (4 bytes).
@@ -625,8 +676,6 @@ Removing Unused input sections from the image.
     Removing ad1292.o(.rev16_text), (4 bytes).
     Removing ad1292.o(.revsh_text), (4 bytes).
     Removing ad1292.o(.rrx_text), (6 bytes).
-    Removing ad1292.o(i.ADS1292_val_init), (164 bytes).
-    Removing ad1292.o(i.Get_val_init_data), (180 bytes).
     Removing sys.o(.rev16_text), (4 bytes).
     Removing sys.o(.revsh_text), (4 bytes).
     Removing sys.o(.rrx_text), (6 bytes).
@@ -642,6 +691,29 @@ Removing Unused input sections from the image.
     Removing spi_u.o(.rev16_text), (4 bytes).
     Removing spi_u.o(.revsh_text), (4 bytes).
     Removing spi_u.o(.rrx_text), (6 bytes).
+    Removing fir_48.o(.rev16_text), (4 bytes).
+    Removing fir_48.o(.revsh_text), (4 bytes).
+    Removing fir_48.o(.rrx_text), (6 bytes).
+    Removing fir_48.o(i.arm_fir5_init), (40 bytes).
+    Removing fir_48.o(i.arm_fir_f32_lp_5), (40 bytes).
+    Removing bpm.o(.rev16_text), (4 bytes).
+    Removing bpm.o(.revsh_text), (4 bytes).
+    Removing bpm.o(.rrx_text), (6 bytes).
+    Removing findpeaks.o(.rev16_text), (4 bytes).
+    Removing findpeaks.o(.revsh_text), (4 bytes).
+    Removing findpeaks.o(.rrx_text), (6 bytes).
+    Removing findpeaks.o(i.maxim_remove_close_peaks), (106 bytes).
+    Removing findpeaks.o(i.maxim_sort_indices_descend), (64 bytes).
+    Removing medfilt1.o(.rev16_text), (4 bytes).
+    Removing medfilt1.o(.revsh_text), (4 bytes).
+    Removing medfilt1.o(.rrx_text), (6 bytes).
+    Removing usart_hmi.o(.rev16_text), (4 bytes).
+    Removing usart_hmi.o(.revsh_text), (4 bytes).
+    Removing usart_hmi.o(.rrx_text), (6 bytes).
+    Removing usart_hmi.o(i.draw_curve), (108 bytes).
+    Removing usart_hmi.o(i.draw_point), (60 bytes).
+    Removing usart_hmi.o(i.set_number_control_val), (32 bytes).
+    Removing usart_hmi.o(.bss), (60 bytes).
     Removing cs.o(.rev16_text), (4 bytes).
     Removing cs.o(.revsh_text), (4 bytes).
     Removing cs.o(.rrx_text), (6 bytes).
@@ -863,14 +935,21 @@ Removing Unused input sections from the image.
     Removing wdt_a.o(i.WDT_A_setTimeoutReset), (4 bytes).
     Removing wdt_a.o(i.WDT_A_startTimer), (20 bytes).
     Removing wdt_a.o(i.WDT_A_unregisterInterrupt), (18 bytes).
+    Removing arm_fir_f32.o(.rev16_text), (4 bytes).
+    Removing arm_fir_f32.o(.revsh_text), (4 bytes).
+    Removing arm_fir_f32.o(.rrx_text), (6 bytes).
+    Removing arm_fir_init_f32.o(.rev16_text), (4 bytes).
+    Removing arm_fir_init_f32.o(.revsh_text), (4 bytes).
+    Removing arm_fir_init_f32.o(.rrx_text), (6 bytes).
     Removing arm_max_f32.o(.rev16_text), (4 bytes).
     Removing arm_max_f32.o(.revsh_text), (4 bytes).
     Removing arm_max_f32.o(.rrx_text), (6 bytes).
-    Removing arm_max_f32.o(.text), (216 bytes).
     Removing arm_min_f32.o(.rev16_text), (4 bytes).
     Removing arm_min_f32.o(.revsh_text), (4 bytes).
     Removing arm_min_f32.o(.rrx_text), (6 bytes).
-    Removing arm_min_f32.o(.text), (216 bytes).
+    Removing arm_copy_f32.o(.rev16_text), (4 bytes).
+    Removing arm_copy_f32.o(.revsh_text), (4 bytes).
+    Removing arm_copy_f32.o(.rrx_text), (6 bytes).
     Removing cpu.o(.rev16_text), (4 bytes).
     Removing cpu.o(.revsh_text), (4 bytes).
     Removing cpu.o(.rrx_text), (6 bytes).
@@ -915,10 +994,8 @@ Removing Unused input sections from the image.
     Removing sysctl.o(i.SysCtl_rebootDevice), (16 bytes).
     Removing sysctl.o(i.SysCtl_setWDTPasswordViolationResetType), (24 bytes).
     Removing sysctl.o(i.SysCtl_setWDTTimeoutResetType), (24 bytes).
-    Removing d2f.o(.text), (56 bytes).
-    Removing fepilogue.o(.text), (110 bytes).
 
-306 unused section(s) (total 13753 bytes) removed from the image.
+331 unused section(s) (total 13432 bytes) removed from the image.
 
 ==============================================================================
 
@@ -929,26 +1006,24 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      324  startup_msp432p401r_uvision.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
@@ -956,10 +1031,13 @@ Image Symbol Table
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
@@ -968,24 +1046,42 @@ Image Symbol Table
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ..\..\Source\FilteringFunctions\arm_fir_f32.c 0x00000000   Number         0  arm_fir_f32.o ABSOLUTE
+    ..\..\Source\FilteringFunctions\arm_fir_init_f32.c 0x00000000   Number         0  arm_fir_init_f32.o ABSOLUTE
     ..\..\Source\StatisticsFunctions\arm_max_f32.c 0x00000000   Number         0  arm_max_f32.o ABSOLUTE
     ..\..\Source\StatisticsFunctions\arm_min_f32.c 0x00000000   Number         0  arm_min_f32.o ABSOLUTE
+    ..\..\Source\SupportFunctions\arm_copy_f32.c 0x00000000   Number         0  arm_copy_f32.o ABSOLUTE
+    ..\Algorithm\bpm.c                       0x00000000   Number         0  bpm.o ABSOLUTE
+    ..\Algorithm\findpeaks.c                 0x00000000   Number         0  findpeaks.o ABSOLUTE
+    ..\Algorithm\medfilt1.c                  0x00000000   Number         0  medfilt1.o ABSOLUTE
+    ..\Filter\FIR_48.c                       0x00000000   Number         0  fir_48.o ABSOLUTE
     ..\Hardware\AD1292.c                     0x00000000   Number         0  ad1292.o ABSOLUTE
     ..\Src\delay.c                           0x00000000   Number         0  delay.o ABSOLUTE
     ..\Src\gpio_u.c                          0x00000000   Number         0  gpio_u.o ABSOLUTE
     ..\Src\spi_u.c                           0x00000000   Number         0  spi_u.o ABSOLUTE
     ..\Src\usart.c                           0x00000000   Number         0  usart.o ABSOLUTE
     ..\Sys\sys.c                             0x00000000   Number         0  sys.o ABSOLUTE
+    ..\USART_HMI\USART_HMI.c                 0x00000000   Number         0  usart_hmi.o ABSOLUTE
+    ..\\..\\Source\\FilteringFunctions\\arm_fir_f32.c 0x00000000   Number         0  arm_fir_f32.o ABSOLUTE
+    ..\\..\\Source\\FilteringFunctions\\arm_fir_init_f32.c 0x00000000   Number         0  arm_fir_init_f32.o ABSOLUTE
     ..\\..\\Source\\StatisticsFunctions\\arm_max_f32.c 0x00000000   Number         0  arm_max_f32.o ABSOLUTE
     ..\\..\\Source\\StatisticsFunctions\\arm_min_f32.c 0x00000000   Number         0  arm_min_f32.o ABSOLUTE
+    ..\\..\\Source\\SupportFunctions\\arm_copy_f32.c 0x00000000   Number         0  arm_copy_f32.o ABSOLUTE
+    ..\\Algorithm\\bpm.c                     0x00000000   Number         0  bpm.o ABSOLUTE
+    ..\\Algorithm\\findpeaks.c               0x00000000   Number         0  findpeaks.o ABSOLUTE
+    ..\\Algorithm\\medfilt1.c                0x00000000   Number         0  medfilt1.o ABSOLUTE
+    ..\\Filter\\FIR_48.c                     0x00000000   Number         0  fir_48.o ABSOLUTE
     ..\\Hardware\\AD1292.c                   0x00000000   Number         0  ad1292.o ABSOLUTE
     ..\\Src\\delay.c                         0x00000000   Number         0  delay.o ABSOLUTE
     ..\\Src\\gpio_u.c                        0x00000000   Number         0  gpio_u.o ABSOLUTE
     ..\\Src\\spi_u.c                         0x00000000   Number         0  spi_u.o ABSOLUTE
     ..\\Src\\usart.c                         0x00000000   Number         0  usart.o ABSOLUTE
     ..\\Sys\\sys.c                           0x00000000   Number         0  sys.o ABSOLUTE
+    ..\\USART_HMI\\USART_HMI.c               0x00000000   Number         0  usart_hmi.o ABSOLUTE
     RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s 0x00000000   Number         0  startup_msp432p401r_uvision.o ABSOLUTE
     RTE\Device\MSP432P401R\system_msp432p401r.c 0x00000000   Number         0  system_msp432p401r.o ABSOLUTE
     RTE\\Device\\MSP432P401R\\system_msp432p401r.c 0x00000000   Number         0  system_msp432p401r.o ABSOLUTE
@@ -1033,126 +1129,163 @@ Image Symbol Table
     $v0                                      0x00000158   Number         0  cpu.o(.emb_text)
     .text                                    0x00000180   Section       36  startup_msp432p401r_uvision.o(.text)
     $v0                                      0x00000180   Number         0  startup_msp432p401r_uvision.o(.text)
-    .text                                    0x000001a4   Section        0  ddiv.o(.text)
-    .text                                    0x00000282   Section        0  f2d.o(.text)
-    .text                                    0x000002a8   Section        0  uidiv.o(.text)
-    .text                                    0x000002d4   Section        0  uldiv.o(.text)
-    .text                                    0x00000336   Section        0  iusefp.o(.text)
-    .text                                    0x00000336   Section        0  depilogue.o(.text)
-    .text                                    0x000003f0   Section        0  dadd.o(.text)
-    .text                                    0x0000053e   Section        0  dmul.o(.text)
-    .text                                    0x00000622   Section        0  dfixul.o(.text)
-    .text                                    0x00000654   Section       48  cdrcmple.o(.text)
-    .text                                    0x00000684   Section       36  init.o(.text)
-    .text                                    0x000006a8   Section        0  llshl.o(.text)
-    .text                                    0x000006c6   Section        0  llushr.o(.text)
-    .text                                    0x000006e6   Section        0  llsshr.o(.text)
-    i.ADS1292_Init                           0x0000070a   Section        0  ad1292.o(i.ADS1292_Init)
-    i.ADS1292_Noise_Test                     0x00000724   Section        0  ad1292.o(i.ADS1292_Noise_Test)
-    i.ADS1292_PowerOnInit                    0x00000758   Section        0  ad1292.o(i.ADS1292_PowerOnInit)
-    i.ADS1292_Read_Data                      0x000007c8   Section        0  ad1292.o(i.ADS1292_Read_Data)
-    i.ADS1292_SET_REGBUFF                    0x000007f8   Section        0  ad1292.o(i.ADS1292_SET_REGBUFF)
-    i.ADS1292_SPI                            0x00000a5c   Section        0  ad1292.o(i.ADS1292_SPI)
-    i.ADS1292_Send_CMD                       0x00000a68   Section        0  ad1292.o(i.ADS1292_Send_CMD)
-    i.ADS1292_Single_Read                    0x00000a90   Section        0  ad1292.o(i.ADS1292_Single_Read)
-    i.ADS1292_Single_Test                    0x00000ac0   Section        0  ad1292.o(i.ADS1292_Single_Test)
-    i.ADS1292_WRITE_REGBUFF                  0x00000af4   Section        0  ad1292.o(i.ADS1292_WRITE_REGBUFF)
-    i.ADS1292_WR_REGS                        0x00000bdc   Section        0  ad1292.o(i.ADS1292_WR_REGS)
-    i.CS_getDCOFrequency                     0x00000c58   Section        0  cs.o(i.CS_getDCOFrequency)
-    i.CS_getMCLK                             0x00000dc8   Section        0  cs.o(i.CS_getMCLK)
-    i.CS_initClockSignal                     0x00000de0   Section        0  cs.o(i.CS_initClockSignal)
-    i.CS_setExternalClockSourceFrequency     0x00000edc   Section        0  cs.o(i.CS_setExternalClockSourceFrequency)
-    i.CS_startHFXT                           0x00000ee8   Section        0  cs.o(i.CS_startHFXT)
-    i.CS_startHFXTWithTimeout                0x00000ef0   Section        0  cs.o(i.CS_startHFXTWithTimeout)
-    i.FPU_enableModule                       0x00001034   Section        0  fpu.o(i.FPU_enableModule)
-    i.FlashCtl_setWaitState                  0x00001044   Section        0  flash.o(i.FlashCtl_setWaitState)
-    i.GPIO_Init                              0x00001070   Section        0  gpio_u.o(i.GPIO_Init)
-    i.GPIO_clearInterruptFlag                0x000010a0   Section        0  gpio.o(i.GPIO_clearInterruptFlag)
-    i.GPIO_disableInterrupt                  0x000010b4   Section        0  gpio.o(i.GPIO_disableInterrupt)
-    i.GPIO_enableInterrupt                   0x000010c8   Section        0  gpio.o(i.GPIO_enableInterrupt)
-    i.GPIO_getEnabledInterruptStatus         0x000010dc   Section        0  gpio.o(i.GPIO_getEnabledInterruptStatus)
-    i.GPIO_setAsInputPinWithPullDownResistor 0x00001110   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
-    i.GPIO_setAsOutputPin                    0x0000113c   Section        0  gpio.o(i.GPIO_setAsOutputPin)
-    i.GPIO_setAsPeripheralModuleFunctionInputPin 0x0000115c   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
-    i.GPIO_setAsPeripheralModuleFunctionOutputPin 0x000011a4   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
-    i.GPIO_setOutputHighOnPin                0x000011ec   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
-    i.GPIO_setOutputLowOnPin                 0x00001200   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
-    i.Interrupt_enableInterrupt              0x00001214   Section        0  interrupt.o(i.Interrupt_enableInterrupt)
-    i.Interrupt_enableMaster                 0x00001278   Section        0  interrupt.o(i.Interrupt_enableMaster)
-    i.Msp432_Clock_Init                      0x00001288   Section        0  sys.o(i.Msp432_Clock_Init)
-    i.PA8_IRQHandler                         0x000012e4   Section        0  ad1292.o(i.PA8_IRQHandler)
-    i.PCM_getCoreVoltageLevel                0x000012fc   Section        0  pcm.o(i.PCM_getCoreVoltageLevel)
-    i.PCM_getPowerMode                       0x00001348   Section        0  pcm.o(i.PCM_getPowerMode)
-    i.PCM_setCoreVoltageLevel                0x0000138c   Section        0  pcm.o(i.PCM_setCoreVoltageLevel)
-    i.PORT3_IRQHandler                       0x00001394   Section        0  main.o(i.PORT3_IRQHandler)
-    i.SPI_Init                               0x000013b0   Section        0  spi_u.o(i.SPI_Init)
-    i.SPI_ReadWriteByte                      0x000013d4   Section        0  spi_u.o(i.SPI_ReadWriteByte)
-    i.SPI_enableModule                       0x00001420   Section        0  spi.o(i.SPI_enableModule)
-    i.SPI_initMaster                         0x00001436   Section        0  spi.o(i.SPI_initMaster)
-    i.SPI_isBusy                             0x0000149c   Section        0  spi.o(i.SPI_isBusy)
-    i.SPI_receiveData                        0x000014ca   Section        0  spi.o(i.SPI_receiveData)
-    i.SPI_transmitData                       0x000014d8   Section        0  spi.o(i.SPI_transmitData)
-    i.Set_ADS1292_Collect                    0x000014e8   Section        0  ad1292.o(i.Set_ADS1292_Collect)
-    i.SysCtl_disableNMISource                0x0000153c   Section        0  sysctl.o(i.SysCtl_disableNMISource)
-    i.SysCtl_enableNMISource                 0x0000154c   Section        0  sysctl.o(i.SysCtl_enableNMISource)
-    i.SysCtl_getNMISourceStatus              0x0000155c   Section        0  sysctl.o(i.SysCtl_getNMISourceStatus)
-    i.SysCtl_getTLVInfo                      0x00001568   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
-    i.SystemInit                             0x000015b8   Section        0  system_msp432p401r.o(i.SystemInit)
-    i.UART_enableModule                      0x00001650   Section        0  uart.o(i.UART_enableModule)
-    i.UART_getInterruptStatus                0x0000165c   Section        0  uart.o(i.UART_getInterruptStatus)
-    i.UART_initModule                        0x00001662   Section        0  uart.o(i.UART_initModule)
-    i.UART_transmitData                      0x000016ea   Section        0  uart.o(i.UART_transmitData)
-    i.Usart_Init                             0x00001704   Section        0  usart.o(i.Usart_Init)
-    i.WDT_A_holdTimer                        0x00001728   Section        0  wdt_a.o(i.WDT_A_holdTimer)
-    i._CSComputeCLKFrequency                 0x00001740   Section        0  cs.o(i._CSComputeCLKFrequency)
-    _CSComputeCLKFrequency                   0x00001741   Thumb Code   236  cs.o(i._CSComputeCLKFrequency)
-    i.__0printf                              0x0000184c   Section        0  printfa.o(i.__0printf)
-    i.__PCM_setCoreVoltageLevelAdvanced      0x0000186c   Section        0  pcm.o(i.__PCM_setCoreVoltageLevelAdvanced)
-    __PCM_setCoreVoltageLevelAdvanced        0x0000186d   Thumb Code   242  pcm.o(i.__PCM_setCoreVoltageLevelAdvanced)
-    i.__PCM_setPowerModeAdvanced             0x0000196c   Section        0  pcm.o(i.__PCM_setPowerModeAdvanced)
-    __PCM_setPowerModeAdvanced               0x0000196d   Thumb Code   200  pcm.o(i.__PCM_setPowerModeAdvanced)
-    i.__scatterload_copy                     0x00001a50   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001a5e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001a60   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._fp_digits                             0x00001a70   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x00001a71   Thumb Code   366  printfa.o(i._fp_digits)
-    i._printf_core                           0x00001bf4   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x00001bf5   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x000022d0   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x000022d1   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x000022f4   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x000022f5   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i.delay_init                             0x00002324   Section        0  delay.o(i.delay_init)
-    i.delay_ms                               0x00002354   Section        0  delay.o(i.delay_ms)
-    i.delay_us                               0x000023a0   Section        0  delay.o(i.delay_us)
-    i.fputc                                  0x000023ec   Section        0  main.o(i.fputc)
-    i.get_volt                               0x0000241c   Section        0  ad1292.o(i.get_volt)
-    i.is_A_Module                            0x00002426   Section        0  spi.o(i.is_A_Module)
-    is_A_Module                              0x00002427   Thumb Code    46  spi.o(i.is_A_Module)
-    i.main                                   0x00002454   Section        0  main.o(i.main)
-    .constdata                               0x00002570   Section       40  usart.o(.constdata)
-    .constdata                               0x00002598   Section       28  spi_u.o(.constdata)
-    .constdata                               0x000025b4   Section      144  interrupt.o(.constdata)
-    g_pulEnRegs                              0x000025b4   Data           8  interrupt.o(.constdata)
-    g_pulDisRegs                             0x000025bc   Data           8  interrupt.o(.constdata)
-    g_pulPendRegs                            0x000025c4   Data           8  interrupt.o(.constdata)
-    g_pulUnpendRegs                          0x000025cc   Data           8  interrupt.o(.constdata)
-    g_pulPriority                            0x000025d4   Data          32  interrupt.o(.constdata)
-    g_pulRegs                                0x000025f4   Data          80  interrupt.o(.constdata)
-    .data                                    0x20000000   Section       56  ad1292.o(.data)
-    f                                        0x20000030   Data           4  ad1292.o(.data)
-    i                                        0x20000034   Data           4  ad1292.o(.data)
-    .data                                    0x20000038   Section        4  delay.o(.data)
-    fac_us                                   0x20000038   Data           1  delay.o(.data)
-    fac_ms                                   0x2000003a   Data           2  delay.o(.data)
-    .data                                    0x2000003c   Section        8  cs.o(.data)
-    hfxtFreq                                 0x2000003c   Data           4  cs.o(.data)
-    lfxtFreq                                 0x20000040   Data           4  cs.o(.data)
-    .data                                    0x20000044   Section       48  gpio.o(.data)
-    GPIO_PORT_TO_BASE                        0x20000044   Data          48  gpio.o(.data)
-    .data                                    0x20000074   Section        4  stdout.o(.data)
-    .bss                                     0x20000078   Section       21  ad1292.o(.bss)
-    STACK                                    0x20000090   Section      512  startup_msp432p401r_uvision.o(STACK)
+    .text                                    0x000001a4   Section        0  arm_fir_f32.o(.text)
+    .text                                    0x000006d6   Section        0  arm_fir_init_f32.o(.text)
+    .text                                    0x000006f4   Section        0  arm_max_f32.o(.text)
+    .text                                    0x000007cc   Section        0  arm_min_f32.o(.text)
+    .text                                    0x000008a4   Section        0  arm_copy_f32.o(.text)
+    .text                                    0x00000928   Section        0  memseta.o(.text)
+    .text                                    0x0000094c   Section        0  dmul.o(.text)
+    .text                                    0x00000a30   Section        0  ddiv.o(.text)
+    .text                                    0x00000b0e   Section        0  dflti.o(.text)
+    .text                                    0x00000b30   Section        0  dfixi.o(.text)
+    .text                                    0x00000b6e   Section        0  f2d.o(.text)
+    .text                                    0x00000b94   Section        0  d2f.o(.text)
+    .text                                    0x00000bcc   Section        0  uidiv.o(.text)
+    .text                                    0x00000bf8   Section        0  uldiv.o(.text)
+    .text                                    0x00000c5a   Section        0  llushr.o(.text)
+    .text                                    0x00000c7a   Section        0  iusefp.o(.text)
+    .text                                    0x00000c7a   Section        0  fepilogue.o(.text)
+    .text                                    0x00000ce8   Section        0  depilogue.o(.text)
+    .text                                    0x00000da2   Section        0  dadd.o(.text)
+    .text                                    0x00000ef0   Section        0  dfixul.o(.text)
+    .text                                    0x00000f20   Section       48  cdrcmple.o(.text)
+    .text                                    0x00000f50   Section       36  init.o(.text)
+    .text                                    0x00000f74   Section        0  llshl.o(.text)
+    .text                                    0x00000f92   Section        0  llsshr.o(.text)
+    i.ADS1292_Init                           0x00000fb6   Section        0  ad1292.o(i.ADS1292_Init)
+    i.ADS1292_Noise_Test                     0x00000fd0   Section        0  ad1292.o(i.ADS1292_Noise_Test)
+    i.ADS1292_PowerOnInit                    0x00001004   Section        0  ad1292.o(i.ADS1292_PowerOnInit)
+    i.ADS1292_Read_Data                      0x000010a8   Section        0  ad1292.o(i.ADS1292_Read_Data)
+    i.ADS1292_SET_REGBUFF                    0x000010d8   Section        0  ad1292.o(i.ADS1292_SET_REGBUFF)
+    i.ADS1292_SPI                            0x0000133c   Section        0  ad1292.o(i.ADS1292_SPI)
+    i.ADS1292_Send_CMD                       0x00001348   Section        0  ad1292.o(i.ADS1292_Send_CMD)
+    i.ADS1292_Single_Read                    0x00001370   Section        0  ad1292.o(i.ADS1292_Single_Read)
+    i.ADS1292_Single_Test                    0x000013a0   Section        0  ad1292.o(i.ADS1292_Single_Test)
+    i.ADS1292_WRITE_REGBUFF                  0x000013d4   Section        0  ad1292.o(i.ADS1292_WRITE_REGBUFF)
+    i.ADS1292_WR_REGS                        0x000014bc   Section        0  ad1292.o(i.ADS1292_WR_REGS)
+    i.ADS1292_val_init                       0x00001538   Section        0  ad1292.o(i.ADS1292_val_init)
+    i.CS_getDCOFrequency                     0x000015dc   Section        0  cs.o(i.CS_getDCOFrequency)
+    i.CS_getMCLK                             0x0000174c   Section        0  cs.o(i.CS_getMCLK)
+    i.CS_initClockSignal                     0x00001764   Section        0  cs.o(i.CS_initClockSignal)
+    i.CS_setExternalClockSourceFrequency     0x00001860   Section        0  cs.o(i.CS_setExternalClockSourceFrequency)
+    i.CS_startHFXT                           0x0000186c   Section        0  cs.o(i.CS_startHFXT)
+    i.CS_startHFXTWithTimeout                0x00001874   Section        0  cs.o(i.CS_startHFXTWithTimeout)
+    i.FPU_enableModule                       0x000019b8   Section        0  fpu.o(i.FPU_enableModule)
+    i.FlashCtl_setWaitState                  0x000019c8   Section        0  flash.o(i.FlashCtl_setWaitState)
+    i.GPIO_Init                              0x000019f4   Section        0  gpio_u.o(i.GPIO_Init)
+    i.GPIO_clearInterruptFlag                0x00001a24   Section        0  gpio.o(i.GPIO_clearInterruptFlag)
+    i.GPIO_disableInterrupt                  0x00001a38   Section        0  gpio.o(i.GPIO_disableInterrupt)
+    i.GPIO_enableInterrupt                   0x00001a4c   Section        0  gpio.o(i.GPIO_enableInterrupt)
+    i.GPIO_getEnabledInterruptStatus         0x00001a60   Section        0  gpio.o(i.GPIO_getEnabledInterruptStatus)
+    i.GPIO_setAsInputPinWithPullDownResistor 0x00001a94   Section        0  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
+    i.GPIO_setAsOutputPin                    0x00001ac0   Section        0  gpio.o(i.GPIO_setAsOutputPin)
+    i.GPIO_setAsPeripheralModuleFunctionInputPin 0x00001ae0   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
+    i.GPIO_setAsPeripheralModuleFunctionOutputPin 0x00001b28   Section        0  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
+    i.GPIO_setOutputHighOnPin                0x00001b70   Section        0  gpio.o(i.GPIO_setOutputHighOnPin)
+    i.GPIO_setOutputLowOnPin                 0x00001b84   Section        0  gpio.o(i.GPIO_setOutputLowOnPin)
+    i.Get_val_init_data                      0x00001b98   Section        0  ad1292.o(i.Get_val_init_data)
+    i.Interrupt_enableInterrupt              0x00001c34   Section        0  interrupt.o(i.Interrupt_enableInterrupt)
+    i.Interrupt_enableMaster                 0x00001c98   Section        0  interrupt.o(i.Interrupt_enableMaster)
+    i.Msp432_Clock_Init                      0x00001ca8   Section        0  sys.o(i.Msp432_Clock_Init)
+    i.PA8_IRQHandler                         0x00001d20   Section        0  ad1292.o(i.PA8_IRQHandler)
+    i.PCM_getCoreVoltageLevel                0x00001d38   Section        0  pcm.o(i.PCM_getCoreVoltageLevel)
+    i.PCM_getPowerMode                       0x00001d84   Section        0  pcm.o(i.PCM_getPowerMode)
+    i.PCM_setCoreVoltageLevel                0x00001dc8   Section        0  pcm.o(i.PCM_setCoreVoltageLevel)
+    i.PORT3_IRQHandler                       0x00001dd0   Section        0  main.o(i.PORT3_IRQHandler)
+    i.SPI_Init                               0x00001dec   Section        0  spi_u.o(i.SPI_Init)
+    i.SPI_ReadWriteByte                      0x00001e10   Section        0  spi_u.o(i.SPI_ReadWriteByte)
+    i.SPI_enableModule                       0x00001e5c   Section        0  spi.o(i.SPI_enableModule)
+    i.SPI_initMaster                         0x00001e72   Section        0  spi.o(i.SPI_initMaster)
+    i.SPI_isBusy                             0x00001ed8   Section        0  spi.o(i.SPI_isBusy)
+    i.SPI_receiveData                        0x00001f06   Section        0  spi.o(i.SPI_receiveData)
+    i.SPI_transmitData                       0x00001f14   Section        0  spi.o(i.SPI_transmitData)
+    i.Set_ADS1292_Collect                    0x00001f24   Section        0  ad1292.o(i.Set_ADS1292_Collect)
+    i.SysCtl_disableNMISource                0x00001f78   Section        0  sysctl.o(i.SysCtl_disableNMISource)
+    i.SysCtl_enableNMISource                 0x00001f88   Section        0  sysctl.o(i.SysCtl_enableNMISource)
+    i.SysCtl_getNMISourceStatus              0x00001f98   Section        0  sysctl.o(i.SysCtl_getNMISourceStatus)
+    i.SysCtl_getTLVInfo                      0x00001fa4   Section        0  sysctl.o(i.SysCtl_getTLVInfo)
+    i.SystemInit                             0x00001ff4   Section        0  system_msp432p401r.o(i.SystemInit)
+    i.UART_enableModule                      0x0000208c   Section        0  uart.o(i.UART_enableModule)
+    i.UART_getInterruptStatus                0x00002098   Section        0  uart.o(i.UART_getInterruptStatus)
+    i.UART_initModule                        0x0000209e   Section        0  uart.o(i.UART_initModule)
+    i.UART_transmitData                      0x00002126   Section        0  uart.o(i.UART_transmitData)
+    i.Usart_Init                             0x00002140   Section        0  usart.o(i.Usart_Init)
+    i.WDT_A_holdTimer                        0x00002164   Section        0  wdt_a.o(i.WDT_A_holdTimer)
+    i._CSComputeCLKFrequency                 0x0000217c   Section        0  cs.o(i._CSComputeCLKFrequency)
+    _CSComputeCLKFrequency                   0x0000217d   Thumb Code   236  cs.o(i._CSComputeCLKFrequency)
+    i.__0printf                              0x00002288   Section        0  printfa.o(i.__0printf)
+    i.__PCM_setCoreVoltageLevelAdvanced      0x000022a8   Section        0  pcm.o(i.__PCM_setCoreVoltageLevelAdvanced)
+    __PCM_setCoreVoltageLevelAdvanced        0x000022a9   Thumb Code   242  pcm.o(i.__PCM_setCoreVoltageLevelAdvanced)
+    i.__PCM_setPowerModeAdvanced             0x000023a8   Section        0  pcm.o(i.__PCM_setPowerModeAdvanced)
+    __PCM_setPowerModeAdvanced               0x000023a9   Thumb Code   200  pcm.o(i.__PCM_setPowerModeAdvanced)
+    i.__scatterload_copy                     0x0000248c   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0000249a   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0000249c   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._fp_digits                             0x000024ac   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x000024ad   Thumb Code   366  printfa.o(i._fp_digits)
+    i._printf_core                           0x00002630   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x00002631   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x00002d0c   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x00002d0d   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00002d30   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00002d31   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i.arm_fir48_init                         0x00002d60   Section        0  fir_48.o(i.arm_fir48_init)
+    i.arm_fir_f32_lp_48                      0x00002d88   Section        0  fir_48.o(i.arm_fir_f32_lp_48)
+    i.bpm_calculate                          0x00002db0   Section        0  bpm.o(i.bpm_calculate)
+    i.delay_init                             0x00003194   Section        0  delay.o(i.delay_init)
+    i.delay_ms                               0x000031c4   Section        0  delay.o(i.delay_ms)
+    i.delay_us                               0x00003210   Section        0  delay.o(i.delay_us)
+    i.fputc                                  0x0000325c   Section        0  main.o(i.fputc)
+    i.get_channel_1_val                      0x0000328c   Section        0  ad1292.o(i.get_channel_1_val)
+    i.get_volt                               0x000032b0   Section        0  ad1292.o(i.get_volt)
+    i.is_A_Module                            0x000032ba   Section        0  spi.o(i.is_A_Module)
+    is_A_Module                              0x000032bb   Thumb Code    46  spi.o(i.is_A_Module)
+    i.main                                   0x000032e8   Section        0  main.o(i.main)
+    i.maxim_peaks_above_min_height           0x000035a4   Section        0  findpeaks.o(i.maxim_peaks_above_min_height)
+    i.maxim_sort_ascend                      0x0000361e   Section        0  findpeaks.o(i.maxim_sort_ascend)
+    i.midfilt1                               0x00003670   Section        0  medfilt1.o(i.midfilt1)
+    i.send_ending_flag                       0x000036c4   Section        0  usart_hmi.o(i.send_ending_flag)
+    .constdata                               0x000036f0   Section       40  usart.o(.constdata)
+    .constdata                               0x00003718   Section       28  spi_u.o(.constdata)
+    .constdata                               0x00003734   Section      240  fir_48.o(.constdata)
+    .constdata                               0x00003824   Section      144  interrupt.o(.constdata)
+    g_pulEnRegs                              0x00003824   Data           8  interrupt.o(.constdata)
+    g_pulDisRegs                             0x0000382c   Data           8  interrupt.o(.constdata)
+    g_pulPendRegs                            0x00003834   Data           8  interrupt.o(.constdata)
+    g_pulUnpendRegs                          0x0000383c   Data           8  interrupt.o(.constdata)
+    g_pulPriority                            0x00003844   Data          32  interrupt.o(.constdata)
+    g_pulRegs                                0x00003864   Data          80  interrupt.o(.constdata)
+    .data                                    0x20000000   Section       50  main.o(.data)
+    mid_filt_start_flag                      0x20000000   Data           4  main.o(.data)
+    bpm                                      0x2000001c   Data           4  main.o(.data)
+    j                                        0x20000028   Data           2  main.o(.data)
+    n                                        0x2000002a   Data           2  main.o(.data)
+    num                                      0x2000002c   Data           2  main.o(.data)
+    x                                        0x2000002e   Data           2  main.o(.data)
+    mid_filt_num                             0x20000030   Data           2  main.o(.data)
+    .data                                    0x20000034   Section       60  ad1292.o(.data)
+    f                                        0x20000068   Data           4  ad1292.o(.data)
+    i                                        0x2000006c   Data           4  ad1292.o(.data)
+    .data                                    0x20000070   Section        4  delay.o(.data)
+    fac_us                                   0x20000070   Data           1  delay.o(.data)
+    fac_ms                                   0x20000072   Data           2  delay.o(.data)
+    .data                                    0x20000074   Section        4  fir_48.o(.data)
+    .data                                    0x20000078   Section        8  usart_hmi.o(.data)
+    x                                        0x2000007c   Data           4  usart_hmi.o(.data)
+    .data                                    0x20000080   Section        8  cs.o(.data)
+    hfxtFreq                                 0x20000080   Data           4  cs.o(.data)
+    lfxtFreq                                 0x20000084   Data           4  cs.o(.data)
+    .data                                    0x20000088   Section       48  gpio.o(.data)
+    GPIO_PORT_TO_BASE                        0x20000088   Data          48  gpio.o(.data)
+    .data                                    0x200000b8   Section        4  stdout.o(.data)
+    .bss                                     0x200000bc   Section    21420  main.o(.bss)
+    .bss                                     0x20005468   Section       21  ad1292.o(.bss)
+    .bss                                     0x20005480   Section      244  fir_48.o(.bss)
+    firStateF32_48                           0x20005480   Data         116  fir_48.o(.bss)
+    firStateF32_5                            0x200054f4   Data         116  fir_48.o(.bss)
+    .bss                                     0x20005574   Section      500  medfilt1.o(.bss)
+    STACK                                    0x20005768   Section      512  startup_msp432p401r_uvision.o(STACK)
 
     Global Symbols
 
@@ -1274,120 +1407,173 @@ Image Symbol Table
     TA3_0_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     TA3_N_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
     WDT_A_IRQHandler                         0x0000019b   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    __aeabi_ddiv                             0x000001a5   Thumb Code   222  ddiv.o(.text)
-    __aeabi_f2d                              0x00000283   Thumb Code    38  f2d.o(.text)
-    __aeabi_uidiv                            0x000002a9   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x000002a9   Thumb Code    44  uidiv.o(.text)
-    __aeabi_uldivmod                         0x000002d5   Thumb Code    98  uldiv.o(.text)
-    __I$use$fp                               0x00000337   Thumb Code     0  iusefp.o(.text)
-    _double_round                            0x00000337   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x00000355   Thumb Code   156  depilogue.o(.text)
-    __aeabi_dadd                             0x000003f1   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x00000533   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x00000539   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x0000053f   Thumb Code   228  dmul.o(.text)
-    __aeabi_d2ulz                            0x00000623   Thumb Code    48  dfixul.o(.text)
-    __aeabi_cdrcmple                         0x00000655   Thumb Code    48  cdrcmple.o(.text)
-    __scatterload                            0x00000685   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000685   Thumb Code     0  init.o(.text)
-    __aeabi_llsl                             0x000006a9   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x000006a9   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x000006c7   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x000006c7   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x000006e7   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x000006e7   Thumb Code     0  llsshr.o(.text)
-    ADS1292_Init                             0x0000070b   Thumb Code    24  ad1292.o(i.ADS1292_Init)
-    ADS1292_Noise_Test                       0x00000725   Thumb Code    38  ad1292.o(i.ADS1292_Noise_Test)
-    ADS1292_PowerOnInit                      0x00000759   Thumb Code    82  ad1292.o(i.ADS1292_PowerOnInit)
-    ADS1292_Read_Data                        0x000007c9   Thumb Code    46  ad1292.o(i.ADS1292_Read_Data)
-    ADS1292_SET_REGBUFF                      0x000007f9   Thumb Code   574  ad1292.o(i.ADS1292_SET_REGBUFF)
-    ADS1292_SPI                              0x00000a5d   Thumb Code    12  ad1292.o(i.ADS1292_SPI)
-    ADS1292_Send_CMD                         0x00000a69   Thumb Code    40  ad1292.o(i.ADS1292_Send_CMD)
-    ADS1292_Single_Read                      0x00000a91   Thumb Code    36  ad1292.o(i.ADS1292_Single_Read)
-    ADS1292_Single_Test                      0x00000ac1   Thumb Code    38  ad1292.o(i.ADS1292_Single_Test)
-    ADS1292_WRITE_REGBUFF                    0x00000af5   Thumb Code   154  ad1292.o(i.ADS1292_WRITE_REGBUFF)
-    ADS1292_WR_REGS                          0x00000bdd   Thumb Code   124  ad1292.o(i.ADS1292_WR_REGS)
-    CS_getDCOFrequency                       0x00000c59   Thumb Code   332  cs.o(i.CS_getDCOFrequency)
-    CS_getMCLK                               0x00000dc9   Thumb Code    20  cs.o(i.CS_getMCLK)
-    CS_initClockSignal                       0x00000de1   Thumb Code   222  cs.o(i.CS_initClockSignal)
-    CS_setExternalClockSourceFrequency       0x00000edd   Thumb Code     8  cs.o(i.CS_setExternalClockSourceFrequency)
-    CS_startHFXT                             0x00000ee9   Thumb Code     6  cs.o(i.CS_startHFXT)
-    CS_startHFXTWithTimeout                  0x00000ef1   Thumb Code   262  cs.o(i.CS_startHFXTWithTimeout)
-    FPU_enableModule                         0x00001035   Thumb Code    12  fpu.o(i.FPU_enableModule)
-    FlashCtl_setWaitState                    0x00001045   Thumb Code    38  flash.o(i.FlashCtl_setWaitState)
-    GPIO_Init                                0x00001071   Thumb Code    46  gpio_u.o(i.GPIO_Init)
-    GPIO_clearInterruptFlag                  0x000010a1   Thumb Code    16  gpio.o(i.GPIO_clearInterruptFlag)
-    GPIO_disableInterrupt                    0x000010b5   Thumb Code    16  gpio.o(i.GPIO_disableInterrupt)
-    GPIO_enableInterrupt                     0x000010c9   Thumb Code    14  gpio.o(i.GPIO_enableInterrupt)
-    GPIO_getEnabledInterruptStatus           0x000010dd   Thumb Code    48  gpio.o(i.GPIO_getEnabledInterruptStatus)
-    GPIO_setAsInputPinWithPullDownResistor   0x00001111   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
-    GPIO_setAsOutputPin                      0x0000113d   Thumb Code    26  gpio.o(i.GPIO_setAsOutputPin)
-    GPIO_setAsPeripheralModuleFunctionInputPin 0x0000115d   Thumb Code    68  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
-    GPIO_setAsPeripheralModuleFunctionOutputPin 0x000011a5   Thumb Code    68  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
-    GPIO_setOutputHighOnPin                  0x000011ed   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
-    GPIO_setOutputLowOnPin                   0x00001201   Thumb Code    16  gpio.o(i.GPIO_setOutputLowOnPin)
-    Interrupt_enableInterrupt                0x00001215   Thumb Code    92  interrupt.o(i.Interrupt_enableInterrupt)
-    Interrupt_enableMaster                   0x00001279   Thumb Code    14  interrupt.o(i.Interrupt_enableMaster)
-    Msp432_Clock_Init                        0x00001289   Thumb Code    86  sys.o(i.Msp432_Clock_Init)
-    PA8_IRQHandler                           0x000012e5   Thumb Code    16  ad1292.o(i.PA8_IRQHandler)
-    PCM_getCoreVoltageLevel                  0x000012fd   Thumb Code    70  pcm.o(i.PCM_getCoreVoltageLevel)
-    PCM_getPowerMode                         0x00001349   Thumb Code    62  pcm.o(i.PCM_getPowerMode)
-    PCM_setCoreVoltageLevel                  0x0000138d   Thumb Code     8  pcm.o(i.PCM_setCoreVoltageLevel)
-    PORT3_IRQHandler                         0x00001395   Thumb Code    28  main.o(i.PORT3_IRQHandler)
-    SPI_Init                                 0x000013b1   Thumb Code    28  spi_u.o(i.SPI_Init)
-    SPI_ReadWriteByte                        0x000013d5   Thumb Code    72  spi_u.o(i.SPI_ReadWriteByte)
-    SPI_enableModule                         0x00001421   Thumb Code    22  spi.o(i.SPI_enableModule)
-    SPI_initMaster                           0x00001437   Thumb Code   102  spi.o(i.SPI_initMaster)
-    SPI_isBusy                               0x0000149d   Thumb Code    46  spi.o(i.SPI_isBusy)
-    SPI_receiveData                          0x000014cb   Thumb Code    14  spi.o(i.SPI_receiveData)
-    SPI_transmitData                         0x000014d9   Thumb Code    16  spi.o(i.SPI_transmitData)
-    Set_ADS1292_Collect                      0x000014e9   Thumb Code    82  ad1292.o(i.Set_ADS1292_Collect)
-    SysCtl_disableNMISource                  0x0000153d   Thumb Code    12  sysctl.o(i.SysCtl_disableNMISource)
-    SysCtl_enableNMISource                   0x0000154d   Thumb Code    10  sysctl.o(i.SysCtl_enableNMISource)
-    SysCtl_getNMISourceStatus                0x0000155d   Thumb Code     6  sysctl.o(i.SysCtl_getNMISourceStatus)
-    SysCtl_getTLVInfo                        0x00001569   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
-    SystemInit                               0x000015b9   Thumb Code   118  system_msp432p401r.o(i.SystemInit)
-    UART_enableModule                        0x00001651   Thumb Code    12  uart.o(i.UART_enableModule)
-    UART_getInterruptStatus                  0x0000165d   Thumb Code     6  uart.o(i.UART_getInterruptStatus)
-    UART_initModule                          0x00001663   Thumb Code   136  uart.o(i.UART_initModule)
-    UART_transmitData                        0x000016eb   Thumb Code    24  uart.o(i.UART_transmitData)
-    Usart_Init                               0x00001705   Thumb Code    28  usart.o(i.Usart_Init)
-    WDT_A_holdTimer                          0x00001729   Thumb Code    18  wdt_a.o(i.WDT_A_holdTimer)
-    __0printf                                0x0000184d   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0000184d   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0000184d   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0000184d   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0000184d   Thumb Code     0  printfa.o(i.__0printf)
-    __scatterload_copy                       0x00001a51   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001a5f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001a61   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    delay_init                               0x00002325   Thumb Code    36  delay.o(i.delay_init)
-    delay_ms                                 0x00002355   Thumb Code    72  delay.o(i.delay_ms)
-    delay_us                                 0x000023a1   Thumb Code    72  delay.o(i.delay_us)
-    fputc                                    0x000023ed   Thumb Code    44  main.o(i.fputc)
-    get_volt                                 0x0000241d   Thumb Code    10  ad1292.o(i.get_volt)
-    main                                     0x00002455   Thumb Code   222  main.o(i.main)
-    uartConfig                               0x00002570   Data          40  usart.o(.constdata)
-    spiMasterConfig                          0x00002598   Data          28  spi_u.o(.constdata)
-    Region$$Table$$Base                      0x00002644   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002664   Number         0  anon$$obj.o(Region$$Table)
-    Ads1292_Config1                          0x20000000   Data           1  ad1292.o(.data)
-    Ads1292_Config2                          0x20000001   Data           5  ad1292.o(.data)
-    Ads1292_Ch1set                           0x20000006   Data           3  ad1292.o(.data)
-    Ads1292_Ch2set                           0x20000009   Data           3  ad1292.o(.data)
-    Ads1292_Rld_Sens                         0x2000000c   Data           6  ad1292.o(.data)
-    Ads1292_Loff_Sens                        0x20000012   Data           6  ad1292.o(.data)
-    Ads1292_Resp1                            0x20000018   Data           4  ad1292.o(.data)
-    Ads1292_Resp2                            0x2000001c   Data           3  ad1292.o(.data)
-    ads1292_recive_flag                      0x2000001f   Data           1  ad1292.o(.data)
-    max_init_val                             0x20000020   Data           4  ad1292.o(.data)
-    maxIndex                                 0x20000024   Data           4  ad1292.o(.data)
-    min_init_val                             0x20000028   Data           4  ad1292.o(.data)
-    minIndex                                 0x2000002c   Data           4  ad1292.o(.data)
-    __stdout                                 0x20000074   Data           4  stdout.o(.data)
-    ADS1292_REG                              0x20000078   Data          12  ad1292.o(.bss)
-    ads1292_Cache                            0x20000084   Data           9  ad1292.o(.bss)
-    __initial_sp                             0x20000290   Data           0  startup_msp432p401r_uvision.o(STACK)
+    arm_fir_f32                              0x000001a5   Thumb Code  1330  arm_fir_f32.o(.text)
+    arm_fir_init_f32                         0x000006d7   Thumb Code    28  arm_fir_init_f32.o(.text)
+    arm_max_f32                              0x000006f5   Thumb Code   216  arm_max_f32.o(.text)
+    arm_min_f32                              0x000007cd   Thumb Code   216  arm_min_f32.o(.text)
+    arm_copy_f32                             0x000008a5   Thumb Code   132  arm_copy_f32.o(.text)
+    __aeabi_memset                           0x00000929   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x00000929   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x00000929   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x00000937   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x00000937   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x00000937   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x0000093b   Thumb Code    18  memseta.o(.text)
+    __aeabi_dmul                             0x0000094d   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x00000a31   Thumb Code   222  ddiv.o(.text)
+    __aeabi_i2d                              0x00000b0f   Thumb Code    34  dflti.o(.text)
+    __aeabi_d2iz                             0x00000b31   Thumb Code    62  dfixi.o(.text)
+    __aeabi_f2d                              0x00000b6f   Thumb Code    38  f2d.o(.text)
+    __aeabi_d2f                              0x00000b95   Thumb Code    56  d2f.o(.text)
+    __aeabi_uidiv                            0x00000bcd   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x00000bcd   Thumb Code    44  uidiv.o(.text)
+    __aeabi_uldivmod                         0x00000bf9   Thumb Code    98  uldiv.o(.text)
+    __aeabi_llsr                             0x00000c5b   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x00000c5b   Thumb Code     0  llushr.o(.text)
+    __I$use$fp                               0x00000c7b   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x00000c7b   Thumb Code    18  fepilogue.o(.text)
+    _float_epilogue                          0x00000c8d   Thumb Code    92  fepilogue.o(.text)
+    _double_round                            0x00000ce9   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x00000d07   Thumb Code   156  depilogue.o(.text)
+    __aeabi_dadd                             0x00000da3   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x00000ee5   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x00000eeb   Thumb Code     6  dadd.o(.text)
+    __aeabi_d2ulz                            0x00000ef1   Thumb Code    48  dfixul.o(.text)
+    __aeabi_cdrcmple                         0x00000f21   Thumb Code    48  cdrcmple.o(.text)
+    __scatterload                            0x00000f51   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000f51   Thumb Code     0  init.o(.text)
+    __aeabi_llsl                             0x00000f75   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x00000f75   Thumb Code     0  llshl.o(.text)
+    __aeabi_lasr                             0x00000f93   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x00000f93   Thumb Code     0  llsshr.o(.text)
+    ADS1292_Init                             0x00000fb7   Thumb Code    24  ad1292.o(i.ADS1292_Init)
+    ADS1292_Noise_Test                       0x00000fd1   Thumb Code    38  ad1292.o(i.ADS1292_Noise_Test)
+    ADS1292_PowerOnInit                      0x00001005   Thumb Code   134  ad1292.o(i.ADS1292_PowerOnInit)
+    ADS1292_Read_Data                        0x000010a9   Thumb Code    46  ad1292.o(i.ADS1292_Read_Data)
+    ADS1292_SET_REGBUFF                      0x000010d9   Thumb Code   574  ad1292.o(i.ADS1292_SET_REGBUFF)
+    ADS1292_SPI                              0x0000133d   Thumb Code    12  ad1292.o(i.ADS1292_SPI)
+    ADS1292_Send_CMD                         0x00001349   Thumb Code    40  ad1292.o(i.ADS1292_Send_CMD)
+    ADS1292_Single_Read                      0x00001371   Thumb Code    36  ad1292.o(i.ADS1292_Single_Read)
+    ADS1292_Single_Test                      0x000013a1   Thumb Code    38  ad1292.o(i.ADS1292_Single_Test)
+    ADS1292_WRITE_REGBUFF                    0x000013d5   Thumb Code   154  ad1292.o(i.ADS1292_WRITE_REGBUFF)
+    ADS1292_WR_REGS                          0x000014bd   Thumb Code   124  ad1292.o(i.ADS1292_WR_REGS)
+    ADS1292_val_init                         0x00001539   Thumb Code   134  ad1292.o(i.ADS1292_val_init)
+    CS_getDCOFrequency                       0x000015dd   Thumb Code   332  cs.o(i.CS_getDCOFrequency)
+    CS_getMCLK                               0x0000174d   Thumb Code    20  cs.o(i.CS_getMCLK)
+    CS_initClockSignal                       0x00001765   Thumb Code   222  cs.o(i.CS_initClockSignal)
+    CS_setExternalClockSourceFrequency       0x00001861   Thumb Code     8  cs.o(i.CS_setExternalClockSourceFrequency)
+    CS_startHFXT                             0x0000186d   Thumb Code     6  cs.o(i.CS_startHFXT)
+    CS_startHFXTWithTimeout                  0x00001875   Thumb Code   262  cs.o(i.CS_startHFXTWithTimeout)
+    FPU_enableModule                         0x000019b9   Thumb Code    12  fpu.o(i.FPU_enableModule)
+    FlashCtl_setWaitState                    0x000019c9   Thumb Code    38  flash.o(i.FlashCtl_setWaitState)
+    GPIO_Init                                0x000019f5   Thumb Code    46  gpio_u.o(i.GPIO_Init)
+    GPIO_clearInterruptFlag                  0x00001a25   Thumb Code    16  gpio.o(i.GPIO_clearInterruptFlag)
+    GPIO_disableInterrupt                    0x00001a39   Thumb Code    16  gpio.o(i.GPIO_disableInterrupt)
+    GPIO_enableInterrupt                     0x00001a4d   Thumb Code    14  gpio.o(i.GPIO_enableInterrupt)
+    GPIO_getEnabledInterruptStatus           0x00001a61   Thumb Code    48  gpio.o(i.GPIO_getEnabledInterruptStatus)
+    GPIO_setAsInputPinWithPullDownResistor   0x00001a95   Thumb Code    40  gpio.o(i.GPIO_setAsInputPinWithPullDownResistor)
+    GPIO_setAsOutputPin                      0x00001ac1   Thumb Code    26  gpio.o(i.GPIO_setAsOutputPin)
+    GPIO_setAsPeripheralModuleFunctionInputPin 0x00001ae1   Thumb Code    68  gpio.o(i.GPIO_setAsPeripheralModuleFunctionInputPin)
+    GPIO_setAsPeripheralModuleFunctionOutputPin 0x00001b29   Thumb Code    68  gpio.o(i.GPIO_setAsPeripheralModuleFunctionOutputPin)
+    GPIO_setOutputHighOnPin                  0x00001b71   Thumb Code    14  gpio.o(i.GPIO_setOutputHighOnPin)
+    GPIO_setOutputLowOnPin                   0x00001b85   Thumb Code    16  gpio.o(i.GPIO_setOutputLowOnPin)
+    Get_val_init_data                        0x00001b99   Thumb Code   138  ad1292.o(i.Get_val_init_data)
+    Interrupt_enableInterrupt                0x00001c35   Thumb Code    92  interrupt.o(i.Interrupt_enableInterrupt)
+    Interrupt_enableMaster                   0x00001c99   Thumb Code    14  interrupt.o(i.Interrupt_enableMaster)
+    Msp432_Clock_Init                        0x00001ca9   Thumb Code   116  sys.o(i.Msp432_Clock_Init)
+    PA8_IRQHandler                           0x00001d21   Thumb Code    16  ad1292.o(i.PA8_IRQHandler)
+    PCM_getCoreVoltageLevel                  0x00001d39   Thumb Code    70  pcm.o(i.PCM_getCoreVoltageLevel)
+    PCM_getPowerMode                         0x00001d85   Thumb Code    62  pcm.o(i.PCM_getPowerMode)
+    PCM_setCoreVoltageLevel                  0x00001dc9   Thumb Code     8  pcm.o(i.PCM_setCoreVoltageLevel)
+    PORT3_IRQHandler                         0x00001dd1   Thumb Code    28  main.o(i.PORT3_IRQHandler)
+    SPI_Init                                 0x00001ded   Thumb Code    28  spi_u.o(i.SPI_Init)
+    SPI_ReadWriteByte                        0x00001e11   Thumb Code    72  spi_u.o(i.SPI_ReadWriteByte)
+    SPI_enableModule                         0x00001e5d   Thumb Code    22  spi.o(i.SPI_enableModule)
+    SPI_initMaster                           0x00001e73   Thumb Code   102  spi.o(i.SPI_initMaster)
+    SPI_isBusy                               0x00001ed9   Thumb Code    46  spi.o(i.SPI_isBusy)
+    SPI_receiveData                          0x00001f07   Thumb Code    14  spi.o(i.SPI_receiveData)
+    SPI_transmitData                         0x00001f15   Thumb Code    16  spi.o(i.SPI_transmitData)
+    Set_ADS1292_Collect                      0x00001f25   Thumb Code    82  ad1292.o(i.Set_ADS1292_Collect)
+    SysCtl_disableNMISource                  0x00001f79   Thumb Code    12  sysctl.o(i.SysCtl_disableNMISource)
+    SysCtl_enableNMISource                   0x00001f89   Thumb Code    10  sysctl.o(i.SysCtl_enableNMISource)
+    SysCtl_getNMISourceStatus                0x00001f99   Thumb Code     6  sysctl.o(i.SysCtl_getNMISourceStatus)
+    SysCtl_getTLVInfo                        0x00001fa5   Thumb Code    72  sysctl.o(i.SysCtl_getTLVInfo)
+    SystemInit                               0x00001ff5   Thumb Code   118  system_msp432p401r.o(i.SystemInit)
+    UART_enableModule                        0x0000208d   Thumb Code    12  uart.o(i.UART_enableModule)
+    UART_getInterruptStatus                  0x00002099   Thumb Code     6  uart.o(i.UART_getInterruptStatus)
+    UART_initModule                          0x0000209f   Thumb Code   136  uart.o(i.UART_initModule)
+    UART_transmitData                        0x00002127   Thumb Code    24  uart.o(i.UART_transmitData)
+    Usart_Init                               0x00002141   Thumb Code    28  usart.o(i.Usart_Init)
+    WDT_A_holdTimer                          0x00002165   Thumb Code    18  wdt_a.o(i.WDT_A_holdTimer)
+    __0printf                                0x00002289   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x00002289   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x00002289   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x00002289   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x00002289   Thumb Code     0  printfa.o(i.__0printf)
+    __scatterload_copy                       0x0000248d   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0000249b   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0000249d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    arm_fir48_init                           0x00002d61   Thumb Code    22  fir_48.o(i.arm_fir48_init)
+    arm_fir_f32_lp_48                        0x00002d89   Thumb Code    30  fir_48.o(i.arm_fir_f32_lp_48)
+    bpm_calculate                            0x00002db1   Thumb Code   970  bpm.o(i.bpm_calculate)
+    delay_init                               0x00003195   Thumb Code    36  delay.o(i.delay_init)
+    delay_ms                                 0x000031c5   Thumb Code    72  delay.o(i.delay_ms)
+    delay_us                                 0x00003211   Thumb Code    72  delay.o(i.delay_us)
+    fputc                                    0x0000325d   Thumb Code    44  main.o(i.fputc)
+    get_channel_1_val                        0x0000328d   Thumb Code    26  ad1292.o(i.get_channel_1_val)
+    get_volt                                 0x000032b1   Thumb Code    10  ad1292.o(i.get_volt)
+    main                                     0x000032e9   Thumb Code   540  main.o(i.main)
+    maxim_peaks_above_min_height             0x000035a5   Thumb Code   122  findpeaks.o(i.maxim_peaks_above_min_height)
+    maxim_sort_ascend                        0x0000361f   Thumb Code    80  findpeaks.o(i.maxim_sort_ascend)
+    midfilt1                                 0x00003671   Thumb Code    80  medfilt1.o(i.midfilt1)
+    send_ending_flag                         0x000036c5   Thumb Code    34  usart_hmi.o(i.send_ending_flag)
+    uartConfig                               0x000036f0   Data          40  usart.o(.constdata)
+    spiMasterConfig                          0x00003718   Data          28  spi_u.o(.constdata)
+    BL5                                      0x00003734   Data           4  fir_48.o(.constdata)
+    B5                                       0x00003738   Data         116  fir_48.o(.constdata)
+    BL                                       0x000037ac   Data           4  fir_48.o(.constdata)
+    B                                        0x000037b0   Data         116  fir_48.o(.constdata)
+    Region$$Table$$Base                      0x000038b4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000038d4   Number         0  anon$$obj.o(Region$$Table)
+    a1                                       0x20000004   Data           4  main.o(.data)
+    a2                                       0x20000008   Data           4  main.o(.data)
+    b1                                       0x2000000c   Data           4  main.o(.data)
+    b2                                       0x20000010   Data           4  main.o(.data)
+    mean                                     0x20000014   Data           4  main.o(.data)
+    mid_val                                  0x20000018   Data           4  main.o(.data)
+    pn_npks                                  0x20000020   Data           4  main.o(.data)
+    val1                                     0x20000024   Data           4  main.o(.data)
+    Ads1292_Config1                          0x20000034   Data           1  ad1292.o(.data)
+    Ads1292_Config2                          0x20000035   Data           5  ad1292.o(.data)
+    Ads1292_Ch1set                           0x2000003a   Data           3  ad1292.o(.data)
+    Ads1292_Ch2set                           0x2000003d   Data           3  ad1292.o(.data)
+    Ads1292_Rld_Sens                         0x20000040   Data           6  ad1292.o(.data)
+    Ads1292_Loff_Sens                        0x20000046   Data           6  ad1292.o(.data)
+    Ads1292_Resp1                            0x2000004c   Data           4  ad1292.o(.data)
+    Ads1292_Resp2                            0x20000050   Data           3  ad1292.o(.data)
+    ads1292_recive_flag                      0x20000053   Data           1  ad1292.o(.data)
+    max_init_val                             0x20000054   Data           4  ad1292.o(.data)
+    maxIndex                                 0x20000058   Data           4  ad1292.o(.data)
+    min_init_val                             0x2000005c   Data           4  ad1292.o(.data)
+    minIndex                                 0x20000060   Data           4  ad1292.o(.data)
+    utest1                                   0x20000064   Data           4  ad1292.o(.data)
+    block_size                               0x20000074   Data           4  fir_48.o(.data)
+    Ending                                   0x20000078   Data           3  usart_hmi.o(.data)
+    __stdout                                 0x200000b8   Data           4  stdout.o(.data)
+    val_init_data                            0x200000bc   Data        8000  main.o(.bss)
+    breath_init_cache                        0x20001ffc   Data        8000  main.o(.bss)
+    bpm_cache                                0x20003f3c   Data        4000  main.o(.bss)
+    pn_locs                                  0x20004edc   Data          60  main.o(.bss)
+    calculate_cache                          0x20004f18   Data         144  main.o(.bss)
+    calculate_cache1                         0x20004fa8   Data          72  main.o(.bss)
+    fir_put                                  0x20004ff0   Data         144  main.o(.bss)
+    mid_filt_cache                           0x20005080   Data         500  main.o(.bss)
+    mid_filt_cache1                          0x20005274   Data         500  main.o(.bss)
+    ADS1292_REG                              0x20005468   Data          12  ad1292.o(.bss)
+    ads1292_Cache                            0x20005474   Data           9  ad1292.o(.bss)
+    S                                        0x20005568   Data          12  fir_48.o(.bss)
+    mid_cache                                0x20005574   Data         500  medfilt1.o(.bss)
+    __initial_sp                             0x20005968   Data           0  startup_msp432p401r_uvision.o(STACK)
 
 
 
@@ -1397,148 +1583,177 @@ Memory Map of the image
 
   Image Entry point : 0x00000181
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000026dc, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00003990, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002664, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000038d4, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x00000144   Data   RO          220    RESET               startup_msp432p401r_uvision.o
-    0x00000144   0x00000144   0x00000000   Code   RO         1232  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000144   0x00000144   0x00000004   Code   RO         1504    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000148   0x00000148   0x00000004   Code   RO         1507    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         1509    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000014c   0x0000014c   0x00000000   Code   RO         1511    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000014c   0x0000014c   0x00000008   Code   RO         1512    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000154   0x00000154   0x00000000   Code   RO         1514    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000154   0x00000154   0x00000000   Code   RO         1516    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000154   0x00000154   0x00000004   Code   RO         1505    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x00000158   0x00000158   0x00000026   Code   RO         1137    .emb_text           msp432p4xx_driverlib.lib(cpu.o)
+    0x00000000   0x00000000   0x00000144   Data   RO          236    RESET               startup_msp432p401r_uvision.o
+    0x00000144   0x00000144   0x00000000   Code   RO         1535  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000144   0x00000144   0x00000004   Code   RO         1815    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000148   0x00000148   0x00000004   Code   RO         1818    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO         1820    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000014c   0x0000014c   0x00000000   Code   RO         1822    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000014c   0x0000014c   0x00000008   Code   RO         1823    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000154   0x00000154   0x00000000   Code   RO         1825    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000154   0x00000154   0x00000000   Code   RO         1827    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000154   0x00000154   0x00000004   Code   RO         1816    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000158   0x00000158   0x00000026   Code   RO         1440    .emb_text           msp432p4xx_driverlib.lib(cpu.o)
     0x0000017e   0x0000017e   0x00000002   PAD
-    0x00000180   0x00000180   0x00000024   Code   RO          221  * .text               startup_msp432p401r_uvision.o
-    0x000001a4   0x000001a4   0x000000de   Code   RO         1498    .text               mf_w.l(ddiv.o)
-    0x00000282   0x00000282   0x00000026   Code   RO         1500    .text               mf_w.l(f2d.o)
-    0x000002a8   0x000002a8   0x0000002c   Code   RO         1519    .text               mc_w.l(uidiv.o)
-    0x000002d4   0x000002d4   0x00000062   Code   RO         1521    .text               mc_w.l(uldiv.o)
-    0x00000336   0x00000336   0x00000000   Code   RO         1523    .text               mc_w.l(iusefp.o)
-    0x00000336   0x00000336   0x000000ba   Code   RO         1526    .text               mf_w.l(depilogue.o)
-    0x000003f0   0x000003f0   0x0000014e   Code   RO         1528    .text               mf_w.l(dadd.o)
-    0x0000053e   0x0000053e   0x000000e4   Code   RO         1530    .text               mf_w.l(dmul.o)
-    0x00000622   0x00000622   0x00000030   Code   RO         1532    .text               mf_w.l(dfixul.o)
-    0x00000652   0x00000652   0x00000002   PAD
-    0x00000654   0x00000654   0x00000030   Code   RO         1534    .text               mf_w.l(cdrcmple.o)
-    0x00000684   0x00000684   0x00000024   Code   RO         1536    .text               mc_w.l(init.o)
-    0x000006a8   0x000006a8   0x0000001e   Code   RO         1538    .text               mc_w.l(llshl.o)
-    0x000006c6   0x000006c6   0x00000020   Code   RO         1540    .text               mc_w.l(llushr.o)
-    0x000006e6   0x000006e6   0x00000024   Code   RO         1542    .text               mc_w.l(llsshr.o)
-    0x0000070a   0x0000070a   0x00000018   Code   RO          264    i.ADS1292_Init      ad1292.o
-    0x00000722   0x00000722   0x00000002   PAD
-    0x00000724   0x00000724   0x00000034   Code   RO          265    i.ADS1292_Noise_Test  ad1292.o
-    0x00000758   0x00000758   0x00000070   Code   RO          266    i.ADS1292_PowerOnInit  ad1292.o
-    0x000007c8   0x000007c8   0x0000002e   Code   RO          267    i.ADS1292_Read_Data  ad1292.o
-    0x000007f6   0x000007f6   0x00000002   PAD
-    0x000007f8   0x000007f8   0x00000264   Code   RO          268    i.ADS1292_SET_REGBUFF  ad1292.o
-    0x00000a5c   0x00000a5c   0x0000000c   Code   RO          269    i.ADS1292_SPI       ad1292.o
-    0x00000a68   0x00000a68   0x00000028   Code   RO          270    i.ADS1292_Send_CMD  ad1292.o
-    0x00000a90   0x00000a90   0x00000030   Code   RO          271    i.ADS1292_Single_Read  ad1292.o
-    0x00000ac0   0x00000ac0   0x00000034   Code   RO          272    i.ADS1292_Single_Test  ad1292.o
-    0x00000af4   0x00000af4   0x000000e8   Code   RO          273    i.ADS1292_WRITE_REGBUFF  ad1292.o
-    0x00000bdc   0x00000bdc   0x0000007c   Code   RO          274    i.ADS1292_WR_REGS   ad1292.o
-    0x00000c58   0x00000c58   0x00000170   Code   RO          562    i.CS_getDCOFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x00000dc8   0x00000dc8   0x00000018   Code   RO          566    i.CS_getMCLK        msp432p4xx_driverlib.lib(cs.o)
-    0x00000de0   0x00000de0   0x000000fc   Code   RO          568    i.CS_initClockSignal  msp432p4xx_driverlib.lib(cs.o)
-    0x00000edc   0x00000edc   0x0000000c   Code   RO          574    i.CS_setExternalClockSourceFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x00000ee8   0x00000ee8   0x00000006   Code   RO          577    i.CS_startHFXT      msp432p4xx_driverlib.lib(cs.o)
-    0x00000eee   0x00000eee   0x00000002   PAD
-    0x00000ef0   0x00000ef0   0x00000144   Code   RO          578    i.CS_startHFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
-    0x00001034   0x00001034   0x00000010   Code   RO          706    i.FPU_enableModule  msp432p4xx_driverlib.lib(fpu.o)
-    0x00001044   0x00001044   0x0000002c   Code   RO          648    i.FlashCtl_setWaitState  msp432p4xx_driverlib.lib(flash.o)
-    0x00001070   0x00001070   0x0000002e   Code   RO          486    i.GPIO_Init         gpio_u.o
-    0x0000109e   0x0000109e   0x00000002   PAD
-    0x000010a0   0x000010a0   0x00000014   Code   RO          727    i.GPIO_clearInterruptFlag  msp432p4xx_driverlib.lib(gpio.o)
-    0x000010b4   0x000010b4   0x00000014   Code   RO          728    i.GPIO_disableInterrupt  msp432p4xx_driverlib.lib(gpio.o)
-    0x000010c8   0x000010c8   0x00000014   Code   RO          729    i.GPIO_enableInterrupt  msp432p4xx_driverlib.lib(gpio.o)
-    0x000010dc   0x000010dc   0x00000034   Code   RO          730    i.GPIO_getEnabledInterruptStatus  msp432p4xx_driverlib.lib(gpio.o)
-    0x00001110   0x00001110   0x0000002c   Code   RO          736    i.GPIO_setAsInputPinWithPullDownResistor  msp432p4xx_driverlib.lib(gpio.o)
-    0x0000113c   0x0000113c   0x00000020   Code   RO          738    i.GPIO_setAsOutputPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x0000115c   0x0000115c   0x00000048   Code   RO          739    i.GPIO_setAsPeripheralModuleFunctionInputPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x000011a4   0x000011a4   0x00000048   Code   RO          740    i.GPIO_setAsPeripheralModuleFunctionOutputPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x000011ec   0x000011ec   0x00000014   Code   RO          743    i.GPIO_setOutputHighOnPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00001200   0x00001200   0x00000014   Code   RO          744    i.GPIO_setOutputLowOnPin  msp432p4xx_driverlib.lib(gpio.o)
-    0x00001214   0x00001214   0x00000064   Code   RO          779    i.Interrupt_enableInterrupt  msp432p4xx_driverlib.lib(interrupt.o)
-    0x00001278   0x00001278   0x0000000e   Code   RO          780    i.Interrupt_enableMaster  msp432p4xx_driverlib.lib(interrupt.o)
-    0x00001286   0x00001286   0x00000002   PAD
-    0x00001288   0x00001288   0x0000005c   Code   RO          389    i.Msp432_Clock_Init  sys.o
-    0x000012e4   0x000012e4   0x00000018   Code   RO          277    i.PA8_IRQHandler    ad1292.o
-    0x000012fc   0x000012fc   0x0000004c   Code   RO          828    i.PCM_getCoreVoltageLevel  msp432p4xx_driverlib.lib(pcm.o)
-    0x00001348   0x00001348   0x00000044   Code   RO          831    i.PCM_getPowerMode  msp432p4xx_driverlib.lib(pcm.o)
-    0x0000138c   0x0000138c   0x00000008   Code   RO          840    i.PCM_setCoreVoltageLevel  msp432p4xx_driverlib.lib(pcm.o)
-    0x00001394   0x00001394   0x0000001c   Code   RO            4    i.PORT3_IRQHandler  main.o
-    0x000013b0   0x000013b0   0x00000024   Code   RO          514    i.SPI_Init          spi_u.o
-    0x000013d4   0x000013d4   0x0000004c   Code   RO          515    i.SPI_ReadWriteByte  spi_u.o
-    0x00001420   0x00001420   0x00000016   Code   RO          927    i.SPI_enableModule  msp432p4xx_driverlib.lib(spi.o)
-    0x00001436   0x00001436   0x00000066   Code   RO          932    i.SPI_initMaster    msp432p4xx_driverlib.lib(spi.o)
-    0x0000149c   0x0000149c   0x0000002e   Code   RO          934    i.SPI_isBusy        msp432p4xx_driverlib.lib(spi.o)
-    0x000014ca   0x000014ca   0x0000000e   Code   RO          935    i.SPI_receiveData   msp432p4xx_driverlib.lib(spi.o)
-    0x000014d8   0x000014d8   0x00000010   Code   RO          938    i.SPI_transmitData  msp432p4xx_driverlib.lib(spi.o)
-    0x000014e8   0x000014e8   0x00000052   Code   RO          278    i.Set_ADS1292_Collect  ad1292.o
-    0x0000153a   0x0000153a   0x00000002   PAD
-    0x0000153c   0x0000153c   0x00000010   Code   RO         1194    i.SysCtl_disableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
-    0x0000154c   0x0000154c   0x00000010   Code   RO         1199    i.SysCtl_enableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
-    0x0000155c   0x0000155c   0x0000000c   Code   RO         1204    i.SysCtl_getNMISourceStatus  msp432p4xx_driverlib.lib(sysctl.o)
-    0x00001568   0x00001568   0x00000050   Code   RO         1206    i.SysCtl_getTLVInfo  msp432p4xx_driverlib.lib(sysctl.o)
-    0x000015b8   0x000015b8   0x00000098   Code   RO          229    i.SystemInit        system_msp432p401r.o
-    0x00001650   0x00001650   0x0000000c   Code   RO         1001    i.UART_enableModule  msp432p4xx_driverlib.lib(uart.o)
-    0x0000165c   0x0000165c   0x00000006   Code   RO         1003    i.UART_getInterruptStatus  msp432p4xx_driverlib.lib(uart.o)
-    0x00001662   0x00001662   0x00000088   Code   RO         1006    i.UART_initModule   msp432p4xx_driverlib.lib(uart.o)
-    0x000016ea   0x000016ea   0x00000018   Code   RO         1015    i.UART_transmitData  msp432p4xx_driverlib.lib(uart.o)
-    0x00001702   0x00001702   0x00000002   PAD
-    0x00001704   0x00001704   0x00000024   Code   RO          455    i.Usart_Init        usart.o
-    0x00001728   0x00001728   0x00000018   Code   RO         1044    i.WDT_A_holdTimer   msp432p4xx_driverlib.lib(wdt_a.o)
-    0x00001740   0x00001740   0x0000010c   Code   RO          583    i._CSComputeCLKFrequency  msp432p4xx_driverlib.lib(cs.o)
-    0x0000184c   0x0000184c   0x00000020   Code   RO         1470    i.__0printf         mc_w.l(printfa.o)
-    0x0000186c   0x0000186c   0x00000100   Code   RO          851    i.__PCM_setCoreVoltageLevelAdvanced  msp432p4xx_driverlib.lib(pcm.o)
-    0x0000196c   0x0000196c   0x000000e4   Code   RO          852    i.__PCM_setPowerModeAdvanced  msp432p4xx_driverlib.lib(pcm.o)
-    0x00001a50   0x00001a50   0x0000000e   Code   RO         1546    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001a5e   0x00001a5e   0x00000002   Code   RO         1547    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001a60   0x00001a60   0x0000000e   Code   RO         1548    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00001a6e   0x00001a6e   0x00000002   PAD
-    0x00001a70   0x00001a70   0x00000184   Code   RO         1477    i._fp_digits        mc_w.l(printfa.o)
-    0x00001bf4   0x00001bf4   0x000006dc   Code   RO         1478    i._printf_core      mc_w.l(printfa.o)
-    0x000022d0   0x000022d0   0x00000024   Code   RO         1479    i._printf_post_padding  mc_w.l(printfa.o)
-    0x000022f4   0x000022f4   0x0000002e   Code   RO         1480    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x00002322   0x00002322   0x00000002   PAD
-    0x00002324   0x00002324   0x00000030   Code   RO          417    i.delay_init        delay.o
-    0x00002354   0x00002354   0x0000004c   Code   RO          418    i.delay_ms          delay.o
-    0x000023a0   0x000023a0   0x0000004c   Code   RO          419    i.delay_us          delay.o
-    0x000023ec   0x000023ec   0x00000030   Code   RO            5    i.fputc             main.o
-    0x0000241c   0x0000241c   0x0000000a   Code   RO          279    i.get_volt          ad1292.o
-    0x00002426   0x00002426   0x0000002e   Code   RO          940    i.is_A_Module       msp432p4xx_driverlib.lib(spi.o)
-    0x00002454   0x00002454   0x0000011c   Code   RO            7    i.main              main.o
-    0x00002570   0x00002570   0x00000028   Data   RO          456    .constdata          usart.o
-    0x00002598   0x00002598   0x0000001c   Data   RO          516    .constdata          spi_u.o
-    0x000025b4   0x000025b4   0x00000090   Data   RO          795    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
-    0x00002644   0x00002644   0x00000020   Data   RO         1544    Region$$Table       anon$$obj.o
+    0x00000180   0x00000180   0x00000024   Code   RO          237  * .text               startup_msp432p401r_uvision.o
+    0x000001a4   0x000001a4   0x00000532   Code   RO         1298    .text               arm_cortexM4lf_math.lib(arm_fir_f32.o)
+    0x000006d6   0x000006d6   0x0000001c   Code   RO         1344    .text               arm_cortexM4lf_math.lib(arm_fir_init_f32.o)
+    0x000006f2   0x000006f2   0x00000002   PAD
+    0x000006f4   0x000006f4   0x000000d8   Code   RO         1368    .text               arm_cortexM4lf_math.lib(arm_max_f32.o)
+    0x000007cc   0x000007cc   0x000000d8   Code   RO         1392    .text               arm_cortexM4lf_math.lib(arm_min_f32.o)
+    0x000008a4   0x000008a4   0x00000084   Code   RO         1416    .text               arm_cortexM4lf_math.lib(arm_copy_f32.o)
+    0x00000928   0x00000928   0x00000024   Code   RO         1538    .text               mc_w.l(memseta.o)
+    0x0000094c   0x0000094c   0x000000e4   Code   RO         1803    .text               mf_w.l(dmul.o)
+    0x00000a30   0x00000a30   0x000000de   Code   RO         1805    .text               mf_w.l(ddiv.o)
+    0x00000b0e   0x00000b0e   0x00000022   Code   RO         1807    .text               mf_w.l(dflti.o)
+    0x00000b30   0x00000b30   0x0000003e   Code   RO         1809    .text               mf_w.l(dfixi.o)
+    0x00000b6e   0x00000b6e   0x00000026   Code   RO         1811    .text               mf_w.l(f2d.o)
+    0x00000b94   0x00000b94   0x00000038   Code   RO         1813    .text               mf_w.l(d2f.o)
+    0x00000bcc   0x00000bcc   0x0000002c   Code   RO         1830    .text               mc_w.l(uidiv.o)
+    0x00000bf8   0x00000bf8   0x00000062   Code   RO         1832    .text               mc_w.l(uldiv.o)
+    0x00000c5a   0x00000c5a   0x00000020   Code   RO         1834    .text               mc_w.l(llushr.o)
+    0x00000c7a   0x00000c7a   0x00000000   Code   RO         1836    .text               mc_w.l(iusefp.o)
+    0x00000c7a   0x00000c7a   0x0000006e   Code   RO         1837    .text               mf_w.l(fepilogue.o)
+    0x00000ce8   0x00000ce8   0x000000ba   Code   RO         1839    .text               mf_w.l(depilogue.o)
+    0x00000da2   0x00000da2   0x0000014e   Code   RO         1841    .text               mf_w.l(dadd.o)
+    0x00000ef0   0x00000ef0   0x00000030   Code   RO         1843    .text               mf_w.l(dfixul.o)
+    0x00000f20   0x00000f20   0x00000030   Code   RO         1845    .text               mf_w.l(cdrcmple.o)
+    0x00000f50   0x00000f50   0x00000024   Code   RO         1847    .text               mc_w.l(init.o)
+    0x00000f74   0x00000f74   0x0000001e   Code   RO         1849    .text               mc_w.l(llshl.o)
+    0x00000f92   0x00000f92   0x00000024   Code   RO         1851    .text               mc_w.l(llsshr.o)
+    0x00000fb6   0x00000fb6   0x00000018   Code   RO          280    i.ADS1292_Init      ad1292.o
+    0x00000fce   0x00000fce   0x00000002   PAD
+    0x00000fd0   0x00000fd0   0x00000034   Code   RO          281    i.ADS1292_Noise_Test  ad1292.o
+    0x00001004   0x00001004   0x000000a4   Code   RO          282    i.ADS1292_PowerOnInit  ad1292.o
+    0x000010a8   0x000010a8   0x0000002e   Code   RO          283    i.ADS1292_Read_Data  ad1292.o
+    0x000010d6   0x000010d6   0x00000002   PAD
+    0x000010d8   0x000010d8   0x00000264   Code   RO          284    i.ADS1292_SET_REGBUFF  ad1292.o
+    0x0000133c   0x0000133c   0x0000000c   Code   RO          285    i.ADS1292_SPI       ad1292.o
+    0x00001348   0x00001348   0x00000028   Code   RO          286    i.ADS1292_Send_CMD  ad1292.o
+    0x00001370   0x00001370   0x00000030   Code   RO          287    i.ADS1292_Single_Read  ad1292.o
+    0x000013a0   0x000013a0   0x00000034   Code   RO          288    i.ADS1292_Single_Test  ad1292.o
+    0x000013d4   0x000013d4   0x000000e8   Code   RO          289    i.ADS1292_WRITE_REGBUFF  ad1292.o
+    0x000014bc   0x000014bc   0x0000007c   Code   RO          290    i.ADS1292_WR_REGS   ad1292.o
+    0x00001538   0x00001538   0x000000a4   Code   RO          291    i.ADS1292_val_init  ad1292.o
+    0x000015dc   0x000015dc   0x00000170   Code   RO          793    i.CS_getDCOFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x0000174c   0x0000174c   0x00000018   Code   RO          797    i.CS_getMCLK        msp432p4xx_driverlib.lib(cs.o)
+    0x00001764   0x00001764   0x000000fc   Code   RO          799    i.CS_initClockSignal  msp432p4xx_driverlib.lib(cs.o)
+    0x00001860   0x00001860   0x0000000c   Code   RO          805    i.CS_setExternalClockSourceFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x0000186c   0x0000186c   0x00000006   Code   RO          808    i.CS_startHFXT      msp432p4xx_driverlib.lib(cs.o)
+    0x00001872   0x00001872   0x00000002   PAD
+    0x00001874   0x00001874   0x00000144   Code   RO          809    i.CS_startHFXTWithTimeout  msp432p4xx_driverlib.lib(cs.o)
+    0x000019b8   0x000019b8   0x00000010   Code   RO          937    i.FPU_enableModule  msp432p4xx_driverlib.lib(fpu.o)
+    0x000019c8   0x000019c8   0x0000002c   Code   RO          879    i.FlashCtl_setWaitState  msp432p4xx_driverlib.lib(flash.o)
+    0x000019f4   0x000019f4   0x0000002e   Code   RO          508    i.GPIO_Init         gpio_u.o
+    0x00001a22   0x00001a22   0x00000002   PAD
+    0x00001a24   0x00001a24   0x00000014   Code   RO          958    i.GPIO_clearInterruptFlag  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001a38   0x00001a38   0x00000014   Code   RO          959    i.GPIO_disableInterrupt  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001a4c   0x00001a4c   0x00000014   Code   RO          960    i.GPIO_enableInterrupt  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001a60   0x00001a60   0x00000034   Code   RO          961    i.GPIO_getEnabledInterruptStatus  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001a94   0x00001a94   0x0000002c   Code   RO          967    i.GPIO_setAsInputPinWithPullDownResistor  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001ac0   0x00001ac0   0x00000020   Code   RO          969    i.GPIO_setAsOutputPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001ae0   0x00001ae0   0x00000048   Code   RO          970    i.GPIO_setAsPeripheralModuleFunctionInputPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001b28   0x00001b28   0x00000048   Code   RO          971    i.GPIO_setAsPeripheralModuleFunctionOutputPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001b70   0x00001b70   0x00000014   Code   RO          974    i.GPIO_setOutputHighOnPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001b84   0x00001b84   0x00000014   Code   RO          975    i.GPIO_setOutputLowOnPin  msp432p4xx_driverlib.lib(gpio.o)
+    0x00001b98   0x00001b98   0x0000009c   Code   RO          292    i.Get_val_init_data  ad1292.o
+    0x00001c34   0x00001c34   0x00000064   Code   RO         1010    i.Interrupt_enableInterrupt  msp432p4xx_driverlib.lib(interrupt.o)
+    0x00001c98   0x00001c98   0x0000000e   Code   RO         1011    i.Interrupt_enableMaster  msp432p4xx_driverlib.lib(interrupt.o)
+    0x00001ca6   0x00001ca6   0x00000002   PAD
+    0x00001ca8   0x00001ca8   0x00000078   Code   RO          411    i.Msp432_Clock_Init  sys.o
+    0x00001d20   0x00001d20   0x00000018   Code   RO          293    i.PA8_IRQHandler    ad1292.o
+    0x00001d38   0x00001d38   0x0000004c   Code   RO         1059    i.PCM_getCoreVoltageLevel  msp432p4xx_driverlib.lib(pcm.o)
+    0x00001d84   0x00001d84   0x00000044   Code   RO         1062    i.PCM_getPowerMode  msp432p4xx_driverlib.lib(pcm.o)
+    0x00001dc8   0x00001dc8   0x00000008   Code   RO         1071    i.PCM_setCoreVoltageLevel  msp432p4xx_driverlib.lib(pcm.o)
+    0x00001dd0   0x00001dd0   0x0000001c   Code   RO            4    i.PORT3_IRQHandler  main.o
+    0x00001dec   0x00001dec   0x00000024   Code   RO          536    i.SPI_Init          spi_u.o
+    0x00001e10   0x00001e10   0x0000004c   Code   RO          537    i.SPI_ReadWriteByte  spi_u.o
+    0x00001e5c   0x00001e5c   0x00000016   Code   RO         1158    i.SPI_enableModule  msp432p4xx_driverlib.lib(spi.o)
+    0x00001e72   0x00001e72   0x00000066   Code   RO         1163    i.SPI_initMaster    msp432p4xx_driverlib.lib(spi.o)
+    0x00001ed8   0x00001ed8   0x0000002e   Code   RO         1165    i.SPI_isBusy        msp432p4xx_driverlib.lib(spi.o)
+    0x00001f06   0x00001f06   0x0000000e   Code   RO         1166    i.SPI_receiveData   msp432p4xx_driverlib.lib(spi.o)
+    0x00001f14   0x00001f14   0x00000010   Code   RO         1169    i.SPI_transmitData  msp432p4xx_driverlib.lib(spi.o)
+    0x00001f24   0x00001f24   0x00000052   Code   RO          294    i.Set_ADS1292_Collect  ad1292.o
+    0x00001f76   0x00001f76   0x00000002   PAD
+    0x00001f78   0x00001f78   0x00000010   Code   RO         1497    i.SysCtl_disableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00001f88   0x00001f88   0x00000010   Code   RO         1502    i.SysCtl_enableNMISource  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00001f98   0x00001f98   0x0000000c   Code   RO         1507    i.SysCtl_getNMISourceStatus  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00001fa4   0x00001fa4   0x00000050   Code   RO         1509    i.SysCtl_getTLVInfo  msp432p4xx_driverlib.lib(sysctl.o)
+    0x00001ff4   0x00001ff4   0x00000098   Code   RO          245    i.SystemInit        system_msp432p401r.o
+    0x0000208c   0x0000208c   0x0000000c   Code   RO         1232    i.UART_enableModule  msp432p4xx_driverlib.lib(uart.o)
+    0x00002098   0x00002098   0x00000006   Code   RO         1234    i.UART_getInterruptStatus  msp432p4xx_driverlib.lib(uart.o)
+    0x0000209e   0x0000209e   0x00000088   Code   RO         1237    i.UART_initModule   msp432p4xx_driverlib.lib(uart.o)
+    0x00002126   0x00002126   0x00000018   Code   RO         1246    i.UART_transmitData  msp432p4xx_driverlib.lib(uart.o)
+    0x0000213e   0x0000213e   0x00000002   PAD
+    0x00002140   0x00002140   0x00000024   Code   RO          477    i.Usart_Init        usart.o
+    0x00002164   0x00002164   0x00000018   Code   RO         1275    i.WDT_A_holdTimer   msp432p4xx_driverlib.lib(wdt_a.o)
+    0x0000217c   0x0000217c   0x0000010c   Code   RO          814    i._CSComputeCLKFrequency  msp432p4xx_driverlib.lib(cs.o)
+    0x00002288   0x00002288   0x00000020   Code   RO         1775    i.__0printf         mc_w.l(printfa.o)
+    0x000022a8   0x000022a8   0x00000100   Code   RO         1082    i.__PCM_setCoreVoltageLevelAdvanced  msp432p4xx_driverlib.lib(pcm.o)
+    0x000023a8   0x000023a8   0x000000e4   Code   RO         1083    i.__PCM_setPowerModeAdvanced  msp432p4xx_driverlib.lib(pcm.o)
+    0x0000248c   0x0000248c   0x0000000e   Code   RO         1855    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0000249a   0x0000249a   0x00000002   Code   RO         1856    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0000249c   0x0000249c   0x0000000e   Code   RO         1857    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000024aa   0x000024aa   0x00000002   PAD
+    0x000024ac   0x000024ac   0x00000184   Code   RO         1782    i._fp_digits        mc_w.l(printfa.o)
+    0x00002630   0x00002630   0x000006dc   Code   RO         1783    i._printf_core      mc_w.l(printfa.o)
+    0x00002d0c   0x00002d0c   0x00000024   Code   RO         1784    i._printf_post_padding  mc_w.l(printfa.o)
+    0x00002d30   0x00002d30   0x0000002e   Code   RO         1785    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x00002d5e   0x00002d5e   0x00000002   PAD
+    0x00002d60   0x00002d60   0x00000028   Code   RO          573    i.arm_fir48_init    fir_48.o
+    0x00002d88   0x00002d88   0x00000028   Code   RO          575    i.arm_fir_f32_lp_48  fir_48.o
+    0x00002db0   0x00002db0   0x000003e4   Code   RO          624    i.bpm_calculate     bpm.o
+    0x00003194   0x00003194   0x00000030   Code   RO          439    i.delay_init        delay.o
+    0x000031c4   0x000031c4   0x0000004c   Code   RO          440    i.delay_ms          delay.o
+    0x00003210   0x00003210   0x0000004c   Code   RO          441    i.delay_us          delay.o
+    0x0000325c   0x0000325c   0x00000030   Code   RO            5    i.fputc             main.o
+    0x0000328c   0x0000328c   0x00000024   Code   RO          295    i.get_channel_1_val  ad1292.o
+    0x000032b0   0x000032b0   0x0000000a   Code   RO          296    i.get_volt          ad1292.o
+    0x000032ba   0x000032ba   0x0000002e   Code   RO         1171    i.is_A_Module       msp432p4xx_driverlib.lib(spi.o)
+    0x000032e8   0x000032e8   0x000002bc   Code   RO            7    i.main              main.o
+    0x000035a4   0x000035a4   0x0000007a   Code   RO          652    i.maxim_peaks_above_min_height  findpeaks.o
+    0x0000361e   0x0000361e   0x00000050   Code   RO          654    i.maxim_sort_ascend  findpeaks.o
+    0x0000366e   0x0000366e   0x00000002   PAD
+    0x00003670   0x00003670   0x00000054   Code   RO          698    i.midfilt1          medfilt1.o
+    0x000036c4   0x000036c4   0x0000002c   Code   RO          731    i.send_ending_flag  usart_hmi.o
+    0x000036f0   0x000036f0   0x00000028   Data   RO          478    .constdata          usart.o
+    0x00003718   0x00003718   0x0000001c   Data   RO          538    .constdata          spi_u.o
+    0x00003734   0x00003734   0x000000f0   Data   RO          578    .constdata          fir_48.o
+    0x00003824   0x00003824   0x00000090   Data   RO         1026    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
+    0x000038b4   0x000038b4   0x00000020   Data   RO         1853    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00002664, Size: 0x00000078, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000038d4, Size: 0x000000bc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00002664   0x00000038   Data   RW          281    .data               ad1292.o
-    0x20000038   0x0000269c   0x00000004   Data   RW          420    .data               delay.o
-    0x2000003c   0x000026a0   0x00000008   Data   RW          584    .data               msp432p4xx_driverlib.lib(cs.o)
-    0x20000044   0x000026a8   0x00000030   Data   RW          748    .data               msp432p4xx_driverlib.lib(gpio.o)
-    0x20000074   0x000026d8   0x00000004   Data   RW         1518    .data               mc_w.l(stdout.o)
+    0x20000000   0x000038d4   0x00000032   Data   RW            9    .data               main.o
+    0x20000032   0x00003906   0x00000002   PAD
+    0x20000034   0x00003908   0x0000003c   Data   RW          298    .data               ad1292.o
+    0x20000070   0x00003944   0x00000004   Data   RW          442    .data               delay.o
+    0x20000074   0x00003948   0x00000004   Data   RW          579    .data               fir_48.o
+    0x20000078   0x0000394c   0x00000008   Data   RW          734    .data               usart_hmi.o
+    0x20000080   0x00003954   0x00000008   Data   RW          815    .data               msp432p4xx_driverlib.lib(cs.o)
+    0x20000088   0x0000395c   0x00000030   Data   RW          979    .data               msp432p4xx_driverlib.lib(gpio.o)
+    0x200000b8   0x0000398c   0x00000004   Data   RW         1829    .data               mc_w.l(stdout.o)
 
 
-    Execution Region ER_ZI (Exec base: 0x20000078, Load base: 0x000026dc, Size: 0x00000218, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x200000bc, Load base: 0x00003990, Size: 0x000058ac, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000078        -       0x00000015   Zero   RW          280    .bss                ad1292.o
-    0x2000008d   0x000026dc   0x00000003   PAD
-    0x20000090        -       0x00000200   Zero   RW          218    STACK               startup_msp432p401r_uvision.o
+    0x200000bc        -       0x000053ac   Zero   RW            8    .bss                main.o
+    0x20005468        -       0x00000015   Zero   RW          297    .bss                ad1292.o
+    0x2000547d   0x00003990   0x00000003   PAD
+    0x20005480        -       0x000000f4   Zero   RW          577    .bss                fir_48.o
+    0x20005574        -       0x000001f4   Zero   RW          699    .bss                medfilt1.o
+    0x20005768        -       0x00000200   Zero   RW          234    STACK               startup_msp432p401r_uvision.o
 
 
 ==============================================================================
@@ -1548,25 +1763,35 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1470        194          0         56         21      13710   ad1292.o
+      1878        252          0         60         21      15228   ad1292.o
+       996         34          0          0          0       1228   bpm.o
        200         20          0          4          0       1735   delay.o
+       202          0          0          0          0       1983   findpeaks.o
+        80         28        240          4        244       1932   fir_48.o
         46          0          0          0          0        480   gpio_u.o
-       360         66          0          0          0      29050   main.o
+       776        164          0         50      21420      30188   main.o
+        84          4          0          0        500       1423   medfilt1.o
        112         12         28          0          0       1717   spi_u.o
         36          8        324          0        512        868   startup_msp432p401r_uvision.o
-        92          6          0          0          0        500   sys.o
+       120          4          0          0          0        508   sys.o
        152         34          0          0          0        557   system_msp432p401r.o
         36          8         40          0          0       1042   usart.o
+        44         10          0          8          0       1834   usart_hmi.o
 
     ----------------------------------------------------------------------
-      2512        348        424         60        536      49659   Object Totals
+      4772        578        664        128      22700      60723   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          0          0          3          0   (incl. Padding)
+        10          0          0          2          3          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
+       132          0          0          0          0        903   arm_copy_f32.o
+      1330          6          0          0          0      20102   arm_fir_f32.o
+        28          0          0          0          0       1107   arm_fir_init_f32.o
+       216          0          0          0          0       1742   arm_max_f32.o
+       216          0          0          0          0       1742   arm_min_f32.o
          0          0          0          0          0          0   entry.o
          0          0          0          0          0          0   entry10a.o
          0          0          0          0          0          0   entry11a.o
@@ -1581,17 +1806,22 @@ Image component sizes
         30          0          0          0          0         68   llshl.o
         36          0          0          0          0         68   llsshr.o
         32          0          0          0          0         68   llushr.o
+        36          0          0          0          0        108   memseta.o
       2258         90          0          0          0        452   printfa.o
          0          0          0          4          0          0   stdout.o
         44          0          0          0          0         80   uidiv.o
         98          0          0          0          0         92   uldiv.o
         48          0          0          0          0         68   cdrcmple.o
+        56          0          0          0          0         88   d2f.o
        334          0          0          0          0        148   dadd.o
        222          0          0          0          0        100   ddiv.o
        186          0          0          0          0        176   depilogue.o
+        62          0          0          0          0         80   dfixi.o
         48          0          0          0          0         68   dfixul.o
+        34          0          0          0          0         76   dflti.o
        228          0          0          0          0         96   dmul.o
         38          0          0          0          0         68   f2d.o
+       110          0          0          0          0        168   fepilogue.o
         38          0          0          0          0        196   cpu.o
       1254        182          0          8          0        904   cs.o
         44          6          0          0          0        116   flash.o
@@ -1605,19 +1835,20 @@ Image component sizes
         24          6          0          0          0        116   wdt_a.o
 
     ----------------------------------------------------------------------
-      6748        508        144         60          0       6804   Library Totals
+      8968        514        144         60          0      32920   Library Totals
         14          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      2584        106          0          4          0        896   mc_w.l
-      1104          0          0          0          0        724   mf_w.l
+      1922          6          0          0          0      25596   arm_cortexM4lf_math.lib
+      2620        106          0          4          0       1004   mc_w.l
+      1366          0          0          0          0       1136   mf_w.l
       3046        402        144         56          0       5184   msp432p4xx_driverlib.lib
 
     ----------------------------------------------------------------------
-      6748        508        144         60          0       6804   Library Totals
+      8968        514        144         60          0      32920   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1626,15 +1857,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9260        856        568        120        536      49887   Grand Totals
-      9260        856        568        120        536      49887   ELF Image Totals
-      9260        856        568        120          0          0   ROM Totals
+     13740       1092        808        188      22700      85607   Grand Totals
+     13740       1092        808        188      22700      85607   ELF Image Totals
+     13740       1092        808        188          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9828 (   9.60kB)
-    Total RW  Size (RW Data + ZI Data)               656 (   0.64kB)
-    Total ROM Size (Code + RO Data + RW Data)       9948 (   9.71kB)
+    Total RO  Size (Code + RO Data)                14548 (  14.21kB)
+    Total RW  Size (RW Data + ZI Data)             22888 (  22.35kB)
+    Total ROM Size (Code + RO Data + RW Data)      14736 (  14.39kB)
 
 ==============================================================================
 

@@ -20,6 +20,12 @@ ADS1292_LOFF_SENS	Ads1292_Loff_Sens	={FLIP2,FLIP1,LOFF2N,LOFF2P,LOFF1N,LOFF1P};	
 ADS1292_RESP1			Ads1292_Resp1			={RESP_DEMOD_EN1,RESP_MOD_EN,RESP_PH,RESP_CTRL};		//RSP1
 ADS1292_RESP2			Ads1292_Resp2			={CALIB,FREQ,RLDREF_INT};														//RSP2
 
+typedef union TEST
+{
+	u32 a;
+	u8  b[4];
+}TEST_u;	
+
 volatile u8 ads1292_recive_flag=0;	//数据读取完成标志
 volatile u8 ads1292_Cache[9];	//数据缓冲区
 
@@ -27,6 +33,8 @@ float32_t max_init_val;
 uint32_t maxIndex;
 float32_t min_init_val;
 uint32_t minIndex;
+
+TEST_u utest1;
 
 u8 ADS1292_SPI(u8 com)
 {	
@@ -232,7 +240,16 @@ void ADS1292_PowerOnInit(void)
 		ADS1292_Send_CMD(SDATAC);//发送停止连续读取数据命令
 		delay_ms(100);	
 		ADS1292_Send_CMD(RESET);//复位
-		delay_ms(1000);		
+		delay_ms(100);		
+		delay_ms(100);
+	  delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
+		delay_ms(100);
 		ADS1292_Send_CMD(SDATAC);//发送停止连续读取数据命令
 		delay_ms(100);		
 	
@@ -342,25 +359,29 @@ void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
 
 void Get_val_init_data(float32_t *data,float32_t *data2)
 {
-	u32 cannle1,cannle0;
+	u32 cannle0;
 	s32 p_Temp1,p_Temp0;
+	int32_t cannle1;
 	static int f,i;
-	while(f<Val_Init_Num)
+	while(f<Val_Init_Num+1)
 	{
 		if(ads1292_recive_flag)
 		{
 			cannle0=ads1292_Cache[3]<<16 | ads1292_Cache[4]<<8 | ads1292_Cache[5];
-			cannle1=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
-
-			p_Temp1 = get_volt(cannle1);
+			//cannle1=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
+			cannle1=get_channel_1_val();
+			
+			//p_Temp1 = get_volt(cannle1);
 			p_Temp0 = get_volt(cannle0);
 
-			cannle1 = p_Temp1;
+			//cannle1 = p_Temp1;
 			cannle0 = p_Temp0;
-
-			*(data+i) = cannle1;
-			*(data2+i) = cannle0;
 			
+			if(i>0)
+			{
+				*(data+i-1) = cannle1;
+				*(data2+i-1) = cannle0;
+			}
 			f++;
 			
 			i++;
@@ -381,7 +402,18 @@ s32 get_volt(u32 num)
 			return temp;
 }
 
-
+int32_t get_channel_1_val()
+{
+	
+	int32_t channel1_val;
+	
+	utest1.b[0] = ads1292_Cache[8];
+	utest1.b[1] = ads1292_Cache[7];
+	utest1.b[2] = ads1292_Cache[6];
+	channel1_val = utest1.a;
+	
+	return channel1_val;
+}
 
 
 

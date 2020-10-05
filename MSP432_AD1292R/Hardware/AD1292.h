@@ -249,6 +249,7 @@ void PA8_IRQHandler(void);
 void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b);
 void Get_val_init_data(float32_t *data,float32_t *data2);
 s32 get_volt(u32 num);
+int32_t get_channel_1_val(void);
 #endif
 
 

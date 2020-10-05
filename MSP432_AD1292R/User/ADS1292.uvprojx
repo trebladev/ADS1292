@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>__MSP432P401R__,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Lib\inc\CMSIS\Include;..\Lib\driverlib\MSP432P4xx;..\Lib\inc;..\Inc;..\Hardware</IncludePath>
+              <IncludePath>..\Lib\inc\CMSIS\Include;..\Lib\driverlib\MSP432P4xx;..\Lib\inc;..\Inc;..\Hardware;..\Algorithm;..\Filter</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -494,6 +494,71 @@
               <FileName>spi_u.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\spi_u.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Filter</GroupName>
+          <Files>
+            <File>
+              <FileName>FIR_48.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Filter\FIR_48.c</FilePath>
+            </File>
+            <File>
+              <FileName>FIR_48.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Filter\FIR_48.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>bpm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\bpm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bpm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Algorithm\bpm.h</FilePath>
+            </File>
+            <File>
+              <FileName>findpeaks.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\findpeaks.c</FilePath>
+            </File>
+            <File>
+              <FileName>findpeaks.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Algorithm\findpeaks.h</FilePath>
+            </File>
+            <File>
+              <FileName>medfilt1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\medfilt1.c</FilePath>
+            </File>
+            <File>
+              <FileName>medfilt1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Algorithm\medfilt1.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USART_HMI</GroupName>
+          <Files>
+            <File>
+              <FileName>USART_HMI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USART_HMI\USART_HMI.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART_HMI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\USART_HMI\USART_HMI.h</FilePath>
             </File>
           </Files>
         </Group>
