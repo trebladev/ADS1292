@@ -41,7 +41,7 @@ int main()
 {
 		
 		u8 res,i,sum;	
-		float val;
+		volatile float val;
 		volatile int test;
 		static uint16_t j,n,num,x,mid_filt_num;
 	  uint8_t data_to_send[60];//串口发送缓存
@@ -155,10 +155,10 @@ int main()
 										
 										bpm_cache[n] = (fir_put[0]-mid_val+100);
 										n++;
-										if(n>1000)
+										if(n>600)
 										{
 											n=0;
-											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1000,145);                   //寻找175以上的峰
+											maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1000,140);                   //寻找175以上的峰
 											bpm = bpm_calculate(pn_locs,pn_npks);
 											//bpm = 60.0/(pn_locs[pn_npks-1]-pn_locs[pn_npks-2])*204;                              //计算心率 算法:两峰之间点数*采样率
 											printf("n0.val=%d",(int)bpm);                                                        //输出心率数据

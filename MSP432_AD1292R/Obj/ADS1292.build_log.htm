@@ -5,11 +5,11 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¶ÃVision V5.27.0.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: 213 123, 123, LIC=EXJT4-F1NK0-EVW1R-K2P5K-TM53T-9S93B
+License Information: tre blade, asdas, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.27.0.0
-Toolchain Path:  D:\keil5\ARM\ARMCC\Bin
+Toolchain:       MDK-Lite  Version: 5.27.0.0
+Toolchain Path:  D:\keil\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
@@ -22,13 +22,33 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 D:\github\ADS1292\ADS1292\MSP432_AD1292R\User\ADS1292.uvprojx
-Project File Date:  10/04/2020
+Project File Date:  10/05/2020
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 assembling startup_msp432p401r_uvision.s...
 compiling system_msp432p401r.c...
+compiling delay.c...
+compiling sys.c...
+compiling bpm.c...
+compiling usart.c...
+compiling spi_u.c...
+compiling FIR_48.c...
+..\Filter\FIR_48.c(55): warning:  #177-D: variable "i"  was declared but never referenced
+      uint32_t i;
+..\Filter\FIR_48.c(83): warning:  #177-D: variable "i"  was declared but never referenced
+      uint32_t i;
+..\Filter\FIR_48.c: 2 warnings, 0 errors
+compiling AD1292.c...
+..\Hardware\AD1292.c(336): warning:  #167-D: argument of type "volatile u8 *" is incompatible with parameter of type "u8 *"
+    ADS1292_Read_Data(ads1292_Cache);
+..\Hardware\AD1292.c(354): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	*a1 = 180.0/(max_init_val-min_init_val);
+..\Hardware\AD1292.c(363): warning:  #177-D: variable "p_Temp1"  was declared but never referenced
+  	s32 p_Temp1,p_Temp0;
+..\Hardware\AD1292.c: 3 warnings, 0 errors
+compiling gpio_u.c...
 compiling main.c...
 ..\Inc\USART_HMI.h(16): warning:  #1295-D: Deprecated declaration send_ending_flag - give arg types
   void send_ending_flag();    //ÁªìÊùüÁ¨¶ÂèëÈÄÅÊåá‰ª?
@@ -51,34 +71,14 @@ main.c(49): warning:  #550-D: variable "cannle"  was set but never used
 main.c(50): warning:  #177-D: variable "p_Temp"  was declared but never referenced
   		s32	p_Temp[2];	// ˝æ›ª∫¥Ê
 main.c: 10 warnings, 0 errors
-compiling AD1292.c...
-..\Hardware\AD1292.c(336): warning:  #167-D: argument of type "volatile u8 *" is incompatible with parameter of type "u8 *"
-    ADS1292_Read_Data(ads1292_Cache);
-..\Hardware\AD1292.c(354): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	*a1 = 180.0/(max_init_val-min_init_val);
-..\Hardware\AD1292.c(363): warning:  #177-D: variable "p_Temp1"  was declared but never referenced
-  	s32 p_Temp1,p_Temp0;
-..\Hardware\AD1292.c: 3 warnings, 0 errors
-compiling sys.c...
-compiling delay.c...
-compiling usart.c...
-compiling gpio_u.c...
-compiling spi_u.c...
-compiling FIR_48.c...
-..\Filter\FIR_48.c(55): warning:  #177-D: variable "i"  was declared but never referenced
-      uint32_t i;
-..\Filter\FIR_48.c(83): warning:  #177-D: variable "i"  was declared but never referenced
-      uint32_t i;
-..\Filter\FIR_48.c: 2 warnings, 0 errors
-compiling bpm.c...
 compiling findpeaks.c...
-compiling medfilt1.c...
 compiling USART_HMI.c...
 ..\USART_HMI\USART_HMI.h(15): warning:  #1295-D: Deprecated declaration send_ending_flag - give arg types
   void send_ending_flag();    //ÁªìÊùüÁ¨¶ÂèëÈÄÅÊåá‰ª?
 ..\USART_HMI\USART_HMI.c: 1 warning, 0 errors
+compiling medfilt1.c...
 linking...
-Program Size: Code=13740 RO-data=808 RW-data=188 ZI-data=22700  
+Program Size: Code=13748 RO-data=808 RW-data=188 ZI-data=22700  
 FromELF: creating hex file...
 "..\Obj\ADS1292.axf" - 0 Error(s), 16 Warning(s).
 
@@ -98,9 +98,9 @@ Package Vendor: TexasInstruments
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
-  D:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
-  D:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include
-  D:\keil5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
+  D:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  D:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include
+  D:\keil\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -109,7 +109,7 @@ Package Vendor: TexasInstruments
    * Component: ARM::CMSIS:DSP:1.5.2
       Include file:  CMSIS\DSP\Include\arm_math.h
       Library file:  CMSIS\Lib\ARM\arm_cortexM4lf_math.lib
-Build Time Elapsed:  00:00:10
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -1,8 +1,8 @@
 ..\obj\ad1292.o: ..\Hardware\AD1292.c
 ..\obj\ad1292.o: ..\Hardware\AD1292.h
 ..\obj\ad1292.o: ..\Inc\sys.h
-..\obj\ad1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\ad1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\ad1292.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\ad1292.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\driverlib.h
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\adc14.h
 ..\obj\ad1292.o: ..\Lib\inc\msp.h
@@ -15,7 +15,7 @@
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
 ..\obj\ad1292.o: ..\Lib\inc\system_msp432p401r.h
-..\obj\ad1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\ad1292.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\aes256.h
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\comp_e.h
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\cpu.h
@@ -46,8 +46,8 @@
 ..\obj\ad1292.o: ..\Lib\driverlib\MSP432P4xx\wdt_a.h
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\arm_math.h
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\core_cm4.h
-..\obj\ad1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\ad1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\ad1292.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\ad1292.o: D:\keil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\arm_const_structs.h
 ..\obj\ad1292.o: ..\Lib\inc\CMSIS\Include\arm_common_tables.h
 ..\obj\ad1292.o: ..\Inc\spi_u.h

@@ -1,8 +1,8 @@
 ..\obj\fir_48.o: ..\Filter\FIR_48.c
 ..\obj\fir_48.o: ..\Filter\FIR_48.h
 ..\obj\fir_48.o: ..\Inc\sys.h
-..\obj\fir_48.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\fir_48.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\fir_48.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\fir_48.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\driverlib.h
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\adc14.h
 ..\obj\fir_48.o: ..\Lib\inc\msp.h
@@ -15,7 +15,7 @@
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
 ..\obj\fir_48.o: ..\Lib\inc\system_msp432p401r.h
-..\obj\fir_48.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\fir_48.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\aes256.h
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\comp_e.h
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\cpu.h
@@ -46,7 +46,7 @@
 ..\obj\fir_48.o: ..\Lib\driverlib\MSP432P4xx\wdt_a.h
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\arm_math.h
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\core_cm4.h
-..\obj\fir_48.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\fir_48.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\fir_48.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\fir_48.o: D:\keil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\arm_const_structs.h
 ..\obj\fir_48.o: ..\Lib\inc\CMSIS\Include\arm_common_tables.h

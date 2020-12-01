@@ -1242,20 +1242,20 @@ Image Symbol Table
     i.is_A_Module                            0x000032ba   Section        0  spi.o(i.is_A_Module)
     is_A_Module                              0x000032bb   Thumb Code    46  spi.o(i.is_A_Module)
     i.main                                   0x000032e8   Section        0  main.o(i.main)
-    i.maxim_peaks_above_min_height           0x000035a4   Section        0  findpeaks.o(i.maxim_peaks_above_min_height)
-    i.maxim_sort_ascend                      0x0000361e   Section        0  findpeaks.o(i.maxim_sort_ascend)
-    i.midfilt1                               0x00003670   Section        0  medfilt1.o(i.midfilt1)
-    i.send_ending_flag                       0x000036c4   Section        0  usart_hmi.o(i.send_ending_flag)
-    .constdata                               0x000036f0   Section       40  usart.o(.constdata)
-    .constdata                               0x00003718   Section       28  spi_u.o(.constdata)
-    .constdata                               0x00003734   Section      240  fir_48.o(.constdata)
-    .constdata                               0x00003824   Section      144  interrupt.o(.constdata)
-    g_pulEnRegs                              0x00003824   Data           8  interrupt.o(.constdata)
-    g_pulDisRegs                             0x0000382c   Data           8  interrupt.o(.constdata)
-    g_pulPendRegs                            0x00003834   Data           8  interrupt.o(.constdata)
-    g_pulUnpendRegs                          0x0000383c   Data           8  interrupt.o(.constdata)
-    g_pulPriority                            0x00003844   Data          32  interrupt.o(.constdata)
-    g_pulRegs                                0x00003864   Data          80  interrupt.o(.constdata)
+    i.maxim_peaks_above_min_height           0x000035ac   Section        0  findpeaks.o(i.maxim_peaks_above_min_height)
+    i.maxim_sort_ascend                      0x00003626   Section        0  findpeaks.o(i.maxim_sort_ascend)
+    i.midfilt1                               0x00003678   Section        0  medfilt1.o(i.midfilt1)
+    i.send_ending_flag                       0x000036cc   Section        0  usart_hmi.o(i.send_ending_flag)
+    .constdata                               0x000036f8   Section       40  usart.o(.constdata)
+    .constdata                               0x00003720   Section       28  spi_u.o(.constdata)
+    .constdata                               0x0000373c   Section      240  fir_48.o(.constdata)
+    .constdata                               0x0000382c   Section      144  interrupt.o(.constdata)
+    g_pulEnRegs                              0x0000382c   Data           8  interrupt.o(.constdata)
+    g_pulDisRegs                             0x00003834   Data           8  interrupt.o(.constdata)
+    g_pulPendRegs                            0x0000383c   Data           8  interrupt.o(.constdata)
+    g_pulUnpendRegs                          0x00003844   Data           8  interrupt.o(.constdata)
+    g_pulPriority                            0x0000384c   Data          32  interrupt.o(.constdata)
+    g_pulRegs                                0x0000386c   Data          80  interrupt.o(.constdata)
     .data                                    0x20000000   Section       50  main.o(.data)
     mid_filt_start_flag                      0x20000000   Data           4  main.o(.data)
     bpm                                      0x2000001c   Data           4  main.o(.data)
@@ -1522,19 +1522,19 @@ Image Symbol Table
     fputc                                    0x0000325d   Thumb Code    44  main.o(i.fputc)
     get_channel_1_val                        0x0000328d   Thumb Code    26  ad1292.o(i.get_channel_1_val)
     get_volt                                 0x000032b1   Thumb Code    10  ad1292.o(i.get_volt)
-    main                                     0x000032e9   Thumb Code   540  main.o(i.main)
-    maxim_peaks_above_min_height             0x000035a5   Thumb Code   122  findpeaks.o(i.maxim_peaks_above_min_height)
-    maxim_sort_ascend                        0x0000361f   Thumb Code    80  findpeaks.o(i.maxim_sort_ascend)
-    midfilt1                                 0x00003671   Thumb Code    80  medfilt1.o(i.midfilt1)
-    send_ending_flag                         0x000036c5   Thumb Code    34  usart_hmi.o(i.send_ending_flag)
-    uartConfig                               0x000036f0   Data          40  usart.o(.constdata)
-    spiMasterConfig                          0x00003718   Data          28  spi_u.o(.constdata)
-    BL5                                      0x00003734   Data           4  fir_48.o(.constdata)
-    B5                                       0x00003738   Data         116  fir_48.o(.constdata)
-    BL                                       0x000037ac   Data           4  fir_48.o(.constdata)
-    B                                        0x000037b0   Data         116  fir_48.o(.constdata)
-    Region$$Table$$Base                      0x000038b4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000038d4   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x000032e9   Thumb Code   548  main.o(i.main)
+    maxim_peaks_above_min_height             0x000035ad   Thumb Code   122  findpeaks.o(i.maxim_peaks_above_min_height)
+    maxim_sort_ascend                        0x00003627   Thumb Code    80  findpeaks.o(i.maxim_sort_ascend)
+    midfilt1                                 0x00003679   Thumb Code    80  medfilt1.o(i.midfilt1)
+    send_ending_flag                         0x000036cd   Thumb Code    34  usart_hmi.o(i.send_ending_flag)
+    uartConfig                               0x000036f8   Data          40  usart.o(.constdata)
+    spiMasterConfig                          0x00003720   Data          28  spi_u.o(.constdata)
+    BL5                                      0x0000373c   Data           4  fir_48.o(.constdata)
+    B5                                       0x00003740   Data         116  fir_48.o(.constdata)
+    BL                                       0x000037b4   Data           4  fir_48.o(.constdata)
+    B                                        0x000037b8   Data         116  fir_48.o(.constdata)
+    Region$$Table$$Base                      0x000038bc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000038dc   Number         0  anon$$obj.o(Region$$Table)
     a1                                       0x20000004   Data           4  main.o(.data)
     a2                                       0x20000008   Data           4  main.o(.data)
     b1                                       0x2000000c   Data           4  main.o(.data)
@@ -1583,9 +1583,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000181
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00003990, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00003998, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000038d4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000038dc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1716,41 +1716,41 @@ Memory Map of the image
     0x0000328c   0x0000328c   0x00000024   Code   RO          295    i.get_channel_1_val  ad1292.o
     0x000032b0   0x000032b0   0x0000000a   Code   RO          296    i.get_volt          ad1292.o
     0x000032ba   0x000032ba   0x0000002e   Code   RO         1171    i.is_A_Module       msp432p4xx_driverlib.lib(spi.o)
-    0x000032e8   0x000032e8   0x000002bc   Code   RO            7    i.main              main.o
-    0x000035a4   0x000035a4   0x0000007a   Code   RO          652    i.maxim_peaks_above_min_height  findpeaks.o
-    0x0000361e   0x0000361e   0x00000050   Code   RO          654    i.maxim_sort_ascend  findpeaks.o
-    0x0000366e   0x0000366e   0x00000002   PAD
-    0x00003670   0x00003670   0x00000054   Code   RO          698    i.midfilt1          medfilt1.o
-    0x000036c4   0x000036c4   0x0000002c   Code   RO          731    i.send_ending_flag  usart_hmi.o
-    0x000036f0   0x000036f0   0x00000028   Data   RO          478    .constdata          usart.o
-    0x00003718   0x00003718   0x0000001c   Data   RO          538    .constdata          spi_u.o
-    0x00003734   0x00003734   0x000000f0   Data   RO          578    .constdata          fir_48.o
-    0x00003824   0x00003824   0x00000090   Data   RO         1026    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
-    0x000038b4   0x000038b4   0x00000020   Data   RO         1853    Region$$Table       anon$$obj.o
+    0x000032e8   0x000032e8   0x000002c4   Code   RO            7    i.main              main.o
+    0x000035ac   0x000035ac   0x0000007a   Code   RO          652    i.maxim_peaks_above_min_height  findpeaks.o
+    0x00003626   0x00003626   0x00000050   Code   RO          654    i.maxim_sort_ascend  findpeaks.o
+    0x00003676   0x00003676   0x00000002   PAD
+    0x00003678   0x00003678   0x00000054   Code   RO          698    i.midfilt1          medfilt1.o
+    0x000036cc   0x000036cc   0x0000002c   Code   RO          731    i.send_ending_flag  usart_hmi.o
+    0x000036f8   0x000036f8   0x00000028   Data   RO          478    .constdata          usart.o
+    0x00003720   0x00003720   0x0000001c   Data   RO          538    .constdata          spi_u.o
+    0x0000373c   0x0000373c   0x000000f0   Data   RO          578    .constdata          fir_48.o
+    0x0000382c   0x0000382c   0x00000090   Data   RO         1026    .constdata          msp432p4xx_driverlib.lib(interrupt.o)
+    0x000038bc   0x000038bc   0x00000020   Data   RO         1853    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000038d4, Size: 0x000000bc, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000038dc, Size: 0x000000bc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x000038d4   0x00000032   Data   RW            9    .data               main.o
-    0x20000032   0x00003906   0x00000002   PAD
-    0x20000034   0x00003908   0x0000003c   Data   RW          298    .data               ad1292.o
-    0x20000070   0x00003944   0x00000004   Data   RW          442    .data               delay.o
-    0x20000074   0x00003948   0x00000004   Data   RW          579    .data               fir_48.o
-    0x20000078   0x0000394c   0x00000008   Data   RW          734    .data               usart_hmi.o
-    0x20000080   0x00003954   0x00000008   Data   RW          815    .data               msp432p4xx_driverlib.lib(cs.o)
-    0x20000088   0x0000395c   0x00000030   Data   RW          979    .data               msp432p4xx_driverlib.lib(gpio.o)
-    0x200000b8   0x0000398c   0x00000004   Data   RW         1829    .data               mc_w.l(stdout.o)
+    0x20000000   0x000038dc   0x00000032   Data   RW            9    .data               main.o
+    0x20000032   0x0000390e   0x00000002   PAD
+    0x20000034   0x00003910   0x0000003c   Data   RW          298    .data               ad1292.o
+    0x20000070   0x0000394c   0x00000004   Data   RW          442    .data               delay.o
+    0x20000074   0x00003950   0x00000004   Data   RW          579    .data               fir_48.o
+    0x20000078   0x00003954   0x00000008   Data   RW          734    .data               usart_hmi.o
+    0x20000080   0x0000395c   0x00000008   Data   RW          815    .data               msp432p4xx_driverlib.lib(cs.o)
+    0x20000088   0x00003964   0x00000030   Data   RW          979    .data               msp432p4xx_driverlib.lib(gpio.o)
+    0x200000b8   0x00003994   0x00000004   Data   RW         1829    .data               mc_w.l(stdout.o)
 
 
-    Execution Region ER_ZI (Exec base: 0x200000bc, Load base: 0x00003990, Size: 0x000058ac, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x200000bc, Load base: 0x00003998, Size: 0x000058ac, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x200000bc        -       0x000053ac   Zero   RW            8    .bss                main.o
     0x20005468        -       0x00000015   Zero   RW          297    .bss                ad1292.o
-    0x2000547d   0x00003990   0x00000003   PAD
+    0x2000547d   0x00003998   0x00000003   PAD
     0x20005480        -       0x000000f4   Zero   RW          577    .bss                fir_48.o
     0x20005574        -       0x000001f4   Zero   RW          699    .bss                medfilt1.o
     0x20005768        -       0x00000200   Zero   RW          234    STACK               startup_msp432p401r_uvision.o
@@ -1769,7 +1769,7 @@ Image component sizes
        202          0          0          0          0       1983   findpeaks.o
         80         28        240          4        244       1932   fir_48.o
         46          0          0          0          0        480   gpio_u.o
-       776        164          0         50      21420      30188   main.o
+       784        164          0         50      21420      30168   main.o
         84          4          0          0        500       1423   medfilt1.o
        112         12         28          0          0       1717   spi_u.o
         36          8        324          0        512        868   startup_msp432p401r_uvision.o
@@ -1779,7 +1779,7 @@ Image component sizes
         44         10          0          8          0       1834   usart_hmi.o
 
     ----------------------------------------------------------------------
-      4772        578        664        128      22700      60723   Object Totals
+      4780        578        664        128      22700      60703   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          0          2          3          0   (incl. Padding)
 
@@ -1857,15 +1857,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     13740       1092        808        188      22700      85607   Grand Totals
-     13740       1092        808        188      22700      85607   ELF Image Totals
-     13740       1092        808        188          0          0   ROM Totals
+     13748       1092        808        188      22700      85587   Grand Totals
+     13748       1092        808        188      22700      85587   ELF Image Totals
+     13748       1092        808        188          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                14548 (  14.21kB)
+    Total RO  Size (Code + RO Data)                14556 (  14.21kB)
     Total RW  Size (RW Data + ZI Data)             22888 (  22.35kB)
-    Total ROM Size (Code + RO Data + RW Data)      14736 (  14.39kB)
+    Total ROM Size (Code + RO Data + RW Data)      14744 (  14.40kB)
 
 ==============================================================================
 

@@ -2,7 +2,7 @@
 ..\obj\gpio_u.o: ..\Inc\gpio_u.h
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\driverlib.h
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\adc14.h
-..\obj\gpio_u.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gpio_u.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gpio_u.o: ..\Lib\inc\msp.h
 ..\obj\gpio_u.o: ..\Lib\inc\msp432p401r.h
 ..\obj\gpio_u.o: ..\Lib\inc\msp_compatibility.h
@@ -13,7 +13,7 @@
 ..\obj\gpio_u.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
 ..\obj\gpio_u.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
 ..\obj\gpio_u.o: ..\Lib\inc\system_msp432p401r.h
-..\obj\gpio_u.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\gpio_u.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\aes256.h
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\comp_e.h
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\cpu.h
@@ -44,9 +44,9 @@
 ..\obj\gpio_u.o: ..\Lib\driverlib\MSP432P4xx\wdt_a.h
 ..\obj\gpio_u.o: ..\Inc\delay.h
 ..\obj\gpio_u.o: ..\Inc\sys.h
-..\obj\gpio_u.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\gpio_u.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\gpio_u.o: ..\Inc\usart.h
 ..\obj\gpio_u.o: ..\Lib\inc\CMSIS\Include\arm_math.h
 ..\obj\gpio_u.o: ..\Lib\inc\CMSIS\Include\core_cm4.h
-..\obj\gpio_u.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\gpio_u.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\gpio_u.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\gpio_u.o: D:\keil\ARM\ARMCC\Bin\..\include\math.h

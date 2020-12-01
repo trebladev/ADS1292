@@ -2,8 +2,8 @@
 ..\obj\usart_hmi.o: ..\USART_HMI\USART_HMI.h
 ..\obj\usart_hmi.o: ..\Inc\delay.h
 ..\obj\usart_hmi.o: ..\Inc\sys.h
-..\obj\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\usart_hmi.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\usart_hmi.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\driverlib.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\adc14.h
 ..\obj\usart_hmi.o: ..\Lib\inc\msp.h
@@ -16,7 +16,7 @@
 ..\obj\usart_hmi.o: ..\Lib\inc\CMSIS\Include\cmsis_armcc.h
 ..\obj\usart_hmi.o: ..\Lib\inc\CMSIS\Include\mpu_armv7.h
 ..\obj\usart_hmi.o: ..\Lib\inc\system_msp432p401r.h
-..\obj\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\usart_hmi.o: D:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\aes256.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\comp_e.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\cpu.h
@@ -46,4 +46,4 @@
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\uart.h
 ..\obj\usart_hmi.o: ..\Lib\driverlib\MSP432P4xx\wdt_a.h
 ..\obj\usart_hmi.o: ..\Inc\usart.h
-..\obj\usart_hmi.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\usart_hmi.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h

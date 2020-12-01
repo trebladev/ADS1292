@@ -407,9 +407,9 @@ int32_t get_channel_1_val()
 	
 	int32_t channel1_val;
 	
-	utest1.b[0] = ads1292_Cache[8];
-	utest1.b[1] = ads1292_Cache[7];
-	utest1.b[2] = ads1292_Cache[6];
+	utest1.b[0] = ads1292_Cache[0];
+	utest1.b[1] = ads1292_Cache[8];
+	utest1.b[2] = ads1292_Cache[7];
 	channel1_val = utest1.a;
 	
 	return channel1_val;

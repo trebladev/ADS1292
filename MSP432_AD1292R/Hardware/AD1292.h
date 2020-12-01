@@ -28,7 +28,7 @@ extern  volatile u8 ads1292_recive_flag;	//数据读取完成标志
 		//ID
 		#define	ADS1292_DEVICE	DEVICE_ID_ADS1292R		//注意1292芯片不能使用呼吸相关的功能，会导致数据不正常
 		//1		CONFIG1	
-		#define DATA_RATE  				DATA_RATE_500SPS		//由于时钟原因，采样率会有误差
+		#define DATA_RATE  				DATA_RATE_250SPS		//由于时钟原因，采样率会有误差
 		//2		CONFIG2		
 		#define	PDB_LOFF_COMP 		PDB_LOFF_COMP_ON		//导联脱落比较器
 		#define	PDB_REFBUF				PDB_REFBUF_ON				//基准电压缓冲器

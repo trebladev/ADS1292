@@ -140,7 +140,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
-          <Name>-X"Any" -UAny -O206 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC12000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD1000000 -FCE000 -FN2 -FF0MSP432P4xx_MainFlash256kB.FLM -FS00 -FL040000 -FP0($$Device:MSP432P401R$FlashARM\MSP432P4xx_MainFlash256kB.FLM) -FF1MSP432P4xx_InfoFlash.FLM -FS1200000 -FL14000 -FP1($$Device:MSP432P401R$FlashARM\MSP432P4xx_InfoFlash.FLM)</Name>
+          <Name>-X"Any" -UAny -O206 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC48000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD1000000 -FCE000 -FN2 -FF0MSP432P4xx_MainFlash256kB.FLM -FS00 -FL040000 -FP0($$Device:MSP432P401R$FlashARM\MSP432P4xx_MainFlash256kB.FLM) -FF1MSP432P4xx_InfoFlash.FLM -FS1200000 -FL14000 -FP1($$Device:MSP432P401R$FlashARM\MSP432P4xx_InfoFlash.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -151,22 +151,6 @@
       <Breakpoint>
         <Bp>
           <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>118</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>13142</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\ADS1292\main.c\118</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>267</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -182,11 +166,11 @@
           <Expression>\\ADS1292\../Hardware/AD1292.c\267</Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>101</LineNumber>
+          <LineNumber>160</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>13114</Address>
+          <Address>13414</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -195,23 +179,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\ADS1292\main.c\101</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>372</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>7100</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Hardware\AD1292.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\ADS1292\../Hardware/AD1292.c\372</Expression>
+          <Expression>\\ADS1292\main.c\160</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -304,6 +272,31 @@
           <count>17</count>
           <WinNumber>1</WinNumber>
           <ItemText>ads1292_Cache</ItemText>
+        </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>cannle1</ItemText>
+        </Ww>
+        <Ww>
+          <count>19</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>val</ItemText>
+        </Ww>
+        <Ww>
+          <count>20</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>utest1</ItemText>
+        </Ww>
+        <Ww>
+          <count>21</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pn_locs</ItemText>
+        </Ww>
+        <Ww>
+          <count>22</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>bpm</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -655,7 +648,7 @@
 
   <Group>
     <GroupName>Algorithm</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

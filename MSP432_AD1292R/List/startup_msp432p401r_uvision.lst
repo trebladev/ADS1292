@@ -524,12 +524,12 @@ erwork --depend=..\obj\startup_msp432p401r_uvision.d -o..\obj\startup_msp432p40
 ARM Macro Assembler    Page 9 
 
 
-1r_uvision.o -I.\RTE\_Target_1 -ID:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\I
-nclude -ID:\keil5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include -ID:\keil5\ARM\PAC
-K\TexasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include --predefine="__MICROLIB 
-SETA 1" --predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1" --p
-redefine="__MSP432P401R__ SETA 1" --list=..\list\startup_msp432p401r_uvision.ls
-t RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
+1r_uvision.o -I.\RTE\_Target_1 -ID:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\In
+clude -ID:\keil\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\DSP\Include -ID:\keil\ARM\PACK\T
+exasInstruments\MSP432P4xx_DFP\3.2.6\Device\Include --predefine="__EVAL SETA 1"
+ --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 527" --pre
+define="_RTE_ SETA 1" --predefine="__MSP432P401R__ SETA 1" --list=..\list\start
+up_msp432p401r_uvision.lst RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 
 
 
@@ -1218,4 +1218,4 @@ Symbol: __main
       At line 171 in file RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 Comment: __main used once
 2 symbols
-405 symbols in table
+406 symbols in table
