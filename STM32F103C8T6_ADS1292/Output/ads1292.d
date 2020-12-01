@@ -3,7 +3,9 @@
 ..\output\ads1292.o: ..\USER\sys.h
 ..\output\ads1292.o: ..\SYSTEM\stm32f10x.h
 ..\output\ads1292.o: ..\SYSTEM\core_cm3.h
-..\output\ads1292.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\ads1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\ads1292.o: ..\dsp\Include\core_cmInstr.h
+..\output\ads1292.o: ..\dsp\Include\core_cmFunc.h
 ..\output\ads1292.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\ads1292.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\ads1292.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -20,6 +22,10 @@
 ..\output\ads1292.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\output\ads1292.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\output\ads1292.o: ..\STM32F10x_FWLib\inc\misc.h
+..\output\ads1292.o: ..\dsp\Include\arm_math.h
+..\output\ads1292.o: ..\dsp\Include\core_cm3.h
+..\output\ads1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+..\output\ads1292.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 ..\output\ads1292.o: ..\Hardware\spi.h
 ..\output\ads1292.o: ..\Hardware\delay.h
 ..\output\ads1292.o: ..\Hardware\usart.h

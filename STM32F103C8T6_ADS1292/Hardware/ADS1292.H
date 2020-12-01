@@ -1,6 +1,7 @@
 #ifndef __ADS1292_H
 #define __ADS1292_H	 
 #include "sys.h" 
+#include "arm_math.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -220,7 +221,7 @@ typedef struct
 		u8	Rldref_Int;	//RLDREF信号源
 }ADS1292_RESP2;
 
-
+#define Val_Init_Num 1000
 
 
 
@@ -239,6 +240,9 @@ u8 ADS1292_Noise_Test(void);
 u8 ADS1292_Single_Test(void);//设置通道1内部1mV测试信号
 u8 ADS1292_Single_Read(void);//设置正常信号采集模式
 u8 Set_ADS1292_Collect(u8 mode);//设置数据采集方式
+void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b);
+void Get_val_init_data(float32_t *data,float32_t *data2);
+s32 get_volt(u32 num);
 
 #endif
 
@@ -259,3 +263,4 @@ u8 Set_ADS1292_Collect(u8 mode);//设置数据采集方式
 //	发送RDATAC命令	将设备恢复到RDATAC模式
 //	捕获数据并检查噪音
 //	捕获数据并测试信号
+

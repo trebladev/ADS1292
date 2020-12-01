@@ -21,7 +21,10 @@ ADS1292_LOFF_SENS	Ads1292_Loff_Sens	={FLIP2,FLIP1,LOFF2N,LOFF2P,LOFF1N,LOFF1P};	
 ADS1292_RESP1			Ads1292_Resp1			={RESP_DEMOD_EN1,RESP_MOD_EN,RESP_PH,RESP_CTRL};		//RSP1
 ADS1292_RESP2			Ads1292_Resp2			={CALIB,FREQ,RLDREF_INT};														//RSP2
 
-	
+float32_t max_init_val;
+uint32_t maxIndex;
+float32_t min_init_val;
+uint32_t minIndex;
 
 //ADS1292的IO口初始化	
 void ADS1292_Init(void) 
@@ -376,3 +379,67 @@ u8 Set_ADS1292_Collect(u8 mode)
 		delay_ms(10);		
 		return 0;
 }
+
+void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
+{
+	float32_t *data_cache,*a1,*b1;
+
+	data_cache = data;
+
+	a1 = a;
+
+	b1 = b;
+
+	arm_max_f32(data_cache,Val_Init_Num,&max_init_val,&maxIndex);
+
+	arm_min_f32(data_cache,Val_Init_Num,&min_init_val,&minIndex);
+
+	*a1 = 180.0/(max_init_val-min_init_val);
+
+	*b1 = 220-(*a1)*max_init_val;
+
+}
+
+void Get_val_init_data(float32_t *data,float32_t *data2)
+{
+	u32 cannle1,cannle0;
+	s32 p_Temp1,p_Temp0;
+	static int f,i;
+	while(f<Val_Init_Num)
+	{
+		if(ads1292_recive_flag)
+		{
+			cannle0=ads1292_Cache[3]<<16 | ads1292_Cache[4]<<8 | ads1292_Cache[5];
+			cannle1=ads1292_Cache[6]<<16 | ads1292_Cache[7]<<8 | ads1292_Cache[8];
+
+			p_Temp1 = get_volt(cannle1);
+			p_Temp0 = get_volt(cannle0);
+
+			cannle1 = p_Temp1;
+			cannle0 = p_Temp0;
+
+			*(data+i) = cannle1;
+			*(data2+i) = cannle0;
+			
+			f++;
+			
+			i++;
+
+			ads1292_recive_flag=0;	
+		}
+	}
+	
+}
+
+
+s32 get_volt(u32 num)
+{		
+			s32 temp;			
+			temp = num;
+			temp <<= 8;
+			temp >>= 8;
+			return temp;
+}
+
+
+

@@ -1,7 +1,9 @@
 ..\output\system_stm32f10x.o: ..\SYSTEM\system_stm32f10x.c
 ..\output\system_stm32f10x.o: ..\SYSTEM\stm32f10x.h
 ..\output\system_stm32f10x.o: ..\SYSTEM\core_cm3.h
-..\output\system_stm32f10x.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\system_stm32f10x.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\system_stm32f10x.o: ..\dsp\Include\core_cmInstr.h
+..\output\system_stm32f10x.o: ..\dsp\Include\core_cmFunc.h
 ..\output\system_stm32f10x.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\system_stm32f10x.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\system_stm32f10x.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

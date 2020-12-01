@@ -3,7 +3,9 @@
 ..\output\led.o: ..\USER\sys.h
 ..\output\led.o: ..\SYSTEM\stm32f10x.h
 ..\output\led.o: ..\SYSTEM\core_cm3.h
-..\output\led.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\led.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\led.o: ..\dsp\Include\core_cmInstr.h
+..\output\led.o: ..\dsp\Include\core_cmFunc.h
 ..\output\led.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\led.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\led.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

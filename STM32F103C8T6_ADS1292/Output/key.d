@@ -3,7 +3,9 @@
 ..\output\key.o: ..\USER\sys.h
 ..\output\key.o: ..\SYSTEM\stm32f10x.h
 ..\output\key.o: ..\SYSTEM\core_cm3.h
-..\output\key.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\key.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\key.o: ..\dsp\Include\core_cmInstr.h
+..\output\key.o: ..\dsp\Include\core_cmFunc.h
 ..\output\key.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\key.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

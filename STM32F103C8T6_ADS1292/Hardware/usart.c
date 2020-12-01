@@ -216,7 +216,8 @@ void USART2_IRQHandler(void)
 
 
 //////////////////////////////////////////////////////////////////
-//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
+//加入以下代码,支持printf函数,而不需要选择use MicroLIB	
+/*
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
 struct __FILE 
@@ -238,9 +239,9 @@ int fputc(int ch, FILE *f)
     USART1->DR = (u8) ch;      
 	return ch;
 }
-
+*/
 /*使用microLib的方法*/
- /* 
+
 int fputc(int ch, FILE *f)
 {
 	USART_SendData(USART1, (uint8_t) ch);
@@ -255,4 +256,3 @@ int GetKey (void)  {
 
     return ((int)(USART1->DR & 0x1FF));
 }
-*/

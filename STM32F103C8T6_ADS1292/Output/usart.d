@@ -3,7 +3,9 @@
 ..\output\usart.o: ..\USER\sys.h
 ..\output\usart.o: ..\SYSTEM\stm32f10x.h
 ..\output\usart.o: ..\SYSTEM\core_cm3.h
-..\output\usart.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\usart.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\usart.o: ..\dsp\Include\core_cmInstr.h
+..\output\usart.o: ..\dsp\Include\core_cmFunc.h
 ..\output\usart.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\usart.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\usart.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -20,6 +22,6 @@
 ..\output\usart.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\output\usart.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\output\usart.o: ..\STM32F10x_FWLib\inc\misc.h
-..\output\usart.o: D:\keil\ARM\ARMCC\Bin\..\include\stdarg.h
-..\output\usart.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
-..\output\usart.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\output\usart.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\output\usart.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+..\output\usart.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

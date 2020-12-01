@@ -2,7 +2,9 @@
 ..\output\main.o: sys.h
 ..\output\main.o: ..\SYSTEM\stm32f10x.h
 ..\output\main.o: ..\SYSTEM\core_cm3.h
-..\output\main.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\main.o: ..\dsp\Include\core_cmInstr.h
+..\output\main.o: ..\dsp\Include\core_cmFunc.h
 ..\output\main.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\main.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\main.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -23,5 +25,11 @@
 ..\output\main.o: ..\Hardware\usart.h
 ..\output\main.o: ..\Hardware\led.h
 ..\output\main.o: ..\Hardware\ADS1292.h
+..\output\main.o: ..\dsp\Include\arm_math.h
+..\output\main.o: ..\dsp\Include\core_cm3.h
+..\output\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+..\output\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 ..\output\main.o: ..\Hardware\Timer.h
 ..\output\main.o: ..\Hardware\dma.h
+..\output\main.o: ..\Algorithm\findpeaks.h
+..\output\main.o: ..\Algorithm\bpm.h

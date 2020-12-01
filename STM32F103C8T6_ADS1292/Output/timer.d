@@ -3,7 +3,9 @@
 ..\output\timer.o: ..\USER\sys.h
 ..\output\timer.o: ..\SYSTEM\stm32f10x.h
 ..\output\timer.o: ..\SYSTEM\core_cm3.h
-..\output\timer.o: D:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\timer.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\timer.o: ..\dsp\Include\core_cmInstr.h
+..\output\timer.o: ..\dsp\Include\core_cmFunc.h
 ..\output\timer.o: ..\SYSTEM\system_stm32f10x.h
 ..\output\timer.o: ..\SYSTEM\stm32f10x_conf.h
 ..\output\timer.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

@@ -36,7 +36,11 @@
 "..\output\led.o"
 "..\output\ads1292.o"
 "..\output\key.o"
---strict --scatter "..\Output\STM32F103C8T6.sct"
+"..\dsp\arm_cortexM3l_math.lib"
+"..\output\bpm.o"
+"..\output\findpeaks.o"
+"..\output\medfilt1.o"
+--library_type=microlib --strict --scatter "..\Output\STM32F103C8T6.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "..\SYSTEM\STM32F103C8T6.map" -o ..\Output\STM32F103C8T6.axf
