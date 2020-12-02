@@ -15,11 +15,11 @@ float32_t val1,val2;
 float32_t val_init_data[Val_Init_Num];     //心率初始化数组
 float32_t breath_init_cache[Val_Init_Num]; //呼吸初始化数组
 u8 Ending[3]={0xFF,0xFF,0xFF};
-//int32_t bpm_cache[1000];                   //计算心率的数据缓存
-//static float bpm;                          //心率数值
+int32_t bpm_cache[1000];                   //计算心率的数据缓存
+static float bpm;                          //心率数值
 
-//int32_t pn_npks;                           //心率峰值检测函数峰值数量
-//int32_t pn_locs[15];                       //心率峰值检测函数输出峰值点	
+int32_t pn_npks;                           //心率峰值检测函数峰值数量
+int32_t pn_locs[15];                       //心率峰值检测函数输出峰值点	
 
 s32 get_volt(u32 num);//把采到的3个字节补码转成有符号32位数
 
@@ -86,14 +86,17 @@ int main(void)
 					
 							val1 = cannle[1]*(a1)+b1;                                //将数据改为能在串口屏显示的数值
 					
-							//bpm_cache[j] = (int)val1;
+							bpm_cache[j] = (int)val1;
 					
 							j++;
-					/*
+					
 							if(j>1000)
 							{
-								maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1000,155);                   //寻找155以上的峰
+								
+							  maxim_peaks_above_min_height(pn_locs,&pn_npks,bpm_cache,1000,155);                   //寻找155以上的峰
+								
 								bpm = bpm_calculate(pn_locs,pn_npks);
+								
 								printf("n0.val=%d",(int)bpm);
 								USART_SendData(USART1,Ending[0]);
 								while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);
@@ -104,7 +107,7 @@ int main(void)
 								
 								j=0;
 							}
-					*/
+					
 							printf("add 3,0,%d",(int)val1);
 							USART_SendData(USART1,Ending[0]);
 							while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);
