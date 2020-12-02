@@ -380,6 +380,7 @@ u8 Set_ADS1292_Collect(u8 mode)
 		return 0;
 }
 
+//计算系数值
 void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
 {
 	float32_t *data_cache,*a1,*b1;
@@ -400,6 +401,7 @@ void ADS1292_val_init(float32_t *data,float32_t *a,float32_t *b)
 
 }
 
+//获取初始化数据
 void Get_val_init_data(float32_t *data,float32_t *data2)
 {
 	u32 cannle1,cannle0;
